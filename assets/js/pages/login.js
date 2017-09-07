@@ -20,7 +20,6 @@ function RefreshCaptchaImage() {
 
 // 登录处理函数
 function LoginHandler() {
-    ShowAlert('sdfdsfdsfdsfdsf');
     var req = {
         phone: "86 " + $('#phone').val(),
         password: $('#password').val(),
@@ -32,8 +31,8 @@ function LoginHandler() {
         url: userBaseURI + "/login",
         type: "post",
         headers: {
-            "Content-Type": "xfdfdf",
-            "X-Token": "ABCDFdsdfd",
+            "Content-Type": "application/json; charset=utf-8",
+            "X-Token": "",
         },
         contentType: "application/json; charset=utf-8",
         dataType: "json",
