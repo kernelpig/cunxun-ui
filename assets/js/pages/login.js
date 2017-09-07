@@ -30,10 +30,6 @@ function LoginHandler() {
     var posting = $.ajax({
         url: userBaseURI + "/login",
         type: "post",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8",
-            "X-Token": "",
-        },
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify(req),

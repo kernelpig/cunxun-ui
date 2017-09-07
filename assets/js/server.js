@@ -5,3 +5,4 @@
 var serviceBaseURI = "http://localhost:8005";
 var captchaBaseURI = serviceBaseURI + "/captcha";
 var userBaseURI = serviceBaseURI + "/u";
+var checkcodeBaseURI = serviceBaseURI + "/checkcode";
