@@ -2,11 +2,13 @@
 // 初始化登录状态
 function SetSignStatus() {
     if (!Cookies.get('X-Token')) {
-        $('#topbar-container').html($('#login_signup_container').html());
+        $('#login_signup_container').show();
+        $('#user_center_container').hide();
         $('#signup').click(GoToSignupPage);
         $('#login').click(GoToLoginPage);
     } else {
-        $('#topbar-container').html($('#user_center_container').html());
+        $('#login_signup_container').hide();
+        $('#user_center_container').show();
         $('#logout').click(UserLogout);
     }
 }
