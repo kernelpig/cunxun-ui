@@ -2,12 +2,6 @@
  * Created by blueair on 17-9-7.
  */
 
-// 显示错误信息
-function ShowAlert(msg) {
-    $('#alert').text(msg);
-    $('#alert').css('color', 'red');
-}
-
 // 刷新图形验证码
 function RefreshCaptchaImage() {
     var posting = $.post(captchaBaseURI + "/");
@@ -34,13 +28,15 @@ function LoginHandler() {
         dataType: "json",
         data: JSON.stringify(req),
         error: function (e) {
-            ShowAlert(e.responseJSON.sub_error);
+            ShowAlertError(e.responseJSON.sub_error);
         },
         success: function (data) {
             if (data['code'] === 0) {
                 Cookies.set('X-Token', data['user_token']);
+                ShowAlertAutoClose("登录成功", "马上返回到之前页面!");
+                GoToFromPage();
             } else {
-                ShowAlert(data['sub_error']);
+                ShowAlertError(data['sub_error']);
             }
         }
     });

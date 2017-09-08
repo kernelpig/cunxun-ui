@@ -2,12 +2,6 @@
  * Created by blueair on 17-9-7.
  */
 
-// 显示错误信息
-function ShowAlert(msg) {
-    $('#alert').text(msg);
-    $('#alert').css('color', 'red');
-}
-
 // 1.刷新图形验证码
 function RefreshCaptchaImage() {
     var posting = $.post(captchaBaseURI + "/");
@@ -34,13 +28,13 @@ function SendCheckcode() {
         dataType: "json",
         data: JSON.stringify(req),
         error: function (e) {
-            ShowAlert(e.responseJSON.sub_error);
+            ShowAlertError(e.responseJSON.sub_error);
         },
         success: function (data) {
             if (data['code'] === 0) {
-                ShowAlert('发送成功, 请注意查收!');
+                ShowAlertAutoClose("发送成功", '发送短信成功, 请注意查收!');
             } else {
-                ShowAlert(data['sub_error']);
+                ShowAlertError(data['sub_error']);
             }
         }
     });
@@ -61,7 +55,7 @@ function CheckCheckcode() {
         dataType: "json",
         data: JSON.stringify(req),
         error: function (e) {
-            ShowAlert(e.responseJSON.sub_error);
+            ShowAlertError(e.responseJSON.sub_error);
         },
         success: function (data) {
             if (data['code'] === 0) {
@@ -69,7 +63,7 @@ function CheckCheckcode() {
                 $('#first_setup').html($('#second_setup').html());
                 $('#signup').click(SignupHandler);
             } else {
-                ShowAlert(data['sub_error']);
+                ShowAlertError(data['sub_error']);
             }
         }
     });
@@ -92,13 +86,17 @@ function SignupHandler() {
         dataType: "json",
         data: JSON.stringify(signupReq),
         error: function (e) {
-            ShowAlert(e.responseJSON.sub_error);
+            ShowAlertError(e.responseJSON.sub_error);
         },
         success: function (data) {
             if (data['code'] === 0) {
-                Cookies.set('X-Token', data['user_token']);
+                ShowAlertNotClose('注册成功', '5秒后跳转到登录页面<a href="login.html">立即跳转</a>>');
+                setTimeout(function () {
+                    $('#alert').modal('close');
+                    GoToPage("/login.html");
+                }, 5000);
             } else {
-                ShowAlert(data['sub_error']);
+                ShowAlertError(data['sub_error']);
             }
         }
     });
