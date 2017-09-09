@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    <link rel="icon" type="image/png" href="assets/i/favicon.ico">
     <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
 </head>
 <body>
 
 <header class="am-topbar am-topbar-inverse">
     <h1 class="am-topbar-brand">
-        <a href="index.html">村讯</a>
+        <a href="index.html"><img src="assets/i/logo.png">村讯</a>
     </h1>
 
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
@@ -17,16 +18,16 @@
     <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav">
             <li class="am-active"><a href="index.html">首页</a></li>
-            <li><a href="#" id="news">资讯</a></li>
-            <li><a href="#" id="post">帖子</a></li>
+            <li><a href="news.html" id="news">资讯</a></li>
+            <li><a href="postbar.html" id="post">帖吧</a></li>
             <li class="am-dropdown" data-am-dropdown>
                 <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
                     其他 <span class="am-icon-caret-down"></span>
                 </a>
                 <ul class="am-dropdown-content">
-                    <li><a href="#" id="carpooling">拼车</a></li>
-                    <li><a href="#" id="friend">交友</a></li>
-                    <li><a href="#" id="employ">招聘</a></li>
+                    <li><a href="carpooling.html" id="carpooling">拼车</a></li>
+                    <li><a href="friend.html" id="friend">交友</a></li>
+                    <li><a href="employ.html" id="employ">招聘</a></li>
                 </ul>
             </li>
         </ul>
@@ -51,7 +52,7 @@
                     个人中心 <span class="am-icon-caret-down"></span>
                 </button>
                 <ul class="am-dropdown-content">
-                    <li><a href="/user/new_article.html">发表新帖</a></li>
+                    <li><a href="/new.html">发表新帖</a></li>
                     <li><a href="#">收藏列表</a></li>
                     <li><a href="#">个人信息</a></li>
                 </ul>
