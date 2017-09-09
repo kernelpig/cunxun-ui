@@ -7,3 +7,4 @@ var captchaBaseURI = serviceBaseURI + "/captcha";
 var userBaseURI = serviceBaseURI + "/u";
 var checkcodeBaseURI = serviceBaseURI + "/checkcode";
 var articleBaseURI = serviceBaseURI + "/article";
+var columnBaseURI = serviceBaseURI + "/column";

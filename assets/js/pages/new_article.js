@@ -1,18 +1,27 @@
 
 // 加载column分类
 function GetColumnList() {
-    var list = [
-        { id: 1, name: "资讯", },
-        { id: 2, name: "帖子", },
-        { id: 3, name: "交友", }
-    ];
-    if (list.length === 0) {
-        $("#column").append($('<option></option>').val(0).text("无栏目"));
-    } else {
-        $.each(list, function () {
-            $("#column").append($('<option></option>').val(this.id).text(this.name));
-        });
-    }
+    var getting = $.ajax({
+        url: columnBaseURI + "/",
+        type: "get",
+        headers: {"Authorization": Cookies.get('Authorization')},
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        error: ShowAlertAjax,
+        success: function (data) {
+            if (data['code'] === 0) {
+                if (data['list'].length === 0) {
+                    $("#column").append($('<option></option>').val(0).text("无栏目"));
+                } else {
+                    $.each(data['list'], function () {
+                        $("#column").append($('<option></option>').val(this.id).text(this.name));
+                    });
+                }
+            } else {
+                ShowAlertError(data['sub_error']);
+            }
+        }
+    });
 }
 
 // 创建文章
