@@ -1,7 +1,7 @@
 
 // 初始化登录状态
 function SetSignStatus() {
-    if (!Cookies.get('X-Token')) {
+    if (!Cookies.get('Authorization')) {
         $('#login_signup_container').show();
         $('#user_center_container').hide();
         $('#signup').click(GoToSignupPage);
@@ -15,7 +15,7 @@ function SetSignStatus() {
 
 // 用户登出
 function UserLogout() {
-    Cookies.remove('X-Token');
+    Cookies.remove('Authorization');
     ShowAlertAutoClose('登出成功', '登出成功');
     SetSignStatus();
 }

@@ -39,3 +39,22 @@ function ShowAlertNotClose(title, content) {
 function ShowAlertError(error) {
     ShowAlertAutoClose("请求失败", error);
 }
+
+// 显示提示信息并自动关闭
+function ShowAlertAutoGoPage(title, content, gotoPage) {
+    ShowAlertNotClose(title, content);
+    setTimeout(function () {
+        GoToPage(gotoPage);
+    }, 3000)
+}
+
+// 显示ajax请求后端接口错误
+function ShowAlertAjax(e) {
+    if (e.responseJSON) {
+        ShowAlertError(e.responseJSON.sub_error);
+    } else if (e.responseText) {
+        ShowAlertError(e.responseText);
+    } else {
+        ShowAlertError(JSON.stringify(e));
+    }
+}

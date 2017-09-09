@@ -1,3 +1,4 @@
+
 // 获取URL参数
 function GetURLParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -36,5 +37,11 @@ function GoToLoginPage(isAddFrom) {
     } else {
         GoToPage("/login.html");
     }
+}
 
+// 未登录跳转到首页
+function IsLogined() {
+    if (!Cookies.get('Authorization')) {
+        GoToLoginPage();
+    }
 }

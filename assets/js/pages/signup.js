@@ -27,9 +27,7 @@ function SendCheckcode() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify(req),
-        error: function (e) {
-            ShowAlertError(e.responseJSON.sub_error);
-        },
+        error: ShowAlertAjax,
         success: function (data) {
             if (data['code'] === 0) {
                 ShowAlertAutoClose("发送成功", '发送短信成功, 请注意查收!');
@@ -54,14 +52,12 @@ function CheckCheckcode() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify(req),
-        error: function (e) {
-            ShowAlertError(e.responseJSON.sub_error);
-        },
+        error: ShowAlertAjax,
         success: function (data) {
             if (data['code'] === 0) {
                 Cookies.set('checkcode_check_req', req);
                 $('#first_setup').html($('#second_setup').html());
-                $('#signup').click(SignupHandler);
+                $('#signup_commit').click(SignupHandler);
             } else {
                 ShowAlertError(data['sub_error']);
             }
@@ -85,9 +81,7 @@ function SignupHandler() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify(signupReq),
-        error: function (e) {
-            ShowAlertError(e.responseJSON.sub_error);
-        },
+        error: ShowAlertAjax,
         success: function (data) {
             if (data['code'] === 0) {
                 ShowAlertNotClose('注册成功', '5秒后跳转到登录页面<a href="login.html">立即跳转</a>>');

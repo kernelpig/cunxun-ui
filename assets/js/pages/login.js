@@ -27,12 +27,10 @@ function LoginHandler() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify(req),
-        error: function (e) {
-            ShowAlertError(e.responseJSON.sub_error);
-        },
+        error: ShowAlertAjax,
         success: function (data) {
             if (data['code'] === 0) {
-                Cookies.set('X-Token', data['user_token']);
+                Cookies.set('Authorization', data['user_token']);
                 ShowAlertAutoClose("登录成功", "马上返回到之前页面!");
                 GoToFromPage();
             } else {
@@ -46,5 +44,5 @@ function LoginHandler() {
 $(document).ready(function () {
     RefreshCaptchaImage();
     $('#captcha_image').click(RefreshCaptchaImage);
-    $('#login').click(LoginHandler);
+    $('#login_commit').click(LoginHandler);
 });
