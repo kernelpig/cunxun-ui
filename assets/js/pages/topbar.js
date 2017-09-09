@@ -18,6 +18,7 @@ function UserLogout() {
     Cookies.remove('Authorization');
     ShowAlertAutoClose('登出成功', '登出成功');
     SetSignStatus();
+    GoToIndexPage();
 }
 
 // 初始化处理
