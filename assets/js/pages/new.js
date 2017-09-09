@@ -4,16 +4,17 @@ function GetColumnList() {
     var getting = $.ajax({
         url: columnBaseURI + "/",
         type: "get",
-        headers: {"Authorization": Cookies.get('Authorization')},
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         error: ShowAlertAjax,
         success: function (data) {
             if (data['code'] === 0) {
                 if (data['list'].length === 0) {
-                    $("#column").append($('<option></option>').val(0).text("无栏目"));
+                    $("#column").append($('<li class="am-g">暂无数据</li>'));
                 } else {
                     $.each(data['list'], function () {
+                        var href = 'article.html?id=' + this.id;
+                        var link = $('<a class="am-list-item-hd"></a>').attr('href', href).text(this.title);
                         $("#column").append($('<option></option>').val(this.id).text(this.name));
                     });
                 }
