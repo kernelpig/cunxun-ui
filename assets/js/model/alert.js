@@ -17,10 +17,10 @@ function AlertShow(title, content, interval) {
     }
     $('.am-modal-hd').text(title);
     $('.am-modal-bd').html(content);
-    $('#alert').modal();
+    $('#AlertShowContainer').modal();
     if (interval !== 0) {
         setTimeout(function () {
-            $('#alert').modal('close');
+            $('#AlertShowContainer').modal('close');
         }, interval);
     }
 }

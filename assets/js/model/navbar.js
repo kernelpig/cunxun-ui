@@ -18,13 +18,13 @@ var NavbarTemplate = '<header class="am-topbar am-topbar-inverse">\n' +
     '        </form>\n' +
     '\n' +
     '        <div class="am-topbar-right" id="UserSignupContainer">\n' +
-    '            <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" id="UserLoginLink">登录</button>\n' +
-    '            <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" id="UserSignupLink">注册</button>\n' +
+    '            <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="login.html">登录</a>\n' +
+    '            <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="signup.html">注册</a>\n' +
     '        </div>\n' +
     '\n' +
     '        <div class="am-topbar-right" id="UserCenterContainer">\n' +
-    '            <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" id="UserLogoutHandler">登出</button>\n' +
-    '            <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" id="UserLogoutHandler">个人中心</button>\n' +
+    '            <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" id="UserLogoutHandler">登出</a>\n' +
+    '            <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="center.html">个人中心</a>\n' +
     '        </div>\n' +
     '    </div>\n' +
     '</header>';
@@ -34,8 +34,6 @@ function NavbarSetSignStatus() {
     if (!Cookies.get('Authorization')) {
         $('#UserSignupContainer').show();
         $('#UserCenterContainer').hide();
-        $('#UserSignupLink').click(GoToSignupPage);
-        $('#UserLoginLink').click(GoToLoginPage);
     } else {
         $('#UserSignupContainer').hide();
         $('#UserCenterContainer').show();
@@ -46,9 +44,8 @@ function NavbarSetSignStatus() {
 // 用户登出
 function UserLogoutHandler() {
     Cookies.remove('Authorization');
-    AlertShowAutoClose('登出成功', '登出成功');
-    NavbarSetSignStatus();
-    GoToIndexPage();
+    AlertShowAutoCloseAndGoPage('登出成功', '登出成功, 3秒后返回主页', "/index.html");
+    return false;
 }
 
 // 菜单栏初始化项及状态
