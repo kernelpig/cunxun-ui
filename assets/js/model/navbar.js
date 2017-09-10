@@ -8,6 +8,7 @@ var NavbarTemplate = '<header class="am-topbar am-topbar-inverse">\n' +
     '\n' +
     '    <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">\n' +
     '        <ul class="am-nav am-nav-pills am-topbar-nav">\n' +
+    '           <li id="NavbarIndexItemContainer"><a href="index.html">首页</li>\n' +
     '        </ul>\n' +
     '\n' +
     '        <form class="am-topbar-form am-topbar-left am-form-inline" role="search">\n' +
@@ -57,9 +58,12 @@ function NavbarInit() {
     APIColumnGetList(AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
             var column_id = GetURIParamInt("column_id");
+            if (column_id === 0) {  // 首页column_id = 0
+                $("#NavbarIndexItemContainer").addClass("am-active");
+                $(document).attr("title", "首页");
+            }
             $.each(data['list'], function (index, item) {
                 var url = "list.html?column_id=" + item.id + "&page_size=10&page_num=1";
-                alert(item);
                 var a = $("<a></a>").attr("href", url).text(item.name);
                 var li = $("<li></li>");
                 if (item.id === column_id) {
