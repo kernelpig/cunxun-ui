@@ -8,13 +8,13 @@ function UserLoginHandler() {
         captcha_id: Cookies.get('captcha_id'),
         source: 'web'
     };
-    APIUserLogin(req, ShowAlertAjax, function (data) {
+    APIUserLogin(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
             Cookies.set('Authorization', data['user_token']);
-            ShowAlertAutoClose("登录成功", "马上返回到之前页面!");
+            AlertShowAutoClose("登录成功", "马上返回到之前页面!");
             GoToFromPage();
         } else {
-            ShowAlertError(data['sub_error']);
+            AlertShowError(data['sub_error']);
         }
     });
 }

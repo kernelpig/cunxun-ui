@@ -1,4 +1,4 @@
-var template = '<div class="am-modal am-modal-no-btn" tabindex="-1" id="alert">\n' +
+var AlertTemplate = '<div class="am-modal am-modal-no-btn" tabindex="-1" id="AlertShowContainer">\n' +
     '        <div class="am-modal-dialog">\n' +
     '            <div class="am-modal-hd">\n' +
     '                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>\n' +
@@ -11,9 +11,9 @@ var template = '<div class="am-modal am-modal-no-btn" tabindex="-1" id="alert">\
 
 
 // 显示提示信息
-function ShowAlert(title, content, interval) {
-    if ($('#alert').length === 0) {
-        $('body').append(template);
+function AlertShow(title, content, interval) {
+    if ($('#AlertShowContainer').length === 0) {
+        $('body').append(AlertTemplate);
     }
     $('.am-modal-hd').text(title);
     $('.am-modal-bd').html(content);
@@ -26,35 +26,35 @@ function ShowAlert(title, content, interval) {
 }
 
 // 显示提示信息并自动关闭
-function ShowAlertAutoClose(title, content) {
-    ShowAlert(title, content, 1000);
+function AlertShowAutoClose(title, content) {
+    AlertShow(title, content, 1000);
 }
 
 // 显示提示信息不自动关闭
-function ShowAlertNotClose(title, content) {
-    ShowAlert(title, content, 0);
+function AlertShowNoAutoClose(title, content) {
+    AlertShow(title, content, 0);
 }
 
 // 显示错误信息
-function ShowAlertError(error) {
-    ShowAlertAutoClose("请求失败", error);
+function AlertShowError(error) {
+    AlertShowAutoClose("请求失败", error);
 }
 
 // 显示提示信息并自动关闭
-function ShowAlertAutoGoPage(title, content, gotoPage) {
-    ShowAlertNotClose(title, content);
+function AlertShowAutoCloseAndGoPage(title, content, gotoPage) {
+    AlertShowNoAutoClose(title, content);
     setTimeout(function () {
         GoToPage(gotoPage);
     }, 3000)
 }
 
 // 显示ajax请求后端接口错误
-function ShowAlertAjax(e) {
+function AlertShowAjaxError(e) {
     if (e.responseJSON) {
-        ShowAlertError(e.responseJSON.sub_error);
+        AlertShowError(e.responseJSON.sub_error);
     } else if (e.responseText) {
-        ShowAlertError(e.responseText);
+        AlertShowError(e.responseText);
     } else {
-        ShowAlertError(JSON.stringify(e));
+        AlertShowError(JSON.stringify(e));
     }
 }

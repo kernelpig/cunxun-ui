@@ -1,7 +1,7 @@
 
 // 加载column分类
 function ColumnGetListHandler() {
-    APIColumnGetList(ShowAlertAjax, function (data) {
+    APIColumnGetList(AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
             if (data['list'].length === 0) {
                 $("#column").append($('<li class="am-g">暂无数据</li>'));
@@ -13,7 +13,7 @@ function ColumnGetListHandler() {
                 });
             }
         } else {
-            ShowAlertError(data['sub_error']);
+            AlertShowError(data['sub_error']);
         }
     });
 }
@@ -25,11 +25,11 @@ function ArticleCreateHandler() {
         Title: $('#title').val(),
         content: $('#content').val()
     };
-    APIArticleCreate(req, ShowAlertAjax, function (data) {
+    APIArticleCreate(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
-            ShowAlertAutoGoPage("创建成功", "马上返回到之前页面!", "/index.html");
+            AlertShowAutoCloseAndGoPage("创建成功", "马上返回到之前页面!", "/index.html");
         } else {
-            ShowAlertError(data['sub_error']);
+            AlertShowError(data['sub_error']);
         }
     });
 }

@@ -1,11 +1,11 @@
 
 function ArticleGetListHandler() {
-    APIArticleGetList(ListPageEnv, ShowAlertAjax, function (data) {
+    APIArticleGetList(ListPageEnv, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
             ListPageEnv.is_end = data['end'];
             ListPageEnv.page_num += 1;
             if (!data['list'] || data['list'].length === 0) {
-                ShowAlertAutoClose("请知晓", "亲,无更多数据");
+                AlertShowAutoClose("请知晓", "亲,无更多数据");
             } else {
                 $.each(data['list'], function () {
                     var href = 'article.html?id=' + this.id;
@@ -14,7 +14,7 @@ function ArticleGetListHandler() {
                 });
             }
         } else {
-            ShowAlertError(data['sub_error']);
+            AlertShowError(data['sub_error']);
         }
     });
 }
@@ -23,7 +23,7 @@ function ArticleGetMoreHandler() {
     if (!ListPageEnv.is_end) {
         ArticleGetListHandler();
     } else {
-        ShowAlertAutoClose("请知晓", "亲,无更多数据");
+        AlertShowAutoClose("请知晓", "亲,无更多数据");
     }
 }
 
@@ -35,8 +35,8 @@ function ListPageGetCurrentEnv() {
 
 var ListPageEnv = {
     column_id: 0,
-    page_size: 0,
-    page_num: 0,
+    page_size: 10,
+    page_num: 1,
     is_end: false
 };
 

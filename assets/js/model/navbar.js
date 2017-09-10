@@ -45,34 +45,33 @@ function NavbarSetSignStatus() {
 // 用户登出
 function UserLogoutHandler() {
     Cookies.remove('Authorization');
-    ShowAlertAutoClose('登出成功', '登出成功');
+    AlertShowAutoClose('登出成功', '登出成功');
     NavbarSetSignStatus();
     GoToIndexPage();
 }
 
-var NavbarColumns = [
-    {id: 0, name: "首页"},
-    {id: 1, name: "资讯"},
-    {id: 2, name: "贴吧"},
-    {id: 3, name: "拼车"},
-    {id: 4, name: "交友"},
-    {id: 5, name: "招聘"}
-];
-
 // 菜单栏初始化项及状态
 function NavbarInit() {
     $('body').prepend($(NavbarTemplate));
-    var column_id = GetURIParamInt("column_id");
-    $.each(NavbarColumns, function (index, item) {
-        var url = "list.html?column_id=" + item.id + "&page_size=10&page_num=1";
-        var a = $("<a></a>").attr("href", url).text(item.name);
-        var li = $("<li></li>");
-        if (item.id === column_id) {
-            $(document).attr("title", item.name);
-            li.addClass("am-active");
+
+    APIColumnGetList(AlertShowAjaxError, function (data) {
+        if (data["code"] === 0) {
+            var column_id = GetURIParamInt("column_id");
+            $.each(data['list'], function (index, item) {
+                var url = "list.html?column_id=" + item.id + "&page_size=10&page_num=1";
+                alert(item);
+                var a = $("<a></a>").attr("href", url).text(item.name);
+                var li = $("<li></li>");
+                if (item.id === column_id) {
+                    $(document).attr("title", item.name);
+                    li.addClass("am-active");
+                }
+                $('.am-nav').append(li.append(a))
+            })
+        } else {
+            AlertShowError(data['sub_error']);
         }
-        $('.am-nav').append(li.append(a))
-    })
+    });
 }
 
 // 初始化处理

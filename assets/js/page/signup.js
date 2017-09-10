@@ -8,11 +8,11 @@ function CheckcodeSendHandler() {
         captcha_id: Cookies.get('captcha_id'),
         captcha_value: $('#captcha_value').val()
     };
-    APICheckcodeSend(req, ShowAlertAjax, function (data) {
+    APICheckcodeSend(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
-            ShowAlertAutoClose("发送成功", '发送短信成功, 请注意查收!');
+            AlertShowAutoClose("发送成功", '发送短信成功, 请注意查收!');
         } else {
-            ShowAlertError(data['sub_error']);
+            AlertShowError(data['sub_error']);
         }
     });
 }
@@ -25,13 +25,13 @@ function CheckcodeCheckHandler() {
         source: "web",
         verify_code: $('#checkcode_value').val()
     };
-    APICheckcodeCheck(req, ShowAlertAjax, function (data) {
+    APICheckcodeCheck(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
             Cookies.set('CheckcodeCheckReqContext', req);
             $('#first_setup').html($('#second_setup').html());
             $('#signup_commit').click(SignupHandler);
         } else {
-            ShowAlertError(data['sub_error']);
+            AlertShowError(data['sub_error']);
         }
     });
 }
@@ -46,15 +46,15 @@ function SignupHandler() {
         password: $('#password').val(),
         verify_code: checkReq.verify_code
     };
-    APIUserSignup(signupReq, ShowAlertAjax, function (data) {
+    APIUserSignup(signupReq, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
-            ShowAlertNotClose('注册成功', '5秒后跳转到登录页面<a href="login.html">立即跳转</a>>');
+            AlertShowNoAutoClose('注册成功', '5秒后跳转到登录页面<a href="login.html">立即跳转</a>>');
             setTimeout(function () {
                 $('#alert').modal('close');
                 GoToPage("/login.html");
             }, 5000);
         } else {
-            ShowAlertError(data['sub_error']);
+            AlertShowError(data['sub_error']);
         }
     });
 }
