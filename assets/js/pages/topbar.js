@@ -21,6 +21,8 @@ function UserLogout() {
     GoToIndexPage();
 }
 
+// 菜单初始化
+
 // 初始化处理
 $(document).ready(function () {
     SetSignStatus();

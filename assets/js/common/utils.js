@@ -1,9 +1,14 @@
 
 // 获取URL参数
-function GetURLParam(name) {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+function GetURIParamStr(key) {
+    var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
     var r = window.location.search.substr(1).match(reg);
-    if (r != null) return unescape(r[2]); return null;
+    if (r !== null) return unescape(r[2]); return "";
+}
+
+// 获取URL参数
+function GetURIParamInt(key) {
+    return parseInt(GetURIParamStr(key)) || 0;
 }
 
 // 跳转到指定页面
@@ -13,10 +18,10 @@ function GoToPage(relativePath) {
 
 // 跳转到来源页面, URI: http://localhost/login.html?from=www.xxx.com
 function GoToFromPage() {
-    if (!GetURLParam('from')) {
+    if (!GetURIParamStr('from')) {
         GoToIndexPage();
     } else {
-        location.href = GetURLParam('from');
+        location.href = GetURIParamStr('from');
     }
 }
 
