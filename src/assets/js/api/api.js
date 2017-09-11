@@ -8,6 +8,12 @@ var articleBaseURI      = serviceBaseURI + "/article";
 var columnBaseURI       = serviceBaseURI + "/column";
 var commentBaseURI      = serviceBaseURI + "/comment";
 
+// 创建评论
+function APICommentCreate(data, error, success) {
+    var url = commentBaseURI + "/";
+    AjaxWithAuth(url, "post", data, error, success);
+}
+
 // 获取评论列表
 function APICommentGetList(data, error, success) {
     var url = commentBaseURI + "/?article_id=" + data.article_id +

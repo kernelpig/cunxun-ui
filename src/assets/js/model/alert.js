@@ -51,6 +51,7 @@ function AlertShowAutoCloseAndGoPage(title, content, gotoPage) {
 // 显示ajax请求后端接口错误
 function AlertShowAjaxError(e) {
     if (e.responseJSON) {
+        // TODO: 如果是token expired则提示需要重新登录
         AlertShowError(e.responseJSON.sub_error);
     } else if (e.responseText) {
         AlertShowError(e.responseText);

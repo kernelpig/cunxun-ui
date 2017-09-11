@@ -1,6 +1,18 @@
 var CommentTemplate = '<ul class="am-comments-list am-comments-list-flip">\n' +
     '        </ul>\n' +
-    '        <button type="button" class="am-btn am-center am-btn-default" id="CommentGetMoreHandler">查看更多</button>';
+    '        <button type="button" class="am-btn am-center am-btn-default CommentGetMoreHandler">查看更多</button>' + '<hr>\n' +
+    '    <div class="am-u-sm-centered am-u-sm-11 am-padding-bottom-lg">\n' +
+    '        <form method="post" class="am-form" id="first_setup">\n' +
+    '            <fieldset>\n' +
+    '                <div class="am-form-group">\n' +
+    '                    <textarea class="CommentContentField" rows="10" placeholder="跟帖内容"></textarea>\n' +
+    '                </div>\n' +
+    '                <div class="am-form-group">\n' +
+    '                    <input type="button" value="发表跟帖" class="am-btn am-btn-primary am-btn-sm CommentCreateHandler">\n' +
+    '                </div>\n' +
+    '            </fieldset>\n' +
+    '        </form>\n' +
+    '    </div>';
 
 var CommentItemTemplate = '<li class="am-comment">\n' +
     '                <article class="am-comment">\n' +
@@ -14,7 +26,7 @@ var CommentItemTemplate = '<li class="am-comment">\n' +
     '                                评论于 <time class="CommentCreatedAtField">2014-7-12 15:30</time>\n' +
     '                            </div>\n' +
     '                        </header>\n' +
-    '                        <div class="am-comment-bd CommentContentField">\n' +
+    '                        <div class="am-comment-bd CommentContentItemField">\n' +
     '                            评论内容\n' +
     '                        </div>\n' +
     '                    </div>\n' +
@@ -52,7 +64,7 @@ function CommentGetListHandler() {
                     var item = $(CommentItemTemplate);
                     item.find(".UserNameField").text(this.creater_uid);
                     item.find(".CommentCreatedAtField").text(this.created_at);
-                    item.find(".CommentContentField").text(this.content);
+                    item.find(".CommentContentItemField").text(this.content);
                     $(".am-comments-list").append(item);
                 });
             }
@@ -70,9 +82,24 @@ function CommentGetMoreHandler() {
     }
 }
 
+function CommentCreateHandler() {
+    var req = {
+        article_id: CommentListPageEnv.article_id,
+        content: $(".CommentContentField").val()
+    };
+    APICommentCreate(req, AlertShowAjaxError, function (data) {
+        if (data["code"] === 0) {
+            location.reload();
+        } else {
+            AlertShowError(data["sub_error"]);
+        }
+    });
+}
+
 $(document).ready(function () {
     CommentAddContainer();
     CommentListPageGetCurrentEnv();
     CommentGetListHandler();
-    $('#CommentGetMoreHandler').click(CommentGetMoreHandler);
+    $(".CommentGetMoreHandler").click(CommentGetMoreHandler);
+    $(".CommentCreateHandler").click(CommentCreateHandler);
 });
