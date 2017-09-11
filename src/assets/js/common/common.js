@@ -1,12 +1,16 @@
+// UTC时间去掉'T', '+'
+function FormatTime(time) {
+    return time.replace(/[T+]/g, " ")
+}
 
-// 获取URL参数
+// 获取URL string类型参数
 function GetURIParamStr(key) {
     var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
     var r = window.location.search.substr(1).match(reg);
     if (r !== null) return unescape(r[2]); return "";
 }
 
-// 获取URL参数
+// 获取URL int类型参数
 function GetURIParamInt(key) {
     return parseInt(GetURIParamStr(key)) || 0;
 }

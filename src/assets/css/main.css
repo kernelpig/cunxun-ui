@@ -1,0 +1,7 @@
+/* 中间内容box样式 */
+.ContentContainer {
+    border: 1px solid #eee;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    padding: 20px 20px 20px;
+}
