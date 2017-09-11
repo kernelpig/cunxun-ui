@@ -15,6 +15,12 @@ function APIArticleGetList(data, error, success) {
     AjaxNoAuth(url, "get", null, error, success);
 }
 
+// 获取文章内容
+function APIArticleGetItem(data, error, success) {
+    var url = articleBaseURI + "/" + data.article_id;
+    AjaxNoAuth(url, "get", null, error, success);
+}
+
 // 获取图形验证码ID
 function APICaptchaGetID(error, success) {
     var url = captchaBaseURI + "/";
