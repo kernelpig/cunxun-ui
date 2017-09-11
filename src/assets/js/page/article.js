@@ -1,7 +1,7 @@
 
 function ArticleGetHandler() {
     var req = {
-        "article_id": GetURIParamInt("id")
+        "article_id": GetURIParamInt("article_id")
     };
     APIArticleGetItem(req, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {

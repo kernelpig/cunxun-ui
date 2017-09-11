@@ -6,7 +6,14 @@ var userBaseURI         = serviceBaseURI + "/u";
 var checkcodeBaseURI    = serviceBaseURI + "/checkcode";
 var articleBaseURI      = serviceBaseURI + "/article";
 var columnBaseURI       = serviceBaseURI + "/column";
+var commentBaseURI      = serviceBaseURI + "/comment";
 
+// 获取评论列表
+function APICommentGetList(data, error, success) {
+    var url = commentBaseURI + "/?article_id=" + data.article_id +
+        "&page_size=" + data.page_size + "&page_num=" + data.page_num;
+    AjaxNoAuth(url, "get", null, error, success);
+}
 
 // 获取文章列表
 function APIArticleGetList(data, error, success) {

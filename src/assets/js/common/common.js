@@ -1,3 +1,4 @@
+
 // UTC时间去掉'T', '+'
 function FormatTime(time) {
     return time.replace(/[T+]/g, " ")

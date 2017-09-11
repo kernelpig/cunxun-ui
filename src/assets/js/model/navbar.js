@@ -23,8 +23,9 @@ var NavbarTemplate = '<header class="am-topbar am-topbar-inverse">\n' +
     '        </div>\n' +
     '\n' +
     '        <div class="am-topbar-right" id="UserCenterContainer">\n' +
-    '            <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" id="UserLogoutHandler">登出</a>\n' +
+    '            <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="new.html">发帖</a>\n' +
     '            <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="center.html">个人中心</a>\n' +
+    '            <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" id="UserLogoutHandler">登出</a>\n' +
     '        </div>\n' +
     '    </div>\n' +
     '</header>';
