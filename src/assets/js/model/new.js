@@ -50,7 +50,7 @@ function ColumnGetListHandler() {
 // 创建文章
 function ArticleCreateHandler() {
     var req = {
-        column_id: 1,
+        column_id: parseInt($("#column").val()),
         Title: $('#title').val(),
         content: $('#content').val()
     };

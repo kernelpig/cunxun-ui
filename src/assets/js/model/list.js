@@ -3,7 +3,7 @@ var ArticleListTemplate = '<div data-am-widget="list_news" class="am-list-news a
     '    <div class="am-list-news-hd am-cf">\n' +
     '        <!--带更多链接-->\n' +
     '        <a href="###" class="">\n' +
-        '            <h2>最新</h2>\n' +
+        '            <h2 class="ArticleListTitle">最新</h2>\n' +
     '        </a>\n' +
     '    </div>\n' +
     '    <div class="am-list-news-bd">\n' +
@@ -27,8 +27,10 @@ function ArticleGetListHandler() {
                 $.each(data['list'], function () {
                     var href = 'article.html?article_id=' + this.id;
                     var link = $('<a class="am-list-item-hd"></a>').attr('href', href).text(this.title);
-                    var span = $('<span class="am-list-date"></span>').text(GMT2Beijing(this.updated_at));
-                    $(".am-list").append($('<li class="am-g"></li>').append(link).append(span));
+                    var author = $('<span class="am-list-author"></span>').text(this.nickname);
+                    var stat = $('<span class="am-list-stat"></span>').text(this.comment_count);
+                    var time = $('<span class="am-list-date"></span>').text(GMT2Beijing(this.updated_at));
+                    $(".am-list").append($('<li class="am-g"></li>').append(link).append(author).append(stat).append(time));
                 });
             }
         } else {
@@ -46,13 +48,15 @@ function ArticleGetMoreHandler() {
 }
 
 function ArticleListPageGetCurrentEnv(currentUrl) {
-    ArticleListPageEnv.column_id = GetURIParamInt(currentUrl, "column_id");
+    ArticleListPageEnv.column_id = GetURIParamInt(currentUrl, "column_id") || columnIdDefault;
+    ArticleListPageEnv.order_by = GetURIParamStr(currentUrl, "order_by") || orderByDefault;
     ArticleListPageEnv.page_size = GetURIParamInt(currentUrl, "page_size") || PageSizeDefault;
     ArticleListPageEnv.page_num = GetURIParamInt(currentUrl, "page_num") || PageStartNumberDefault;
 }
 
 var ArticleListPageEnv = {
-    column_id: 0,
+    column_id: columnIdDefault,
+    order_by: orderByDefault,
     page_size: PageSizeDefault,
     page_num: PageStartNumberDefault,
     is_end: false
@@ -61,6 +65,11 @@ var ArticleListPageEnv = {
 function ArticleListRender(currentUrl) {
     $(".ContentContainer").append(ArticleListTemplate);
     ArticleListPageGetCurrentEnv(currentUrl);
+    if (ArticleListPageEnv.order_by === orderByCommentCount) {
+        $(".ArticleListTitle").text("最近热贴");
+    } else {
+        $(".ArticleListTitle").text("最近更新");
+    }
     ArticleGetListHandler();
     $('#ArticleGetMoreHandler').click(ArticleGetMoreHandler);
 }

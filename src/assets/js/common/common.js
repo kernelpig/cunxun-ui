@@ -1,13 +1,20 @@
 
+function timeFormat(s) {
+    if (s >= 0 && s <= 9) {
+        return "0" + s;
+    }
+    return s;
+}
+
 // GMT格式时间转换为北京时间
 function GMT2Beijing(time) {
     var date = new Date(time);
     var Str = date.getFullYear() + '-' +
-        (date.getMonth() + 1) + '-' +
-        date.getDate() + ' ' +
-        date.getHours() + ':' +
-        date.getMinutes() + ':' +
-        date.getSeconds();
+        timeFormat(date.getMonth() + 1) + '-' +
+        timeFormat(date.getDate()) + ' ' +
+        timeFormat(date.getHours()) + ':' +
+        timeFormat(date.getMinutes()) + ':' +
+        timeFormat(date.getSeconds());
     return Str;
 }
 

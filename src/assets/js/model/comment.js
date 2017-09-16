@@ -58,7 +58,7 @@ function CommentGetListHandler() {
                     // 评论列表项, 包括发表人, 发表时间, 发表内容
                     var item = $(CommentItemTemplate);
                     item.find(".UserNameField").text(this.nickname);
-                    item.find(".CommentCreatedAtField").text(this.created_at);
+                    item.find(".CommentCreatedAtField").text(GMT2Beijing(this.created_at));
                     item.find(".CommentContentItemField").text(this.content);
                     item.find(".UserHomePageLink").attr("href", "/user.html?user_id="+this.id);
                     $(".am-comments-list").append(item);

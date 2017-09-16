@@ -5,5 +5,6 @@ function IndexPageRender(parseUrl) {
 }
 
 $(document).ready(function () {
-   IndexPageRender("?column_id=2");
+    // TODO: 热贴需要支持时间范围过滤
+   IndexPageRender("?column_id=2&order_by=comment_count");
 });
