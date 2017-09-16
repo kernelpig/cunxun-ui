@@ -27,7 +27,7 @@ function ArticleGetListHandler() {
                 $.each(data['list'], function () {
                     var href = 'article.html?article_id=' + this.id;
                     var link = $('<a class="am-list-item-hd"></a>').attr('href', href).text(this.title);
-                    var span = $('<span class="am-list-date"></span>').text(FormatTime(this.updated_at));
+                    var span = $('<span class="am-list-date"></span>').text(GMT2Beijing(this.updated_at));
                     $(".am-list").append($('<li class="am-g"></li>').append(link).append(span));
                 });
             }

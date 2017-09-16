@@ -25,7 +25,7 @@ function ArticleGetHandler() {
             $(".am-article-bd").text(data["item"].content);
             var userLink = "/user.html?user_id="+data["item"].updater_uid;
             $(".am-article-meta").append($("<a></a>").text(data["item"].nickname).attr("href", userLink));
-            $(".am-article-meta").append(" " + FormatTime(data["item"].updated_at));
+            $(".am-article-meta").append(" " + GMT2Beijing(data["item"].updated_at));
         } else {
             AlertShowError(data["sub_error"]);
         }

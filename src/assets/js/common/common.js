@@ -1,7 +1,14 @@
 
-// UTC时间去掉'T', '+'
-function FormatTime(time) {
-    return time.replace(/[T+]/g, " ")
+// GMT格式时间转换为北京时间
+function GMT2Beijing(time) {
+    var date = new Date(time);
+    var Str = date.getFullYear() + '-' +
+        (date.getMonth() + 1) + '-' +
+        date.getDate() + ' ' +
+        date.getHours() + ':' +
+        date.getMinutes() + ':' +
+        date.getSeconds();
+    return Str;
 }
 
 // 获取URL string类型参数
