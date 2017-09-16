@@ -1,6 +1,6 @@
 var CommentTemplate = '<hr><ul class="am-comments-list am-comments-list-flip">\n' +
     '        </ul>\n' +
-    '        <button type="button" class="am-btn am-center am-btn-default CommentGetMoreHandler">查看更多</button>' + '<hr>\n' +
+    '        <button type="button" class="am-btn am-center am-btn-default CommentGetMoreHandler">更多评论</button>' + '<hr>\n' +
     '    <div class="am-u-sm-centered am-u-sm-11 am-padding-bottom-lg">\n' +
     '        <form method="post" class="am-form" id="first_setup">\n' +
     '            <fieldset>\n' +
@@ -40,10 +40,10 @@ var CommentListPageEnv = {
     is_end: false
 };
 
-function CommentListPageGetCurrentEnv() {
-    CommentListPageEnv.article_id = GetURIParamInt("article_id");
-    CommentListPageEnv.page_size = GetURIParamInt("page_size") || PageSizeDefault;
-    CommentListPageEnv.page_num = GetURIParamInt("page_num") || PageStartNumberDefault;
+function CommentCurrentEnv(url) {
+    CommentListPageEnv.article_id = GetURIParamInt(url, "article_id");
+    CommentListPageEnv.page_size = GetURIParamInt(url, "page_size") || PageSizeDefault;
+    CommentListPageEnv.page_num = GetURIParamInt(url, "page_num") || PageStartNumberDefault;
 }
 
 function CommentGetListHandler() {
@@ -52,7 +52,7 @@ function CommentGetListHandler() {
             CommentListPageEnv.is_end = data['end'];
             CommentListPageEnv.page_num += 1;
             if (!data['list'] || data['list'].length === 0) {
-                AlertShowAutoClose("请知晓", "亲,无更多数据");
+                //AlertShowAutoClose("请知晓", "亲,无更多数据");
             } else {
                 $.each(data['list'], function () {
                     // 评论列表项, 包括发表人, 发表时间, 发表内容
@@ -92,10 +92,10 @@ function CommentCreateHandler() {
     });
 }
 
-$(document).ready(function () {
+function CommentRender(url) {
     $(".ContentContainer").append($(CommentTemplate));
-    CommentListPageGetCurrentEnv();
+    CommentCurrentEnv(url);
     CommentGetListHandler();
     $(".CommentGetMoreHandler").click(CommentGetMoreHandler);
     $(".CommentCreateHandler").click(CommentCreateHandler);
-});
+}

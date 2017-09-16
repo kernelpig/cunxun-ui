@@ -55,7 +55,7 @@ function NavbarInit() {
 
     APIColumnGetList(AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
-            var column_id = GetURIParamInt("column_id");
+            var column_id = GetURIParamInt(location.href, "column_id");
             if (column_id === 0) {  // 首页column_id = 0
                 $("#NavbarIndexItemContainer").addClass("am-active");
                 $(document).attr("title", "首页");
@@ -76,8 +76,7 @@ function NavbarInit() {
     });
 }
 
-// 初始化处理
-$(document).ready(function () {
+function NavbarRender() {
     NavbarInit();
     NavbarSetSignStatus();
-});
+}

@@ -45,10 +45,10 @@ function ArticleGetMoreHandler() {
     }
 }
 
-function ArticleListPageGetCurrentEnv() {
-    ArticleListPageEnv.column_id = GetURIParamInt("column_id");
-    ArticleListPageEnv.page_size = GetURIParamInt("page_size") || PageSizeDefault;
-    ArticleListPageEnv.page_num = GetURIParamInt("page_num") || PageStartNumberDefault;
+function ArticleListPageGetCurrentEnv(currentUrl) {
+    ArticleListPageEnv.column_id = GetURIParamInt(currentUrl, "column_id");
+    ArticleListPageEnv.page_size = GetURIParamInt(currentUrl, "page_size") || PageSizeDefault;
+    ArticleListPageEnv.page_num = GetURIParamInt(currentUrl, "page_num") || PageStartNumberDefault;
 }
 
 var ArticleListPageEnv = {
@@ -58,9 +58,9 @@ var ArticleListPageEnv = {
     is_end: false
 };
 
-$(document).ready(function () {
+function ArticleListRender(currentUrl) {
     $(".ContentContainer").append(ArticleListTemplate);
-    ArticleListPageGetCurrentEnv();
+    ArticleListPageGetCurrentEnv(currentUrl);
     ArticleGetListHandler();
     $('#ArticleGetMoreHandler').click(ArticleGetMoreHandler);
-});
+}

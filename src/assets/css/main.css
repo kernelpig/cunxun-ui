@@ -5,3 +5,12 @@
     border-top-left-radius: 0;
     padding: 20px 20px 20px;
 }
+
+/* 文章列表中帖子统计信息样式 */
+.am-list-status{
+    position:absolute;
+    right:200px;
+    color: #999;
+    font-size:1.3rem;
+    top:1.3rem
+}

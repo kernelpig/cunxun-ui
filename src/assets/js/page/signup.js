@@ -59,8 +59,15 @@ function SignupHandler() {
     });
 }
 
+function SignupPageRender() {
+    NavbarRender();
+    FootbarRender();
+}
+
 // 初始化处理
 $(document).ready(function () {
+    SignupPageRender();
+    
     CaptchaGetImageHandler();
     $('#CaptchaGetImageHandler').click(CaptchaGetImageHandler);
     $('#CheckcodeSendHandler').click(CheckcodeSendHandler);

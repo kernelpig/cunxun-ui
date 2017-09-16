@@ -34,10 +34,16 @@ function ArticleCreateHandler() {
     });
 }
 
+function NewPageRender() {
+    NavbarRender();
+    FootbarRender();
+}
+
 // 初始化处理
 $(document).ready(function () {
+    NewPageRender();
+
     IsLogined();
-    NavbarSetSignStatus();
     ColumnGetListHandler();
     $('#ArticleCreateHandler').click(ArticleCreateHandler);
 });

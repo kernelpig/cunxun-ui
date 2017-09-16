@@ -5,15 +5,19 @@ function FormatTime(time) {
 }
 
 // 获取URL string类型参数
-function GetURIParamStr(key) {
+function GetURIParamStr(url, key) {
+    if (url.indexOf("?") === -1) {
+        return "";
+    }
+    url = url.substr(url.indexOf("?"))
     var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
-    var r = window.location.search.substr(1).match(reg);
+    var r = url.substr(1).match(reg);
     if (r !== null) return unescape(r[2]); return "";
 }
 
 // 获取URL int类型参数
-function GetURIParamInt(key) {
-    return parseInt(GetURIParamStr(key)) || 0;
+function GetURIParamInt(url, key) {
+    return parseInt(GetURIParamStr(url, key)) || 0;
 }
 
 // 跳转到指定页面

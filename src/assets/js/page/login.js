@@ -19,8 +19,14 @@ function UserLoginHandler() {
     });
 }
 
+function LoginPageRender() {
+    NavbarRender();
+    FootbarRender();
+}
+
 // 初始化处理
 $(document).ready(function () {
+    LoginPageRender();
     CaptchaGetImageHandler();
     $('#CaptchaGetImageHandler').click(CaptchaGetImageHandler);
     $('#UserLoginHandler').click(UserLoginHandler);
