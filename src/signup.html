@@ -13,63 +13,10 @@
     <link rel="stylesheet" href="assets/css/main.css"/>
 </head>
 <body>
+
 <div class="am-container ContentContainer">
-<div class="am-container am-margin-top">
-    <form method="post" class="am-form" id="first_setup">
-        <fieldset>
-            <legend>用户注册</legend>
-            <div class="am-form-group">
-                <div class="am-input-group">
-                    <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
-                    <input type="number" id="phone" value="" required placeholder="手机号码">
-                </div>
-            </div>
-
-            <div class="am-form-group">
-                <div class="am-input-group">
-                    <input type="number" id="captcha_value" value="" class="" placeholder="图形验证码">
-                    <span class="am-input-group-label"><a href="#"><img src="#" id="CaptchaGetImageHandler"
-                                                                        class="am-img-loaded"></a></span>
-                </div>
-            </div>
-
-            <div class="am-form-group">
-                <div class="am-input-group">
-                    <input type="number" id="checkcode_value" value="" class="" placeholder="短信验证码">
-                    <span class="am-input-group-label"><a href="#" id="CheckcodeSendHandler">发送-验证码</a></span>
-                </div>
-            </div>
-
-            <div class="am-form-group">
-                <input type="button" id="CheckcodeCheckHandler" value="下一步" class="am-btn am-btn-primary am-btn-sm">
-            </div>
-        </fieldset>
-    </form>
-
-    <div class="am-hide" id="second_setup">
-        <fieldset>
-            <legend>用户注册</legend>
-            <div class="am-form-group">
-                <div class="am-input-group">
-                    <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>
-                    <input type="text" id="nickname" value="" required placeholder="昵称">
-                </div>
-            </div>
-
-            <div class="am-form-group">
-                <div class="am-input-group">
-                    <span class="am-input-group-label"><i class="am-icon-lock am-icon-fw"></i></span>
-                    <input type="password" id="password" value="" placeholder="密码">
-                </div>
-            </div>
-
-            <div class="am-form-group" id="alert_content">
-                <input type="button" id="signup_commit" value="注册" class="am-btn am-btn-primary am-btn-sm">
-            </div>
-        </fieldset>
-    </div>
 </div>
-</div>
+
 </body>
 <script src="assets/js/third/jquery-3.2.1.min.js"></script>
 <script src="assets/js/third/js.cookie-2.1.4.min.js"></script>
@@ -81,5 +28,7 @@
 <script src="assets/js/model/alert.js"></script>
 <script src="assets/js/model/navbar.js"></script>
 <script src="assets/js/model/footbar.js"></script>
+<script src="assets/js/model/checkcode.js"></script>
+<script src="assets/js/model/signup.js"></script>
 <script src="assets/js/page/signup.js"></script>
 </html>
