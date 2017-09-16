@@ -57,8 +57,8 @@ function NavbarInit() {
         if (data["code"] === 0) {
             var column_id = GetURIParamInt(location.href, "column_id");
             if (column_id === 0) {  // 首页column_id = 0
-                $("#NavbarIndexItemContainer").addClass("am-active");
-                $(document).attr("title", "首页");
+                //$("#NavbarIndexItemContainer").addClass("am-active");
+                //$(document).attr("title", "首页");
             }
             $.each(data['list'], function (index, item) {
                 var url = "list.html?column_id=" + item.id + "&page_size=10&page_num=1";
