@@ -1,4 +1,4 @@
-var CommentTemplate = '<ul class="am-comments-list am-comments-list-flip">\n' +
+var CommentTemplate = '<hr><ul class="am-comments-list am-comments-list-flip">\n' +
     '        </ul>\n' +
     '        <button type="button" class="am-btn am-center am-btn-default CommentGetMoreHandler">查看更多</button>' + '<hr>\n' +
     '    <div class="am-u-sm-centered am-u-sm-11 am-padding-bottom-lg">\n' +
@@ -44,11 +44,6 @@ function CommentListPageGetCurrentEnv() {
     CommentListPageEnv.article_id = GetURIParamInt("article_id");
     CommentListPageEnv.page_size = GetURIParamInt("page_size") || PageSizeDefault;
     CommentListPageEnv.page_num = GetURIParamInt("page_num") || PageStartNumberDefault;
-}
-
-function CommentAddContainer() {
-    // 宿主必须提供一个DIV#ArticleContentListContainer
-    $("#ArticleContentListContainer").append($(CommentTemplate));
 }
 
 function CommentGetListHandler() {
@@ -98,7 +93,7 @@ function CommentCreateHandler() {
 }
 
 $(document).ready(function () {
-    CommentAddContainer();
+    $(".ContentContainer").append($(CommentTemplate));
     CommentListPageGetCurrentEnv();
     CommentGetListHandler();
     $(".CommentGetMoreHandler").click(CommentGetMoreHandler);

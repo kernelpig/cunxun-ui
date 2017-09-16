@@ -1,3 +1,20 @@
+var ArticleListTemplate = '<div data-am-widget="list_news" class="am-list-news am-list-news-default" >\n' +
+    '    <!--列表标题-->\n' +
+    '    <div class="am-list-news-hd am-cf">\n' +
+    '        <!--带更多链接-->\n' +
+    '        <a href="###" class="">\n' +
+        '            <h2>最新</h2>\n' +
+    '        </a>\n' +
+    '    </div>\n' +
+    '    <div class="am-list-news-bd">\n' +
+    '        <ul class="am-list">\n' +
+    '        </ul>\n' +
+    '    </div>\n' +
+    '    <!--更多在底部-->\n' +
+    '    <div class="am-list-news-ft">\n' +
+    '        <a class="am-list-news-more am-btn am-btn-default" id="ArticleGetMoreHandler" href="###">查看更多 &raquo;</a>\n' +
+    '    </div>\n' +
+    '</div>';
 
 function ArticleGetListHandler() {
     APIArticleGetList(ArticleListPageEnv, AlertShowAjaxError, function (data) {
@@ -42,6 +59,7 @@ var ArticleListPageEnv = {
 };
 
 $(document).ready(function () {
+    $(".ContentContainer").append(ArticleListTemplate);
     ArticleListPageGetCurrentEnv();
     ArticleGetListHandler();
     $('#ArticleGetMoreHandler').click(ArticleGetMoreHandler);
