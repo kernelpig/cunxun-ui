@@ -18,7 +18,7 @@ var ArticleCreateTemplate = '<div class="am-container am-margin-top">\n' +
     '            </div>\n' +
     '\n' +
     '            <div class="am-form-group">\n' +
-    '                <textarea class="" rows="10" id="content" placeholder="帖子内容"></textarea>\n' +
+    '                <textarea id="content"></textarea>\n' +
     '            </div>\n' +
     '\n' +
     '            <div class="am-form-group">\n' +
@@ -64,9 +64,13 @@ function ArticleCreateHandler() {
 }
 
 function ArticleCreateRender() {
+    IsLogined();
     $(".ContentContainer").append(ArticleCreateTemplate);
-
-    //IsLogined();
+    $('#content').editable({
+        inlineMode: false,
+        alwaysBlank: true,
+        theme: 'gray'
+    });
     ColumnGetListHandler();
     $('#ArticleCreateHandler').click(ArticleCreateHandler);
 }

@@ -23,3 +23,8 @@
     font-size:1.3rem;
     top:1.3rem
 }
+
+/* 中间内容框 */
+.ContentContainer {
+    margin-bottom: 100px;
+}
