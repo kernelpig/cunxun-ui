@@ -18,7 +18,7 @@ var ArticleCreateTemplate = '<div class="am-container am-margin-top">\n' +
     '            </div>\n' +
     '\n' +
     '            <div class="am-form-group">\n' +
-    '                <textarea id="content"></textarea>\n' +
+    '                <textarea id="content" rows="6"></textarea>\n' +
     '            </div>\n' +
     '\n' +
     '            <div class="am-form-group">\n' +
@@ -69,7 +69,10 @@ function ArticleCreateRender() {
     $('#content').editable({
         inlineMode: false,
         alwaysBlank: true,
-        theme: 'gray'
+        theme: 'gray',
+        height: 200,
+        language: 'zh_cn',
+        pluginsEnabled: ['fullscreen']
     });
     ColumnGetListHandler();
     $('#ArticleCreateHandler').click(ArticleCreateHandler);
