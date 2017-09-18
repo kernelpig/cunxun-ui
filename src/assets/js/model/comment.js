@@ -54,10 +54,10 @@ function CommentGetListHandler() {
             if (!data['list'] || data['list'].length === 0) {
                 //AlertShowAutoClose("请知晓", "亲,无更多数据");
             } else {
-                $.each(data['list'], function () {
+                $.each(data['list'], function (index) {
                     // 评论列表项, 包括发表人, 发表时间, 发表内容
                     var item = $(CommentItemTemplate);
-                    item.find(".UserNameField").text(this.nickname);
+                    item.find(".UserNameField").text((index + 1) + "楼 " + this.nickname);
                     item.find(".CommentCreatedAtField").text(GMT2Beijing(this.created_at));
                     item.find(".CommentContentItemField").text(this.content);
                     item.find(".UserHomePageLink").attr("href", "/user.html?user_id="+this.id);
