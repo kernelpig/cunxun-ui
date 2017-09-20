@@ -40,6 +40,8 @@ var CommentListPageEnv = {
     is_end: false
 };
 
+var CommentBuildingCode = 0;
+
 function CommentCurrentEnv(url) {
     CommentListPageEnv.article_id = GetURIParamInt(url, "article_id");
     CommentListPageEnv.page_size = GetURIParamInt(url, "page_size") || PageSizeDefault;
@@ -54,11 +56,11 @@ function CommentGetListHandler() {
             if (!data['list'] || data['list'].length === 0) {
                 //AlertShowAutoClose("请知晓", "亲,无更多数据");
             } else {
-                $.each(data['list'], function (index) {
+                $.each(data['list'], function () {
                     // 评论列表项, 包括发表人, 发表时间, 发表内容
                     var item = $(CommentItemTemplate);
                     item.find(".UserAvatarField").attr("src", serviceBaseURI + "/u/"+this.creater_uid+"/avatar");
-                    item.find(".UserNameField").text((index + 1) + "楼 " + this.nickname);
+                    item.find(".UserNameField").text((++CommentBuildingCode) + "楼 " + this.nickname);
                     item.find(".CommentCreatedAtField").text(GMT2Beijing(this.created_at));
                     item.find(".CommentContentItemField").text(this.content);
                     item.find(".UserHomePageLink").attr("href", "/user.html?user_id="+this.creater_uid);
