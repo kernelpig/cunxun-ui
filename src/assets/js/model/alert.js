@@ -1,9 +1,9 @@
 var AlertTemplate = '<div class="am-modal am-modal-no-btn" tabindex="-1" id="AlertShowContainer">\n' +
     '        <div class="am-modal-dialog">\n' +
-    '            <div class="am-modal-hd">\n' +
+    '            <div class="am-modal-hd AlertTitleContainer">\n' +
     '                <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>\n' +
     '            </div>\n' +
-    '            <div class="am-modal-bd">\n' +
+    '            <div class="am-modal-bd AlertContentContainer">\n' +
     '\n' +
     '            </div>\n' +
     '        </div>\n' +
@@ -15,8 +15,8 @@ function AlertShow(title, content, interval) {
     if ($('#AlertShowContainer').length === 0) {
         $('body').append(AlertTemplate);
     }
-    $('.am-modal-hd').text(title);
-    $('.am-modal-bd').html(content);
+    $('.AlertTitleContainer').text(title);
+    $('.AlertContentContainer').html(content);
     $('#AlertShowContainer').modal();
     if (interval !== 0) {
         setTimeout(function () {
