@@ -48,33 +48,40 @@ var UserSignupTemplate = '<div class="am-container am-margin-top">\n' +
     '            </div>\n' +
     '\n' +
     '            <div class="am-form-group" id="alert_content">\n' +
-    '                <input type="button" id="signup_commit" value="注册" class="am-btn am-btn-primary am-btn-sm">\n' +
+    '                <input type="button" id="AvatarSelectHandler" value="头像" class="am-btn am-btn-primary am-btn-sm">\n' +
+    '                <input type="button" id="UserSignupHandler" value="注册" class="am-btn am-btn-primary am-btn-sm">\n' +
     '            </div>\n' +
     '        </fieldset>\n' +
     '    </div>\n' +
     '</div>';
 
-// 登录处理函数
-function SignupHandler() {
+function UserSignupHandler() {
     var checkReq = JSON.parse(Cookies.get('CheckcodeCheckReqContext'));
     var signupReq = {
         phone: checkReq.phone,
         source: checkReq.source,
         nickname: $('#nickname').val(),
         password: $('#password').val(),
-        verify_code: checkReq.verify_code
+        verify_code: checkReq.verify_code,
+        avatar: AvatarImageBytes
     };
     APIUserSignup(signupReq, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
             AlertShowNoAutoClose('注册成功', '5秒后跳转到登录页面<a href="login.html">立即跳转</a>>');
             setTimeout(function () {
                 $('#alert').modal('close');
+                AvatarImageBytes = null;
                 GoToPage("/login.html");
             }, 5000);
         } else {
             AlertShowError(data['sub_error']);
         }
     });
+}
+
+// 显示头像上传对话框
+function AvatarSelectHandler() {
+    $("#AvatarUploadBox").modal({width:'600px'});
 }
 
 function UserSignupRender() {

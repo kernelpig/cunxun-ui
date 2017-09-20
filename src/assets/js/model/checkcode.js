@@ -28,9 +28,11 @@ function CheckcodeCheckHandler() {
         if (data['code'] === 0) {
             Cookies.set('CheckcodeCheckReqContext', req);
             $('#first_setup').html($('#second_setup').html());
-            $('#signup_commit').click(SignupHandler);
+            $('#UserSignupHandler').click(UserSignupHandler);
+            $('#AvatarSelectHandler').click(AvatarSelectHandler);
         } else {
             AlertShowError(data['sub_error']);
         }
     });
+    return false;
 }
