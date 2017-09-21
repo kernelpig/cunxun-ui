@@ -1,0 +1,6 @@
+www.iheze.org iheze.org {
+        log /data/logs/caddy/cunxun-ui/iheze.org.log
+        proxy /api localhost:8005 {
+                policy round_robin
+        }
+}
