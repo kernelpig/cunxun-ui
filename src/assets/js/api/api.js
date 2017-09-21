@@ -1,6 +1,6 @@
 
 // 服务端各模块URI
-var serviceBaseURI      = "http://localhost:8005";
+var serviceBaseURI      = "http://localhost:8005/api";
 var captchaBaseURI      = serviceBaseURI + "/captcha";
 var userBaseURI         = serviceBaseURI + "/u";
 var checkcodeBaseURI    = serviceBaseURI + "/checkcode";
