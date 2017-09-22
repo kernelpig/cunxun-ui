@@ -1,4 +1,8 @@
-www.iheze.org iheze.org {
+http://iheze.org http://www.iheze.org {
+        redir https://www.iheze.org
+}
+
+https://www.iheze.org https://iheze.org {
         log /data/logs/caddy/cunxun-ui/iheze.org.log
         gzip
         proxy /api localhost:8005 {
