@@ -30,9 +30,9 @@ function ArticleGetListHandler() {
                 $.each(data['list'], function () {
                     var href = 'article.html?article_id=' + this.id;
                     var link = $('<a class="am-list-item-hd"></a>').attr('href', href).text(this.title);
-                    var author = $('<span class="am-list-author"></span>').text(this.nickname);
-                    var stat = $('<span class="am-list-stat"></span>').text(this.comment_count);
-                    var time = $('<span class="am-list-date"></span>').text(GMT2Beijing(this.updated_at));
+                    var author = $('<span class="am-list-author am-show-lg-up"></span>').text(this.nickname);
+                    var stat = $('<span class="am-list-stat am-show-lg-up"></span>').text(this.comment_count);
+                    var time = $('<span class="am-list-date am-show-lg-up"></span>').text(GMT2Beijing(this.updated_at));
                     $(".am-list").append($('<li class="am-g"></li>').append(link).append(author).append(stat).append(time));
                 });
             }
