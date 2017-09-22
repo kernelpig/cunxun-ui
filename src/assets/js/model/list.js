@@ -20,10 +20,13 @@ function ArticleGetListHandler() {
     APIArticleGetList(ArticleListPageEnv, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
             ArticleListPageEnv.is_end = data['end'];
-            ArticleListPageEnv.page_num += 1;
             if (!data['list'] || data['list'].length === 0) {
-                AlertShowAutoClose("请知晓", "亲,无更多数据");
+                if (ArticleListPageEnv.page_num > 1) {
+                    // 初始化时不显示alert, 只有点击更多时显示
+                    AlertShowAutoClose("请知晓", "亲,无更多数据");
+                }
             } else {
+                ArticleListPageEnv.page_num += 1;
                 $.each(data['list'], function () {
                     var href = 'article.html?article_id=' + this.id;
                     var link = $('<a class="am-list-item-hd"></a>').attr('href', href).text(this.title);
@@ -43,7 +46,7 @@ function ArticleGetMoreHandler() {
     if (!ArticleListPageEnv.is_end) {
         ArticleGetListHandler();
     } else {
-        //AlertShowAutoClose("请知晓", "亲,无更多数据");
+        AlertShowAutoClose("请知晓", "亲,无更多数据");
     }
 }
 
