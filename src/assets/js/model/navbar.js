@@ -57,7 +57,7 @@ function NavbarInit() {
         if (data["code"] === 0) {
             var column_id = GetURIParamInt(location.href, "column_id");
             if (column_id === 0) {
-                if (location.href.indexOf("index") !== -1) {
+                if ((location.href.indexOf("index.html") !== -1) || (location.href.indexOf(".html") === -1)) {
                     $("#NavbarIndexItemContainer").addClass("am-active");
                     $(document).attr("title", "首页");
                 }
