@@ -43,7 +43,7 @@ function ArticleGetMoreHandler() {
     if (!ArticleListPageEnv.is_end) {
         ArticleGetListHandler();
     } else {
-        AlertShowAutoClose("请知晓", "亲,无更多数据");
+        //AlertShowAutoClose("请知晓", "亲,无更多数据");
     }
 }
 
