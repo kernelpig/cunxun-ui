@@ -12,8 +12,11 @@ function NavbarItemColumnGetList() {
                 navbarItem.find(".TypeListItemName").text(item.name);
                 navbarItem.find(".TypeListItemAuthor").text(item.nickname);
                 navbarItem.find(".TypeListItemTime").text(GMT2Beijing(item.created_at));
+                navbarItem.find(".TypeListItemUpdate").attr("alt", item.id);
+                navbarItem.find(".TypeListItemDelete").attr("alt", item.id);
                 $(".ListItemsContainer").append(navbarItem)
-            })
+            });
+            $(".TypeListItemUpdate").click(ColumnUpdateHandler);
         } else {
             AlertShowError(data['sub_error']);
         }
@@ -44,12 +47,24 @@ function ColumnCreateHandler() {
 }
 
 // 修改栏目
-function ColumnUpdateHandler() {
-    alert("update");
+function ColumnUpdateHandler(pe) {
+    $(".ColumnItemContainer").modal({
+        relatedTarget: pe.target,
+        onConfirm: function(e) {
+            var columnId = $(this.relatedTarget).attr("alt");
+            APIColumnUpdateById(columnId, {name: e.data}, AlertShowAjaxError, function (data) {
+                if (data["code"] === 0) {
+                    location.reload();
+                } else {
+                    AlertShowError(data["sub_error"]);
+                }
+            });
+        },
+        onCancel: function(e) {  }
+    });
 }
 
 $(document).ready(function () {
     ColumnPageRender();
     $(".ColumnCreateHandler").click(ColumnCreateHandler);
-    $(".TypeListItemUpdate").on("click", ColumnUpdateHandler);
 });

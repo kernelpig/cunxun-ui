@@ -20,6 +20,12 @@ function APIColumnCreate(data, error, success) {
     AjaxWithAuth(url, "post", data, error, success);
 }
 
+// 根据ID修改栏目
+function APIColumnUpdateById(columnId, data, error, success) {
+    var url = columnBaseURI + "/" + columnId;
+    AjaxWithAuth(url, "put", data, error, success);
+}
+
 // 获取评论列表
 function APICommentGetList(data, error, success) {
     var url = commentBaseURI + "/?article_id=" + data.article_id +
