@@ -24,7 +24,7 @@ function NavbarItemColumnGetList() {
     });
 }
 
-function ColumnPageRender() {
+function ColumnListPageRender() {
     NavbarRender();
     FootbarRender();
     TypeListRender(location.href);
@@ -84,6 +84,6 @@ function ColumnDeleteHandler(pe) {
 }
 
 $(document).ready(function () {
-    ColumnPageRender();
+    ColumnListPageRender();
     $(".ColumnCreateHandler").click(ColumnCreateHandler);
 });

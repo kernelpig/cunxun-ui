@@ -40,17 +40,17 @@ var NavbarItems = [
     {
         id: typeIdColumn,
         name: "栏目",
-        url: "column.html"
+        url: "column_list.html"
     },
     {
         id: typeIdArticle,
         name: "文章",
-        url: "article.html"
+        url: "article_list.html"
     },
     {
         id: typeIdComment,
         name: "评论",
-        url: "comment.html"
+        url: "comment_list.html"
     }
 ];
 
