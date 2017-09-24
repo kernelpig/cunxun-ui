@@ -39,15 +39,18 @@ function UserLogoutHandler() {
 var NavbarItems = [
     {
         id: typeIdColumn,
-        name: "栏目"
+        name: "栏目",
+        url: "column.html"
     },
     {
         id: typeIdArticle,
-        name: "文章"
+        name: "文章",
+        url: "article.html"
     },
     {
         id: typeIdComment,
-        name: "评论"
+        name: "评论",
+        url: "comment.html"
     }
 ];
 
@@ -60,7 +63,7 @@ function NavbarInitData() {
         }
     }
     $.each(NavbarItems, function (index, item) {
-        var url = "list.html?type_id=" + item.id + "&page_size=10&page_num=1";
+        var url = item.url + "?type_id=" + item.id + "&page_size=10&page_num=1";
         var a = $("<a></a>").attr("href", url).text(item.name);
         var li = $("<li></li>");
         if (item.id === type_id) {
