@@ -16,6 +16,14 @@ var ArticleListTemplate = '<div data-am-widget="list_news" class="am-list-news a
     '    </div>\n' +
     '</div>';
 
+var ArticleListPageEnv = {
+    column_id: columnIdDefault,
+    order_by: orderByDefault,
+    page_size: PageSizeDefault,
+    page_num: PageStartNumberDefault,
+    is_end: false
+};
+
 function ArticleGetListHandler() {
     APIArticleGetList(ArticleListPageEnv, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
@@ -56,14 +64,6 @@ function ArticleListPageGetCurrentEnv(currentUrl) {
     ArticleListPageEnv.page_size = GetURIParamInt(currentUrl, "page_size") || PageSizeDefault;
     ArticleListPageEnv.page_num = GetURIParamInt(currentUrl, "page_num") || PageStartNumberDefault;
 }
-
-var ArticleListPageEnv = {
-    column_id: columnIdDefault,
-    order_by: orderByDefault,
-    page_size: PageSizeDefault,
-    page_num: PageStartNumberDefault,
-    is_end: false
-};
 
 function ArticleListRender(currentUrl) {
     $(".ContentContainer").append(ArticleListTemplate);

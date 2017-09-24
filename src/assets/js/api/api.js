@@ -26,6 +26,12 @@ function APIColumnUpdateById(columnId, data, error, success) {
     AjaxWithAuth(url, "put", data, error, success);
 }
 
+// 根据ID删除栏目
+function APIColumnDeleteById(columnId, error, success) {
+    var url = columnBaseURI + "/" + columnId;
+    AjaxWithAuth(url, "delete", null, error, success);
+}
+
 // 获取评论列表
 function APICommentGetList(data, error, success) {
     var url = commentBaseURI + "/?article_id=" + data.article_id +
