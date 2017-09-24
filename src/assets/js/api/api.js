@@ -14,6 +14,12 @@ function APICommentCreate(data, error, success) {
     AjaxWithAuth(url, "post", data, error, success);
 }
 
+// 创建栏目
+function APIColumnCreate(data, error, success) {
+    var url = columnBaseURI + "/";
+    AjaxWithAuth(url, "post", data, error, success);
+}
+
 // 获取评论列表
 function APICommentGetList(data, error, success) {
     var url = commentBaseURI + "/?article_id=" + data.article_id +

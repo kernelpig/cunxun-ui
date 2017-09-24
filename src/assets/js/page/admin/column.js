@@ -26,6 +26,30 @@ function ColumnPageRender() {
     TypeListRender(location.href);
 }
 
+// 创建栏目
+function ColumnCreateHandler() {
+    $(".ColumnItemContainer").modal({
+        relatedTarget: this,
+        onConfirm: function(e) {
+            APIColumnCreate({name: e.data}, AlertShowAjaxError, function (data) {
+                if (data["code"] === 0) {
+                    location.reload();
+                } else {
+                    AlertShowError(data["sub_error"]);
+                }
+            });
+        },
+        onCancel: function(e) {  }
+    });
+}
+
+// 修改栏目
+function ColumnUpdateHandler() {
+    alert("update");
+}
+
 $(document).ready(function () {
     ColumnPageRender();
+    $(".ColumnCreateHandler").click(ColumnCreateHandler);
+    $(".TypeListItemUpdate").on("click", ColumnUpdateHandler);
 });
