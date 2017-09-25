@@ -30,7 +30,8 @@ var ArticleCreateTemplate = '<div class="am-container am-margin-top">\n' +
 
 // 加载column分类
 function ColumnGetListHandler() {
-    APIColumnGetList(AlertShowAjaxError, function (data) {
+    var req = {creater_uid: createrUidDefault};
+    APIColumnGetList(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
             if (data['list'].length === 0) {
                 $("#column").append($('<li class="am-g">暂无数据</li>'));

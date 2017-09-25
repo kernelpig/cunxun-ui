@@ -34,7 +34,7 @@ function APIColumnDeleteById(columnId, error, success) {
 
 // 获取评论列表
 function APICommentGetList(data, error, success) {
-    var url = commentBaseURI + "/?article_id=" + data.article_id +
+    var url = commentBaseURI + "/?creater_uid=" + data.creater_uid + "&article_id=" + data.article_id +
         "&page_size=" + data.page_size + "&page_num=" + data.page_num;
     AjaxNoAuth(url, "get", null, error, success);
 }
@@ -101,8 +101,8 @@ function APIUserSignup(data, error, success) {
 }
 
 // 栏目获取列表
-function APIColumnGetList(error, success) {
-    var url = columnBaseURI + "/";
+function APIColumnGetList(data, error, success) {
+    var url = columnBaseURI + "/?creater_uid=" + data.creater_uid;
     AjaxNoAuth(url, "get", null, error, success);
 }
 

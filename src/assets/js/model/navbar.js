@@ -53,7 +53,8 @@ function UserLogoutHandler() {
 function NavbarInit() {
     $('body').prepend($(NavbarTemplate));
 
-    APIColumnGetList(AlertShowAjaxError, function (data) {
+    var req = {creater_uid: createrUidDefault};
+    APIColumnGetList(req, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
             var column_id = GetURIParamInt(location.href, "column_id");
             if (column_id === 0) {

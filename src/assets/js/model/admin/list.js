@@ -29,7 +29,7 @@ var TypeListItemTemplate = '<tr>\n' +
 
 function TypeGetListHandler() {
     if (TypeListPageEnv.type_id === typeIdColumn) {
-        NavbarItemColumnGetList();
+        NavbarItemColumnGetList(TypeListPageEnv);
     } else if (TypeListPageEnv.type_id === typeIdArticle) {
         NavbarItemArticleGetList(TypeListPageEnv);
     } else if (TypeListPageEnv.type_id === typeIdComment) {

@@ -4,7 +4,8 @@ function ArticlePageRender() {
 }
 
 function ColumnGetListHandler() {
-    APIColumnGetList(AlertShowAjaxError, function (data) {
+    var req = {creater_uid: createrUidDefault};
+    APIColumnGetList(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
             if (data['list'].length !== 0) {
                 $.each(data['list'], function () {

@@ -1,6 +1,6 @@
 
-function NavbarItemColumnGetList() {
-    APIColumnGetList(AlertShowAjaxError, function (data) {
+function NavbarItemColumnGetList(pageEnv) {
+    APIColumnGetList(pageEnv, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
             if (!data["list"] || data["list"].length === 0) {
                 AlertShowAutoClose("请知晓", "亲,无更多数据");

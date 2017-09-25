@@ -35,7 +35,8 @@ var CommentItemTemplate = '<li class="am-comment">\n' +
     '            </li>';
 
 var CommentListPageEnv = {
-    article_id: 0,
+    creater_uid: createrUidDefault,
+    article_id: articleIdDefault,
     page_size: PageSizeDefault,
     page_num: PageStartNumberDefault,
     is_end: false
