@@ -101,7 +101,11 @@ function CommentCreateHandler() {
 }
 
 function CommentChangeHandler() {
-    $(".CommentCurrentCount").text($(".CommentContentField").val().length);
+    var commentLen = $(".CommentContentField").val().length;
+    $(".CommentCurrentCount").text(commentLen);
+    if (commentLen > CommentLengthDefault) {
+        AlertShowAutoClose("评论超长", "评论超长, 只允许" + CommentLengthDefault + "字符!");
+    }
 }
 
 function CommentRender(url) {

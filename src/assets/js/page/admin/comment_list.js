@@ -40,6 +40,10 @@ function CommentUpdateHandler(pe) {
     $(".CommentItemUpdateDialog").modal({
         relatedTarget: pe.target,
         onConfirm: function(e) {
+            if (e.data.length > CommentLengthDefault) {
+                AlertShowAutoClose("评论超长", "评论超长, 只允许" + CommentLengthDefault + "字符!");
+                return
+            }
             var columnId = $(this.relatedTarget).attr("alt");
             APICommentUpdateById(columnId, {content: e.data}, AlertShowAjaxError, function (data) {
                 if (data["code"] === 0) {
@@ -71,6 +75,16 @@ function CommentDeleteHandler(pe) {
     });
 }
 
+function CommentChangeHandler() {
+    var commentLen = $(".CommentContentField").val().length;
+    $(".CommentCurrentCount").text(commentLen);
+    if (commentLen > CommentLengthDefault) {
+        AlertShowAutoClose("评论超长", "评论超长, 只允许" + CommentLengthDefault + "字符!");
+    }
+}
+
 $(document).ready(function () {
     CommentListPageRender();
+    $(".CommentMaxCount").text(CommentLengthDefault);
+    $(".CommentContentField").bind("input propertychange", "textarea", CommentChangeHandler);
 });
