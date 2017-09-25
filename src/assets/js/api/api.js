@@ -39,6 +39,18 @@ function APICommentGetList(data, error, success) {
     AjaxNoAuth(url, "get", null, error, success);
 }
 
+// 根据ID修改评论
+function APICommentUpdateById(commentId, data, error, success) {
+    var url = commentBaseURI + "/" + commentId;
+    AjaxWithAuth(url, "put", data, error, success);
+}
+
+// 根据ID删除评论
+function APICommentDeleteById(commentId, error, success) {
+    var url = commentBaseURI + "/" + commentId;
+    AjaxWithAuth(url, "delete", null, error, success);
+}
+
 // 获取文章列表
 function APIArticleGetList(data, error, success) {
     var url = articleBaseURI + "/?column_id=" + data.column_id + "&order_by=" + data.order_by +
@@ -58,7 +70,7 @@ function APIArticleUpdateById(articleId, data, error, success) {
     AjaxWithAuth(url, "put", data, error, success);
 }
 
-// 根据ID删除栏目
+// 根据ID删除文章
 function APIArticleDeleteById(articleId, error, success) {
     var url = articleBaseURI + "/" + articleId;
     AjaxWithAuth(url, "delete", null, error, success);
