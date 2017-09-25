@@ -51,7 +51,7 @@ function ColumnGetListHandler() {
 function ArticleCreateHandler() {
     var req = {
         column_id: parseInt($("#column").val()),
-        Title: $('#title').val(),
+        title: $('#title').val(),
         content: $('#content').val()
     };
     APIArticleCreate(req, AlertShowAjaxError, function (data) {

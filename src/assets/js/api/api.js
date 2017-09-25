@@ -52,6 +52,18 @@ function APIArticleGetItem(data, error, success) {
     AjaxNoAuth(url, "get", null, error, success);
 }
 
+// 根据ID修改文章
+function APIArticleUpdateById(articleId, data, error, success) {
+    var url = articleBaseURI + "/" + articleId;
+    AjaxWithAuth(url, "put", data, error, success);
+}
+
+// 根据ID删除栏目
+function APIArticleDeleteById(articleId, error, success) {
+    var url = articleBaseURI + "/" + articleId;
+    AjaxWithAuth(url, "delete", null, error, success);
+}
+
 // 获取图形验证码ID
 function APICaptchaGetID(error, success) {
     var url = captchaBaseURI + "/";
