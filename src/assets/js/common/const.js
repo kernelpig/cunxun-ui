@@ -12,3 +12,4 @@ var typeIdDefault = 0;
 var typeIdColumn = 1;
 var typeIdArticle = 2;
 var typeIdComment = 3;
+var typeIdUser = 4;

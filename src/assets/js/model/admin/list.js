@@ -34,6 +34,8 @@ function TypeGetListHandler() {
         NavbarItemArticleGetList(TypeListPageEnv);
     } else if (TypeListPageEnv.type_id === typeIdComment) {
         NavbarItemCommentGetList(TypeListPageEnv);
+    } else if (TypeListPageEnv.type_id === typeIdUser) {
+        NavbarItemUserGetList(TypeListPageEnv);
     }
 }
 

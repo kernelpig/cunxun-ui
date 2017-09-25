@@ -42,6 +42,11 @@ function UserLogoutHandler() {
 
 var NavbarItems = [
     {
+        id: typeIdUser,
+        name: "用户",
+        url: "user_list.html"
+    },
+    {
         id: typeIdColumn,
         name: "栏目",
         url: "column_list.html"
