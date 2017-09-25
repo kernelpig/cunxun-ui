@@ -6,6 +6,25 @@ var ArticleListPageEnv = {
     is_end: false
 };
 
+
+// 删除文章
+function ArticleDeleteHandler(pe) {
+    $(".ArticleItemDeleteDialog").modal({
+        relatedTarget: pe.target,
+        onConfirm: function(e) {
+            var articleId = $(this.relatedTarget).attr("alt");
+            APIArticleDeleteById(articleId, AlertShowAjaxError, function (data) {
+                if (data["code"] === 0) {
+                    location.reload();
+                } else {
+                    AlertShowError(data["sub_error"]);
+                }
+            });
+        },
+        onCancel: function(e) {  }
+    });
+}
+
 function NavbarItemArticleGetList() {
     APIArticleGetList(ArticleListPageEnv, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
@@ -25,8 +44,9 @@ function NavbarItemArticleGetList() {
                 var updateUrl = "article.html?action=update&article_id=" + item.id;
                 navbarItem.find(".TypeListItemUpdate").attr("href", updateUrl);
                 navbarItem.find(".TypeListItemDelete").attr("alt", item.id);
-                $(".ListItemsContainer").append(navbarItem)
+                $(".ListItemsContainer").append(navbarItem);
             });
+            $(".TypeListItemDelete").click(ArticleDeleteHandler);
         } else {
             AlertShowError(data['sub_error']);
         }
