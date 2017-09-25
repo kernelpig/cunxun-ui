@@ -15,6 +15,7 @@ function NavbarItemCommentGetList(pageEnv) {
                 navbarItem.find(".TypeListItemID").attr("href", articleUrl);
                 navbarItem.find(".TypeListItemName").text(item.content);
                 navbarItem.find(".TypeListItemName").attr("href", articleUrl);
+                navbarItem.find(".TypeListItemName").attr("id", "TypeListItemName"+item.id);
                 navbarItem.find(".TypeListItemAuthor").text(item.nickname);
                 navbarItem.find(".TypeListItemTime").text(GMT2Beijing(item.created_at));
                 navbarItem.find(".TypeListItemUpdate").attr("alt", item.id);
@@ -37,6 +38,11 @@ function CommentListPageRender() {
 
 // 修改评论
 function CommentUpdateHandler(pe) {
+    // 设置为当前评论的内容
+    var oldCommentContent = $("#TypeListItemName" + $(this).attr("alt")).text();
+    $(".CommentCurrentCount").text(oldCommentContent.length);
+    $(".CommentContentField").val(oldCommentContent);
+
     $(".CommentItemUpdateDialog").modal({
         relatedTarget: pe.target,
         onConfirm: function(e) {
