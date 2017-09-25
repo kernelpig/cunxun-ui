@@ -86,6 +86,10 @@ function CommentCreateHandler() {
         article_id: CommentListPageEnv.article_id,
         content: $(".CommentContentField").val()
     };
+    if (req.content.length > CommentLengthDefault) {
+        AlertShowAutoClose("评论超长", "评论超长, 只允许" + CommentLengthDefault + "字符!");
+        return;
+    }
     APICommentCreate(req, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
             location.reload();
