@@ -4,12 +4,13 @@ function IndexPageRender() {
 }
 
 $(document).ready(function () {
-   IndexPageRender();
+    IndexPageRender();
 
-    APIUserGetInfo(Cookies.get('UserId'), AlertShowAjaxError, function (data) {
+    var userId = GetURIParamStr(location.href, "user_id");
+    APIUserGetInfo(userId, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
             $(".UserNicknameField").text(data["nickname"]);
-            $(".UserAvatarField").attr("src", serviceBaseURI + "/u/"+ Cookies.get('UserId') +"/avatar");
+            $(".UserAvatarField").attr("src", serviceBaseURI + "/u/"+ userId +"/avatar");
         } else {
             AlertShowError(data['sub_error']);
         }

@@ -45,6 +45,7 @@ function UserLoginHandler() {
     APIUserLogin(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
             Cookies.set('Authorization', data['user_token']);
+            Cookies.set('UserId', data['user_id']);
             AlertShowAutoClose("登录成功", "马上返回到之前页面!");
             GoToFromPage();
         } else {

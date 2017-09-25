@@ -48,8 +48,8 @@ var UserSignupTemplate = '<div class="am-container am-margin-top">\n' +
     '            </div>\n' +
     '\n' +
     '            <div class="am-form-group" id="alert_content">\n' +
-    '                <input type="button" id="AvatarSelectHandler" value="头像" class="am-btn am-btn-primary am-btn-sm">\n' +
     '                <input type="button" id="UserSignupHandler" value="注册" class="am-btn am-btn-primary am-btn-sm">\n' +
+    '                <input type="button" id="AvatarSelectHandler" value="头像" class="am-btn am-btn-default am-btn-sm">\n' +
     '            </div>\n' +
     '        </fieldset>\n' +
     '    </div>\n' +
