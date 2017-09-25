@@ -33,7 +33,7 @@ function TypeGetListHandler() {
     } else if (TypeListPageEnv.type_id === typeIdArticle) {
         NavbarItemArticleGetList(TypeListPageEnv);
     } else if (TypeListPageEnv.type_id === typeIdComment) {
-        NavbarItemCommentGetList();
+        NavbarItemCommentGetList(TypeListPageEnv);
     }
 }
 
