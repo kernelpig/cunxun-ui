@@ -53,7 +53,7 @@ function APICommentDeleteById(commentId, error, success) {
 
 // 获取文章列表
 function APIArticleGetList(data, error, success) {
-    var url = articleBaseURI + "/?column_id=" + data.column_id + "&order_by=" + data.order_by +
+    var url = articleBaseURI + "/?creater_uid=" + data.creater_uid + "&column_id=" + data.column_id + "&order_by=" + data.order_by +
         "&page_size=" + data.page_size + "&page_num=" + data.page_num;
     AjaxNoAuth(url, "get", null, error, success);
 }

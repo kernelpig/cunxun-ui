@@ -17,6 +17,7 @@ var ArticleListTemplate = '<div data-am-widget="list_news" class="am-list-news a
     '</div>';
 
 var ArticleListPageEnv = {
+    creater_uid: createrUidDefault,
     column_id: columnIdDefault,
     order_by: orderByDefault,
     page_size: PageSizeDefault,

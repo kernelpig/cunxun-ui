@@ -54,6 +54,7 @@ function TypeListPageGetCurrentEnv(currentUrl) {
 
 var TypeListPageEnv = {
     type_id: typeIdDefault,
+    creater_uid: Cookies.get("UserId") || createrUidDefault,
     column_id: columnIdDefault,
     article_id: articleIdDefault,
     order_by: orderByDefault,
