@@ -10,7 +10,11 @@ var TypeListTemplate = '<table class="am-table am-table-striped am-table-compact
     '        </thead>\n' +
     '        <tbody class="ListItemsContainer">\n' +
     '        </tbody>\n' +
-    '    </table>';
+    '    </table>\n' +
+    '    <!--更多在底部-->\n' +
+    '    <div class="am-list-news-ft">\n' +
+    '        <a class="am-list-news-more am-btn am-btn-default TypeGetMoreHandler" href="###">查看更多 &raquo;</a>\n' +
+    '    </div>';
 
 var TypeListItemTemplate = '<tr>\n' +
     '            <td class="am-show-lg-up"><a class="TypeListItemID"></a></td>\n' +
@@ -27,7 +31,7 @@ function TypeGetListHandler() {
     if (TypeListPageEnv.type_id === typeIdColumn) {
         NavbarItemColumnGetList();
     } else if (TypeListPageEnv.type_id === typeIdArticle) {
-        NavbarItemArticleGetList();
+        NavbarItemArticleGetList(TypeListPageEnv);
     } else if (TypeListPageEnv.type_id === typeIdComment) {
         NavbarItemCommentGetList();
     }
@@ -50,6 +54,8 @@ function TypeListPageGetCurrentEnv(currentUrl) {
 
 var TypeListPageEnv = {
     type_id: typeIdDefault,
+    column_id: columnIdDefault,
+    article_id: articleIdDefault,
     order_by: orderByDefault,
     page_size: PageSizeDefault,
     page_num: PageStartNumberDefault,
@@ -65,5 +71,5 @@ function TypeListRender(currentUrl) {
         $(".TypeListTitle").text("时间排序");
     }
     TypeGetListHandler();
-    $('#TypeGetMoreHandler').click(TypeGetMoreHandler);
+    $(".TypeGetMoreHandler").click(TypeGetMoreHandler);
 }

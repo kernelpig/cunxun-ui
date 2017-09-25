@@ -1,11 +1,3 @@
-var ArticleListPageEnv = {
-    column_id: columnIdDefault,
-    order_by: orderByDefault,
-    page_size: PageSizeDefault,
-    page_num: PageStartNumberDefault,
-    is_end: false
-};
-
 
 // 删除文章
 function ArticleDeleteHandler(pe) {
@@ -25,13 +17,15 @@ function ArticleDeleteHandler(pe) {
     });
 }
 
-function NavbarItemArticleGetList() {
-    APIArticleGetList(ArticleListPageEnv, AlertShowAjaxError, function (data) {
+function NavbarItemArticleGetList(pageEnv) {
+    APIArticleGetList(pageEnv, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
+            pageEnv.is_end = data['end'];
             if (!data["list"] || data["list"].length === 0) {
                 AlertShowAutoClose("请知晓", "亲,无更多数据");
                 return
             }
+            pageEnv.page_num += 1;
             $.each(data['list'], function (index, item) {
                 var navbarItem = $(TypeListItemTemplate);
                 var articleUrl = "../article.html?article_id=" + item.id;
