@@ -19,6 +19,7 @@ var NavbarTemplate = '<header class="am-topbar am-topbar-inverse">\n' +
     '        </form>\n' +
     '\n' +
     '        <div class="am-topbar-right" id="UserCenterContainer">\n' +
+    '            <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" id="BacktoWebsite">返回网站</a>\n' +
     '            <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" id="UserLogoutHandler">登出</a>\n' +
     '        </div>\n' +
     '    </div>\n' +
@@ -27,6 +28,9 @@ var NavbarTemplate = '<header class="am-topbar am-topbar-inverse">\n' +
 // 初始化登录状态
 function NavbarSetSignStatus() {
     $('#UserLogoutHandler').click(UserLogoutHandler);
+    $('#BacktoWebsite').click(function () {
+        GoToIndexPage();
+    });
 }
 
 // 用户登出
@@ -59,7 +63,7 @@ function NavbarInitData() {
     if (type_id === 0) {
         if ((location.href.indexOf("index.html") !== -1) || (location.href.indexOf(".html") === -1)) {
             $("#NavbarIndexItemContainer").addClass("am-active");
-            $(document).attr("title", "首页");
+            $(document).attr("title", "个人管理中心");
         }
     }
     $.each(NavbarItems, function (index, item) {
