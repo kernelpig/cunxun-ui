@@ -9,6 +9,7 @@ var CommentTemplate = '<hr><ul class="am-comments-list am-comments-list-flip">\n
     '                </div>\n' +
     '                <div class="am-form-group">\n' +
     '                    <input type="button" value="发表跟帖" class="am-btn am-btn-primary am-btn-sm CommentCreateHandler">\n' +
+    '                    <span class="CommentCurrentCount">0</span>/<span class="CommentMaxCount"></span>\n' +
     '                </div>\n' +
     '            </fieldset>\n' +
     '        </form>\n' +
@@ -99,10 +100,17 @@ function CommentCreateHandler() {
     });
 }
 
+function CommentChangeHandler() {
+    $(".CommentCurrentCount").text($(".CommentContentField").val().length);
+}
+
 function CommentRender(url) {
     $(".ContentContainer").append($(CommentTemplate));
     CommentCurrentEnv(url);
     CommentGetListHandler();
+    $(".CommentMaxCount").text(CommentLengthDefault);
+
     $(".CommentGetMoreHandler").click(CommentGetMoreHandler);
     $(".CommentCreateHandler").click(CommentCreateHandler);
+    $(".CommentContentField").bind("input propertychange", "textarea", CommentChangeHandler);
 }
