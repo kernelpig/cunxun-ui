@@ -46,6 +46,7 @@ function UserLoginHandler() {
         if (data['code'] === 0) {
             Cookies.set('Authorization', data['user_token']);
             Cookies.set('UserId', data['user_id']);
+            Cookies.set('UserRole', data['user_role']);
             AlertShowAutoClose("登录成功", "马上返回到之前页面!");
             GoToFromPage();
         } else {

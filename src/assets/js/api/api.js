@@ -100,6 +100,12 @@ function APIUserSignup(data, error, success) {
     AjaxNoAuth(url, "post", data, error, success);
 }
 
+// 用户获取列表
+function APIUserGetList(data, error, success) {
+    var url = userBaseURI + "/?order_by=" + data.order_by + "&page_size=" + data.page_size + "&page_num=" + data.page_num;
+    AjaxWithAuth(url, "get", null, error, success);
+}
+
 // 栏目获取列表
 function APIColumnGetList(data, error, success) {
     var url = columnBaseURI + "/?creater_uid=" + data.creater_uid;
