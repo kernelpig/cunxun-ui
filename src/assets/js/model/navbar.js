@@ -63,6 +63,9 @@ function NavbarInit() {
                     $(document).attr("title", "首页");
                 }
             }
+            if (!data["list"] || data["list"].length === 0) {
+                return;
+            }
             $.each(data['list'], function (index, item) {
                 var url = "list.html?column_id=" + item.id + "&page_size=10&page_num=1";
                 var a = $("<a></a>").attr("href", url).text(item.name);
@@ -72,7 +75,7 @@ function NavbarInit() {
                     li.addClass("am-active");
                 }
                 $('.am-nav').append(li.append(a))
-            })
+            });
         } else {
             AlertShowError(data['sub_error']);
         }

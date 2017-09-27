@@ -8,3 +8,7 @@ var AvatarHeightDefault = 90;
 
 // 评论配置
 var CommentLengthDefault = 200;
+
+// 上传配置
+var imageUploadTypes = ['jpeg', 'jpg', 'png'];
+var imageUploadMaxSize = 15 * 1024 * 1024;

@@ -7,6 +7,7 @@ var checkcodeBaseURI    = serviceBaseURI + "/checkcode";
 var articleBaseURI      = serviceBaseURI + "/article";
 var columnBaseURI       = serviceBaseURI + "/column";
 var commentBaseURI      = serviceBaseURI + "/comment";
+var imageBaseURI        = serviceBaseURI + "/image";
 
 // 创建评论
 function APICommentCreate(data, error, success) {

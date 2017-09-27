@@ -33,15 +33,14 @@ function ColumnGetListHandler() {
     var req = {creater_uid: createrUidDefault};
     APIColumnGetList(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
-            if (data['list'].length === 0) {
-                $("#column").append($('<li class="am-g">暂无数据</li>'));
-            } else {
-                $.each(data['list'], function () {
-                    var href = 'article.html?id=' + this.id;
-                    var link = $('<a class="am-list-item-hd"></a>').attr('href', href).text(this.title);
-                    $("#column").append($('<option></option>').val(this.id).text(this.name));
-                });
+            if (!data["list"] || data['list'].length === 0) {
+                return
             }
+            $.each(data['list'], function () {
+                var href = 'article.html?id=' + this.id;
+                var link = $('<a class="am-list-item-hd"></a>').attr('href', href).text(this.title);
+                $("#column").append($('<option></option>').val(this.id).text(this.name));
+            });
         } else {
             AlertShowError(data['sub_error']);
         }
@@ -67,14 +66,17 @@ function ArticleCreateHandler() {
 function ArticleCreateRender() {
     IsLogined();
     $(".ContentContainer").append(ArticleCreateTemplate);
-    $('#content').editable({
-        inlineMode: false,
-        alwaysBlank: true,
+    $('#content').froalaEditor({
         theme: 'gray',
         height: 200,
         language: 'zh_cn',
-        pluginsEnabled: ['fullscreen']
-    });
+        imageUploadParam: 'image_key',
+        imageUploadURL: imageBaseURI + "/",
+        imageUploadParams: {xToken: Cookies.get("Authorization")},
+        imageUploadMethod: 'POST',
+        imageMaxSize: imageUploadMaxSize,
+        imageAllowedTypes: imageUploadTypes
+    }).on('froalaEditor.image.error', froalaEditorImageUploadErrorHandler);
     ColumnGetListHandler();
     $('#ArticleCreateHandler').click(ArticleCreateHandler);
 }
