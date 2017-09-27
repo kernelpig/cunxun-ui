@@ -66,6 +66,7 @@ function NavbarItemUserGetList(pageEnv) {
             UserListPageEnv.page_num += 1;
             $.each(data['list'], function (index, item) {
                 var navbarItem = $(UserListItemTemplate);
+                navbarItem.attr("id", "UserListItem" + item.id);
                 navbarItem.find(".UserIdField").text(item.id);
                 navbarItem.find(".UserNicknameField").text(item.nickname);
                 navbarItem.find(".UserPhoneField").text(item.phone);

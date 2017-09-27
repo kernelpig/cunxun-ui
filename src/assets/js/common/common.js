@@ -126,7 +126,7 @@ function AjaxWithAuth(url, method, data, error, success) {
 
 // 普通用户只获取自己创建的, 管理员及以上用户则获取所有的
 function getCreaterUid() {
-    if (!Cookies.get("UserRole") || Cookies.get("UserRole") === 0) {
+    if (!Cookies.get("UserRole") || Cookies.get("UserRole") === userRoleNormal) {
         return Cookies.get("UserId");
     }
     return createrUidDefault;

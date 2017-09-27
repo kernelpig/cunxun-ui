@@ -72,14 +72,6 @@ function ArticleListPageGetCurrentEnv(currentUrl) {
     ArticleListPageEnv.page_num = GetURIParamInt(currentUrl, "page_num") || PageStartNumberDefault;
 }
 
-// 普通用户只获取自己创建的, 管理员及以上用户则获取所有的
-function getCreaterUid() {
-    if (!Cookies.get("UserRole") || Cookies.get("UserRole") === 0) {
-        return Cookies.get("UserId");
-    }
-    return createrUidDefault;
-}
-
 var ArticleListPageEnv = {
     type_id: typeIdDefault,
     creater_uid: getCreaterUid(),

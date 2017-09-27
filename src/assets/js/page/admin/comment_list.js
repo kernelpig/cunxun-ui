@@ -7,7 +7,7 @@ function CommentListPageRender() {
 // 修改评论
 function CommentUpdateHandler(pe) {
     // 设置为当前评论的内容
-    var oldCommentContent = $("#TypeListItemName" + $(this).attr("alt")).text();
+    var oldCommentContent = $("#CommentListItemName" + $(this).attr("alt")).text();
     $(".CommentCurrentCount").text(oldCommentContent.length);
     $(".CommentContentField").val(oldCommentContent);
 

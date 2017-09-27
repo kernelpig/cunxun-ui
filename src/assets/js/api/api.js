@@ -94,6 +94,12 @@ function APIUserCreate(data, error, success) {
     AjaxWithAuth(url, "post", data, error, success);
 }
 
+// 用户创建
+function APIUserUpdate(userId, data, error, success) {
+    var url = userBaseURI + "/" + userId;
+    AjaxWithAuth(url, "put", data, error, success);
+}
+
 // 用户获取
 function APIUserGetInfo(userId, error, success) {
     var url = userBaseURI + "/" + userId;
