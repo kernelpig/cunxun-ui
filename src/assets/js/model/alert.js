@@ -52,7 +52,12 @@ function AlertShowAutoCloseAndGoPage(title, content, gotoPage) {
 function AlertShowAjaxError(e) {
     if (e.responseJSON) {
         // TODO: 如果是token expired则提示需要重新登录
-        AlertShowError(e.responseJSON.sub_error);
+        if(IsTokenErr(e.responseJSON.code)) {
+            resetLoginCookie();
+            AlertShowAutoCloseAndGoPage("请重新登录", e.responseJSON.sub_error, "/login.html");
+        } else {
+            AlertShowError(e.responseJSON.sub_error);
+        }
     } else if (e.responseText) {
         AlertShowError(e.responseText);
     } else {

@@ -27,10 +27,14 @@ var NavbarTemplate = '<header class="am-topbar am-topbar-inverse">\n' +
 
 // 初始化登录状态
 function NavbarSetSignStatus() {
-    $('#UserLogoutHandler').click(UserLogoutHandler);
-    $('#BacktoWebsite').click(function () {
-        GoToIndexPage();
-    });
+    if (!Cookies.get('Authorization')) {
+        AlertShowAutoCloseAndGoPage("请登录", "需要重新登录", "/login.html");
+    } else {
+        $('#UserLogoutHandler').click(UserLogoutHandler);
+        $('#BacktoWebsite').click(function () {
+            GoToIndexPage();
+        });
+    }
 }
 
 // 用户登出

@@ -131,3 +131,10 @@ function getCreaterUid() {
     }
     return createrUidDefault;
 }
+
+// 重置登录状态
+function resetLoginCookie() {
+    Cookies.remove("Authorization");
+    Cookies.remove("UserId");
+    Cookies.remove("UserRole");
+}

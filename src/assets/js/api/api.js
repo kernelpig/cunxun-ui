@@ -100,6 +100,12 @@ function APIUserUpdate(userId, data, error, success) {
     AjaxWithAuth(url, "put", data, error, success);
 }
 
+// 根据ID删除
+function APIUserDeleteById(userId, error, success) {
+    var url = userBaseURI + "/" + userId;
+    AjaxWithAuth(url, "delete", null, error, success);
+}
+
 // 用户获取
 function APIUserGetInfo(userId, error, success) {
     var url = userBaseURI + "/" + userId;
