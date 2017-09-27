@@ -88,6 +88,12 @@ function APIUserLogin(data, error, success) {
     AjaxNoAuth(url, "post", data, error, success);
 }
 
+// 用户创建
+function APIUserCreate(data, error, success) {
+    var url = userBaseURI + "/";
+    AjaxWithAuth(url, "post", data, error, success);
+}
+
 // 用户获取
 function APIUserGetInfo(userId, error, success) {
     var url = userBaseURI + "/" + userId;

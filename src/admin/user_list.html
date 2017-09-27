@@ -15,14 +15,20 @@
 <body>
 
 <div class="am-container ContentContainer">
-    <h2>用户管理  <a class="am-btn am-btn-default am-btn-xs am-icon-pencil am-round ColumnCreateHandler">新建</a></h2>
+    <h2>用户管理  <a class="am-btn am-btn-default am-btn-xs am-icon-pencil am-round UserCreateHandler">新建</a></h2>
     <hr>
-    <div class="am-modal am-modal-prompt ColumnItemUpdateDialog" tabindex="-1">
+    <div class="am-modal am-modal-prompt UserItemUpdateDialog" tabindex="-1">
         <div class="am-modal-dialog">
             <div class="am-modal-hd">用户信息</div>
             <div class="am-modal-bd">
-                请输入用户名称
-                <input type="text" class="am-modal-prompt-input">
+                <input type="text" class="am-modal-prompt-input UserItemPhone" placeholder="*手机号码">
+                <input type="text" class="am-modal-prompt-input UserItemPassword" placeholder="*用户密码">
+                <input type="text" class="am-modal-prompt-input UserItemNickname" placeholder="用户昵称">
+                <select type="text" class="am-modal-prompt-input UserItemRole">
+                    <option value="0">普通用户</option>
+                    <option value="1">管理员</option>
+                    <option value="2">超级管理员</option>
+                </select>
             </div>
             <div class="am-modal-footer">
                 <span class="am-modal-btn" data-am-modal-cancel>取消</span>
@@ -30,7 +36,7 @@
             </div>
         </div>
     </div>
-    <div class="am-modal am-modal-confirm ColumnItemDeleteDialog">
+    <div class="am-modal am-modal-confirm UserItemDeleteDialog">
         <div class="am-modal-dialog">
             <div class="am-modal-hd">删除用户</div>
             <div class="am-modal-bd">
