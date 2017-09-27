@@ -23,6 +23,10 @@ function ColumnCreateHandler() {
 
 // 修改栏目
 function ColumnUpdateHandler(pe) {
+    var ColumnItemId = $(".ColumnListItemUpdate").attr("alt");
+    var ColumnItemName = $("#ColoumnListItem"+ColumnItemId+" .ColumnListItemName").text();
+    $(".ColumnItemNameField").val(ColumnItemName);
+
     $(".ColumnItemUpdateDialog").modal({
         relatedTarget: pe.target,
         onConfirm: function(e) {

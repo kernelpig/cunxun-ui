@@ -38,6 +38,7 @@ function ColumnGetListHandler() {
             }
             $.each(data['list'], function (index, item) {
                 var navbarItem = $(ColumnListItemTemplate);
+                navbarItem.attr("id", "ColoumnListItem" + item.id);
                 navbarItem.find(".ColumnListItemID").text(item.id);
                 navbarItem.find(".ColumnListItemName").text(item.name);
                 navbarItem.find(".ColumnListItemAuthor").text(item.nickname);
