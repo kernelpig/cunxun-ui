@@ -29,10 +29,12 @@ function UserCreateHandler() {
 function UserUpdateHandler(pe) {
     var relatedUserItemId = $(this).attr("alt");
     var relatedUserItemName = $("#UserListItem" + relatedUserItemId + " .UserNicknameField");
+    var relatedUserItemRole = $("#UserListItem" + relatedUserItemId + " .UserRoleField");
     $(".UserItemPhone").addClass("am-hide");
     $(".UserItemPassword").addClass("am-hide");
     $(".UserItemRoleSuper").addClass("am-hide");
-    $(".UserItemNickname").val(relatedUserItemName.text()).addClass("am-disable");
+    $(".UserItemNickname").val(relatedUserItemName.text()).attr("disabled", "");
+    $(".UserItemRole").val(relatedUserItemRole.attr("UserRoleFieldValue"));
 
     $(".UserItemUpdateDialog").modal({
         relatedTarget: pe.target,
