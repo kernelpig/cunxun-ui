@@ -26,7 +26,7 @@ function ArticleCreateHandler() {
     };
     APIArticleCreate(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
-            AlertShowAutoCloseAndGoPage("创建成功", "马上返回到之前页面!", "/admin/index.html");
+            AlertShowAutoCloseAndGoPage("创建成功", "马上跳转当前页面!", "/article.html?article_id=" + data['article_id']);
         } else {
             AlertShowError(data['sub_error']);
         }
@@ -39,9 +39,10 @@ function ArticleUpdateHandler() {
         title: $(".ArticleTitleField").val(),
         content: $(".ArticleContentField").val()
     };
-    APIArticleUpdateById(GetURIParamStr(location.href, "article_id"), req, AlertShowAjaxError, function (data) {
+    var articleId = GetURIParamStr(location.href, "article_id");
+    APIArticleUpdateById(articleId, req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
-            AlertShowAutoCloseAndGoPage("创建成功", "马上返回到之前页面!", "/admin/index.html");
+            AlertShowAutoCloseAndGoPage("创建成功", "马上跳转当前页面!", "/article.html?article_id=" + articleId);
         } else {
             AlertShowError(data['sub_error']);
         }
