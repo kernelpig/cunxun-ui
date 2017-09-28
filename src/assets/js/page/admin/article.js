@@ -49,16 +49,17 @@ function ArticleUpdateHandler() {
 }
 
 function ArticleEditorRender() {
-    // 没有找到编辑框的设置文本方法, 使用的较老版本, 暂时使用此方法规避掉
-    // TODO: 更新为最新版本的编辑器
-    $(".ArticleContentField").editable({
-        inlineMode: false,
-        alwaysBlank: true,
+    $('.ArticleContentField').froalaEditor({
         theme: 'gray',
         height: 200,
         language: 'zh_cn',
-        pluginsEnabled: ['fullscreen']
-    });
+        imageUploadParam: 'image_key',
+        imageUploadURL: imageBaseURI + "/",
+        imageUploadParams: {xToken: Cookies.get("Authorization")},
+        imageUploadMethod: 'POST',
+        imageMaxSize: imageUploadMaxSize,
+        imageAllowedTypes: imageUploadTypes
+    }).on('froalaEditor.image.error', froalaEditorImageUploadErrorHandler);
 }
 
 function ArticleCreateRender() {
