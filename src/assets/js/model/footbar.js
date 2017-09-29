@@ -9,7 +9,7 @@ var FootbarTemplate = '<footer data-am-widget="footer"\n' +
 
 var FootbarEnv = {
     copyright: "CopyRight©2017 王大脸 Inc.",
-    record_number: "京ICP备13033158"
+    record_number: "京ICP备14040736号"
 };
 
 function FootbarRender() {
