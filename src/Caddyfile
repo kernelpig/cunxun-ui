@@ -1,8 +1,8 @@
 http://ycxw.org http://www.ycxw.org {
-        redir https://www.lunxue.org
+        redir https://www.lunxue.cc
 }
 
-https://www.lunxue.cc https://lunxue.cc {
+https://www.lunxue.cc {
         log /data/logs/caddy/cunxun-ui/iheze.org.log
         gzip
         proxy /api localhost:8005 {
