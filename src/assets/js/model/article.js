@@ -22,7 +22,6 @@ function ArticleGetHandler() {
             $(document).attr("title", data["item"].title);
             $(".am-article-title").text(data["item"].title);
             $(".ArticleContentContainer").html(data["item"].content);
-            $("#ttt").html(data["item"].content);
             var userLink = "/user.html?user_id="+data["item"].updater_uid;
             $(".am-article-meta").append("发布作者: &nbsp;");
             $(".am-article-meta").append($("<a></a>").text(data["item"].nickname).attr("href", userLink));

@@ -66,6 +66,12 @@ function APIArticleGetItem(data, error, success) {
     AjaxNoAuth(url, "get", null, error, success);
 }
 
+// 获取拼车内容
+function APICarpoolingGetItem(data, error, success) {
+    var url = carpoolingBaseURI + "/" + data.carpooling_id;
+    AjaxNoAuth(url, "get", null, error, success);
+}
+
 // 根据ID修改文章
 function APIArticleUpdateById(articleId, data, error, success) {
     var url = articleBaseURI + "/" + articleId;
