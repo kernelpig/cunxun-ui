@@ -60,6 +60,13 @@ function APIArticleGetList(data, error, success) {
     AjaxNoAuth(url, "get", null, error, success);
 }
 
+// 获取拼车列表
+function APICarpoolingGetList(data, error, success) {
+    var url = carpoolingBaseURI + "/?creater_uid=" + data.creater_uid + "&order_by=" + data.order_by +
+        "&page_size=" + data.page_size + "&page_num=" + data.page_num;
+    AjaxNoAuth(url, "get", null, error, success);
+}
+
 // 获取文章内容
 function APIArticleGetItem(data, error, success) {
     var url = articleBaseURI + "/" + data.article_id;

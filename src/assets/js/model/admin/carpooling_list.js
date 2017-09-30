@@ -2,9 +2,12 @@ var CarpoolingListTemplate = '<table class="am-table am-table-striped am-table-c
     '        <thead>\n' +
     '        <tr>\n' +
     '            <th class="am-show-lg-up">ID</th>\n' +
-    '            <th>标题</th>\n' +
-    '            <th class="am-show-lg-up">作者</th>\n' +
-    '            <th class="am-show-lg-up">时间</th>\n' +
+    '            <th>出发</th>\n' +
+    '            <th>到达</th>\n' +
+    '            <th>日期</th>\n' +
+    '            <th class="am-show-lg-up">人数</th>\n' +
+    '            <th class="am-show-lg-up">备注</th>\n' +
+    '            <th>创建时间</th>\n' +
     '            <th>操作</th>\n' +
     '        </tr>\n' +
     '        </thead>\n' +
@@ -18,9 +21,12 @@ var CarpoolingListTemplate = '<table class="am-table am-table-striped am-table-c
 
 var CarpoolingListItemTemplate = '<tr>\n' +
     '            <td class="am-show-lg-up"><a class="CarpoolingListItemID"></a></td>\n' +
-    '            <td><a class="CarpoolingListItemName"></a></td>\n' +
-    '            <td class="am-show-lg-up"><a class="CarpoolingListItemAuthor"></a></td>\n' +
-    '            <td class="CarpoolingListItemTime am-show-lg-up"></td>\n' +
+    '            <td><a class="CarpoolingListItemFromCity"></a></td>\n' +
+    '            <td><a class="CarpoolingListItemToCity"></a></td>\n' +
+    '            <td><a class="CarpoolingListItemDepartTime"></a></td>\n' +
+    '            <td class="am-show-lg-up"><a class="CarpoolingListItemPeopleCount"></a></td>\n' +
+    '            <td class="am-show-lg-up"><a class="CarpoolingListItemRemark"></a></td>\n' +
+    '            <td class="CarpoolingListItemCreatedAt am-show-lg-up"></td>\n' +
     '            <td>\n' +
     '                <a class="am-btn am-btn-xs am-btn-default am-icon-pencil CarpoolingListItemUpdate">修改</a>\n' +
     '                <a class="am-btn am-btn-xs am-btn-primary am-icon-trash CarpoolingListItemDelete">删除</a>\n' +
@@ -38,14 +44,19 @@ function CarpoolingGetListHandler() {
             CarpoolingListPageEnv.page_num += 1;
             $.each(data['list'], function (index, item) {
                 var navbarItem = $(CarpoolingListItemTemplate);
-                var articleUrl = "../article.html?article_id=" + item.id;
+                var carpoolingUrl = "../carpooling.html?carpooling_id=" + item.id;
                 navbarItem.find(".CarpoolingListItemID").text(item.id);
-                navbarItem.find(".CarpoolingListItemID").attr("href", articleUrl);
-                navbarItem.find(".CarpoolingListItemName").text(item.title);
-                navbarItem.find(".CarpoolingListItemName").attr("href", articleUrl);
-                navbarItem.find(".CarpoolingListItemAuthor").text(item.nickname);
-                navbarItem.find(".CarpoolingListItemTime").text(GMT2Beijing(item.created_at));
-                var updateUrl = "article.html?action=update&article_id=" + item.id;
+                navbarItem.find(".CarpoolingListItemID").attr("href", carpoolingUrl);
+                navbarItem.find(".CarpoolingListItemFromCity").text(item.from_city);
+                navbarItem.find(".CarpoolingListItemFromCity").attr("href", carpoolingUrl);
+                navbarItem.find(".CarpoolingListItemToCity").text(item.from_city);
+                navbarItem.find(".CarpoolingListItemToCity").attr("href", carpoolingUrl);
+                navbarItem.find(".CarpoolingListItemDepartTime").text(GMT2Beijing(item.depart_time));
+                navbarItem.find(".CarpoolingListItemDepartTime").attr("href", carpoolingUrl);
+                navbarItem.find(".CarpoolingListItemPeopleCount").text(item.people_count);
+                navbarItem.find(".CarpoolingListItemCreatedAt").text(GMT2Beijing(item.created_at));
+                navbarItem.find(".CarpoolingListItemRemark").html(item.remark);
+                var updateUrl = "carpooling.html?action=update&carpooling_id=" + item.id;
                 navbarItem.find(".CarpoolingListItemUpdate").attr("href", updateUrl);
                 navbarItem.find(".CarpoolingListItemDelete").attr("alt", item.id);
                 $(".ListItemsContainer").append(navbarItem);
@@ -75,8 +86,7 @@ function CarpoolingListPageGetCurrentEnv(currentUrl) {
 var CarpoolingListPageEnv = {
     type_id: typeIdDefault,
     creater_uid: getCreaterUid(),
-    column_id: columnIdDefault,
-    article_id: articleIdDefault,
+    carpooling_id: carpoolingIdDefault,
     order_by: orderByDefault,
     page_size: PageSizeDefault,
     page_num: PageStartNumberDefault,
