@@ -1,8 +1,8 @@
-http://iheze.org http://www.iheze.org {
-        redir https://www.iheze.org
+http://ycxw.org http://www.ycxw.org {
+        redir https://www.lunxue.org
 }
 
-https://www.iheze.org https://iheze.org {
+https://www.lunxue.cc https://lunxue.cc {
         log /data/logs/caddy/cunxun-ui/iheze.org.log
         gzip
         proxy /api localhost:8005 {
