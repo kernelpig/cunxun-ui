@@ -13,6 +13,7 @@ var typeIdColumn = 1;
 var typeIdArticle = 2;
 var typeIdComment = 3;
 var typeIdUser = 4;
+var typeIdCarpooling = 5;
 
 // 用户角色, TODO: 服务端返回
 var userRoleNormal = 1;

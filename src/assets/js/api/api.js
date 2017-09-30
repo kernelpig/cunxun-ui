@@ -8,6 +8,7 @@ var articleBaseURI      = serviceBaseURI + "/article";
 var columnBaseURI       = serviceBaseURI + "/column";
 var commentBaseURI      = serviceBaseURI + "/comment";
 var imageBaseURI        = serviceBaseURI + "/image";
+var carpoolingBaseURI   = serviceBaseURI + "/carpooling";
 
 // 创建评论
 function APICommentCreate(data, error, success) {
@@ -134,6 +135,12 @@ function APIColumnGetList(data, error, success) {
 // 文章创建
 function APIArticleCreate(data, error, success) {
     var url = articleBaseURI + "/";
+    AjaxWithAuth(url, "post", data, error, success);
+}
+
+// 拼车创建
+function APICarpoolingCreate(data, error, success) {
+    var url = carpoolingBaseURI + "/";
     AjaxWithAuth(url, "post", data, error, success);
 }
 

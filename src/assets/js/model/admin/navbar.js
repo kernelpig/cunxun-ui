@@ -64,6 +64,11 @@ var NavbarItems = [
         id: typeIdComment,
         name: "评论",
         url: "comment_list.html"
+    },
+    {
+        id: typeIdCarpooling,
+        name: "拼车",
+        url: "carpooling_list.html"
     }
 ];
 
