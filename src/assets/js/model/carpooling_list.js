@@ -6,7 +6,6 @@ var CarpoolingListTemplate = '<table class="am-table am-table-compact am-text-sm
     '            <th>日期</th>\n' +
     '            <th class="am-show-lg-up">人数</th>\n' +
     '            <th class="am-show-lg-up">备注</th>\n' +
-    '            <th class="am-show-lg-up">创建时间</th>\n' +
     '        </tr>\n' +
     '        </thead>\n' +
     '        <tbody class="ListItemsContainer">\n' +
@@ -23,7 +22,6 @@ var CarpoolingListItemTemplate = '<tr>\n' +
     '            <td><a class="CarpoolingListItemDepartTime"></a></td>\n' +
     '            <td class="am-show-lg-up"><a class="CarpoolingListItemPeopleCount"></a></td>\n' +
     '            <td class="am-show-lg-up"><a class="CarpoolingListItemRemark"></a></td>\n' +
-    '            <td class="CarpoolingListItemCreatedAt am-show-lg-up"></td>\n' +
     '        </tr>\n';
 
 function CarpoolingGetListHandler() {
