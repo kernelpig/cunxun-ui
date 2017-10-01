@@ -19,6 +19,9 @@ function ArticleGetHandler() {
     };
     APIArticleGetItem(req, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
+            if (!data["item"]) {
+                return
+            }
             $(document).attr("title", data["item"].title);
             $(".am-article-title").text(data["item"].title);
             $(".ArticleContentContainer").html(data["item"].content);
@@ -35,7 +38,7 @@ function ArticleGetHandler() {
 }
 
 function ArticleCurrentEnv(currentUrl) {
-    ArticleDetailEnv.article_id = GetURIParamInt(currentUrl, "article_id") || 1
+    ArticleDetailEnv.article_id = GetURIParamIdValue(currentUrl, "article_id") || articleIdDefault
 }
 
 function AriticleDetailRender(currentUrl) {

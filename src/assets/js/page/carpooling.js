@@ -28,7 +28,7 @@ var CarpoolingDetailEnv = {
 };
 
 function CarpoolingCurrentEnv(currentUrl) {
-    CarpoolingDetailEnv.carpooling_id = GetURIParamInt(currentUrl, "carpooling_id") || 1
+    CarpoolingDetailEnv.carpooling_id = GetURIParamIdValue(currentUrl, "carpooling_id") || carpoolingIdDefault
 }
 
 $(document).ready(function () {

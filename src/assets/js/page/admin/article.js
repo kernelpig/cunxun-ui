@@ -20,7 +20,7 @@ function ColumnGetListHandler() {
 
 function ArticleCreateHandler() {
     var req = {
-        column_id: parseInt($(".ColumnListField").val()),
+        column_id: $(".ColumnListField").val(),
         Title: $(".ArticleTitleField").val(),
         content: $(".ArticleContentField").val()
     };
@@ -35,7 +35,7 @@ function ArticleCreateHandler() {
 
 function ArticleUpdateHandler() {
     var req = {
-        column_id: parseInt($(".ColumnListField").val()),
+        column_id: $(".ColumnListField").val(),
         title: $(".ArticleTitleField").val(),
         content: $(".ArticleContentField").val()
     };

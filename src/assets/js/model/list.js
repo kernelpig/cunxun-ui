@@ -60,7 +60,7 @@ function ArticleGetMoreHandler() {
 }
 
 function ArticleListPageGetCurrentEnv(currentUrl) {
-    ArticleListPageEnv.column_id = GetURIParamInt(currentUrl, "column_id") || columnIdDefault;
+    ArticleListPageEnv.column_id = GetURIParamIdValue(currentUrl, "column_id") || columnIdDefault;
     ArticleListPageEnv.order_by = GetURIParamStr(currentUrl, "order_by") || orderByDefault;
     ArticleListPageEnv.page_size = GetURIParamInt(currentUrl, "page_size") || PageSizeDefault;
     ArticleListPageEnv.page_num = GetURIParamInt(currentUrl, "page_num") || PageStartNumberDefault;

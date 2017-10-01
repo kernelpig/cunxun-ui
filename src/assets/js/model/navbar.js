@@ -56,8 +56,8 @@ function NavbarInit() {
     var req = {creater_uid: createrUidDefault};
     APIColumnGetList(req, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
-            var column_id = GetURIParamInt(location.href, "column_id");
-            if (column_id === 0) {
+            var column_id = GetURIParamIdValue(location.href, "column_id");
+            if (column_id === columnIdDefault) {
                 if ((location.href.indexOf("index.html") !== -1) || (location.href.indexOf(".html") === -1)) {
                     $("#NavbarIndexItemContainer").addClass("am-active");
                     $(document).attr("title", "首页");

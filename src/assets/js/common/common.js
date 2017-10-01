@@ -39,6 +39,11 @@ function GetURIParamInt(url, key) {
     return parseInt(GetURIParamStr(url, key)) || 0;
 }
 
+// 获取URL id类型参数
+function GetURIParamIdValue(url, key) {
+    return GetURIParamStr(url, key);
+}
+
 // 跳转到指定页面
 function GoToPage(relativePath) {
     location.href = location.protocol + "//" + location.host + relativePath;

@@ -45,7 +45,7 @@ var CommentListPageEnv = {
 var CommentBuildingCode = 0;
 
 function CommentCurrentEnv(url) {
-    CommentListPageEnv.relate_id = GetURIParamInt(url, "relate_id");
+    CommentListPageEnv.relate_id = GetURIParamIdValue(url, "relate_id");
     CommentListPageEnv.page_size = GetURIParamInt(url, "page_size") || PageSizeDefault;
     CommentListPageEnv.page_num = GetURIParamInt(url, "page_num") || PageStartNumberDefault;
 }
