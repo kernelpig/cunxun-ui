@@ -6,8 +6,8 @@ function timeFormat(s) {
     return s;
 }
 
-// GMT格式时间转换为北京时间
-function GMT2Beijing(time) {
+// 当地时间格式化输出
+function CtsTimeFormat(time) {
     var date = new Date(time);
     var Str = date.getFullYear() + '-' +
         timeFormat(date.getMonth() + 1) + '-' +

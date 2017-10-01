@@ -11,7 +11,7 @@ function CarpoolingGetHandler() {
             }
             $(".CarpoolingFromCityField").val(data["item"].from_city);
             $(".CarpoolingToCityField").val(data["item"].to_city);
-            $(".CarpoolingDepartTimeField").val(GMT2Beijing(data["item"].depart_time));
+            $(".CarpoolingDepartTimeField").val(CtsTimeFormat(data["item"].depart_time));
             $(".CarpoolingPeopleCountField").val(data["item"].people_count);
             $(".CarpoolingContactField").val(data["item"].contact);
             $(".CarpoolingRemarkField").html(data["item"].remark);

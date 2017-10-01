@@ -26,7 +26,7 @@ function ArticleGetHandler() {
             $(".am-article-meta").append("发布作者: &nbsp;");
             $(".am-article-meta").append($("<a></a>").text(data["item"].nickname).attr("href", userLink));
             $(".am-article-meta").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发布时间: &nbsp;");
-            $(".am-article-meta").append(GMT2Beijing(data["item"].updated_at));
+            $(".am-article-meta").append(CtsTimeFormat(data["item"].updated_at));
             $(".am-article-meta").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评论次数: &nbsp;" + data["item"].comment_count);
         } else {
             AlertShowError(data["sub_error"]);

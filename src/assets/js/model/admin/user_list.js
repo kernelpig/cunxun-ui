@@ -72,7 +72,7 @@ function NavbarItemUserGetList(pageEnv) {
                 navbarItem.find(".UserPhoneField").text(item.phone);
                 navbarItem.find(".UserRoleField").text(userRoleInfo[item.role]);
                 navbarItem.find(".UserRoleField").attr("UserRoleFieldValue", item.role);
-                navbarItem.find(".UserCreatedAtField").text(GMT2Beijing(item.created_at));
+                navbarItem.find(".UserCreatedAtField").text(CtsTimeFormat(item.created_at));
                 navbarItem.find(".UserItemUpdateHandler").attr("alt", item.id);
                 navbarItem.find(".UserItemDeleteHandler").attr("alt", item.id);
                 $(".ListItemsContainer").append(navbarItem);

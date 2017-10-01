@@ -63,7 +63,7 @@ function CommentGetListHandler() {
                     var item = $(CommentItemTemplate);
                     item.find(".UserAvatarField").attr("src", serviceBaseURI + "/u/"+this.creater_uid+"/avatar");
                     item.find(".UserNameField").text((++CommentBuildingCode) + "楼 " + this.nickname);
-                    item.find(".CommentCreatedAtField").text(GMT2Beijing(this.created_at));
+                    item.find(".CommentCreatedAtField").text(CtsTimeFormat(this.created_at));
                     item.find(".CommentContentItemField").text(this.content);
                     item.find(".UserHomePageLink").attr("href", "/user.html?user_id="+this.creater_uid);
                     $(".am-comments-list").append(item);

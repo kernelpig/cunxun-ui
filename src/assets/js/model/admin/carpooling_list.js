@@ -55,11 +55,11 @@ function CarpoolingGetListHandler() {
                 navbarItem.find(".CarpoolingListItemFromCity").attr("href", carpoolingUrl);
                 navbarItem.find(".CarpoolingListItemToCity").text(item.from_city);
                 navbarItem.find(".CarpoolingListItemToCity").attr("href", carpoolingUrl);
-                navbarItem.find(".CarpoolingListItemDepartTime").text(GMT2Beijing(item.depart_time));
+                navbarItem.find(".CarpoolingListItemDepartTime").text(CtsTimeFormat(item.depart_time));
                 navbarItem.find(".CarpoolingListItemDepartTime").attr("href", carpoolingUrl);
                 navbarItem.find(".CarpoolingListItemPeopleCount").text(item.people_count);
                 navbarItem.find(".CarpoolingListItemContact").text(item.contact);
-                navbarItem.find(".CarpoolingListItemCreatedAt").text(GMT2Beijing(item.created_at));
+                navbarItem.find(".CarpoolingListItemCreatedAt").text(CtsTimeFormat(item.created_at));
                 navbarItem.find(".CarpoolingListItemCreater").text(item.nickname);
                 navbarItem.find(".CarpoolingListItemRemark").html(item.remark);
                 var updateUrl = "carpooling.html?action=update&carpooling_id=" + item.id;

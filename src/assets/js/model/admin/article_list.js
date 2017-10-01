@@ -44,7 +44,7 @@ function ArticleGetListHandler() {
                 navbarItem.find(".ArticleListItemName").text(item.title);
                 navbarItem.find(".ArticleListItemName").attr("href", articleUrl);
                 navbarItem.find(".ArticleListItemAuthor").text(item.nickname);
-                navbarItem.find(".ArticleListItemTime").text(GMT2Beijing(item.created_at));
+                navbarItem.find(".ArticleListItemTime").text(CtsTimeFormat(item.created_at));
                 var updateUrl = "article.html?action=update&article_id=" + item.id;
                 navbarItem.find(".ArticleListItemUpdate").attr("href", updateUrl);
                 navbarItem.find(".ArticleListItemDelete").attr("alt", item.id);

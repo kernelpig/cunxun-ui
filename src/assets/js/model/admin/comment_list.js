@@ -45,7 +45,7 @@ function CommentGetListHandler() {
                 navbarItem.find(".CommentListItemName").attr("href", articleUrl);
                 navbarItem.find(".CommentListItemName").attr("id", "CommentListItemName"+item.id);
                 navbarItem.find(".CommentListItemAuthor").text(item.nickname);
-                navbarItem.find(".CommentListItemTime").text(GMT2Beijing(item.created_at));
+                navbarItem.find(".CommentListItemTime").text(CtsTimeFormat(item.created_at));
                 navbarItem.find(".CommentListItemUpdate").attr("alt", item.id);
                 navbarItem.find(".CommentListItemDelete").attr("alt", item.id);
                 $(".ListItemsContainer").append(navbarItem)

@@ -42,7 +42,7 @@ function ColumnGetListHandler() {
                 navbarItem.find(".ColumnListItemID").text(item.id);
                 navbarItem.find(".ColumnListItemName").text(item.name);
                 navbarItem.find(".ColumnListItemAuthor").text(item.nickname);
-                navbarItem.find(".ColumnListItemTime").text(GMT2Beijing(item.created_at));
+                navbarItem.find(".ColumnListItemTime").text(CtsTimeFormat(item.created_at));
                 navbarItem.find(".ColumnListItemUpdate").attr("alt", item.id);
                 navbarItem.find(".ColumnListItemDelete").attr("alt", item.id);
                 $(".ListItemsContainer").append(navbarItem)
