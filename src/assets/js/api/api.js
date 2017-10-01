@@ -85,6 +85,12 @@ function APIArticleUpdateById(articleId, data, error, success) {
     AjaxWithAuth(url, "put", data, error, success);
 }
 
+// 根据ID修改拼车
+function APICarpoolingUpdateById(carpoolingId, data, error, success) {
+    var url = carpoolingBaseURI + "/" + carpoolingId;
+    AjaxWithAuth(url, "put", data, error, success);
+}
+
 // 根据ID删除文章
 function APIArticleDeleteById(articleId, error, success) {
     var url = articleBaseURI + "/" + articleId;

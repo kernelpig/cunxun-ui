@@ -22,14 +22,16 @@ function CarpoolingCreateHandler() {
 
 function CarpoolingUpdateHandler() {
     var req = {
-        column_id: parseInt($(".ColumnListField").val()),
-        title: $(".CarpoolingTitleField").val(),
-        content: $(".CarpoolingContentField").val()
+        from_city: $(".CarpoolingFromCityField").val(),
+        to_city: $(".CarpoolingToCityField").val(),
+        depart_time: $(".CarpoolingDepartTimeField").val(),
+        people_count: parseInt($(".CarpoolingPeopleCountField").val()),
+        remark: $(".CarpoolingRemarkField").val()
     };
     var carpoolingId = GetURIParamStr(location.href, "carpooling_id");
     APICarpoolingUpdateById(carpoolingId, req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
-            AlertShowAutoCloseAndGoPage("创建成功", "马上跳转当前页面!", "/carpooling.html?carpooling_id=" + carpoolingId);
+            AlertShowAutoCloseAndGoPage("更新成功", "马上跳转相关页面!", "/carpooling.html?carpooling_id=" + carpoolingId);
         } else {
             AlertShowError(data['sub_error']);
         }
@@ -50,7 +52,7 @@ function CarpoolingEditorRender() {
     }).on('froalaEditor.image.error', froalaEditorImageUploadErrorHandler);
 }
 
-function CarpoolingDepartTimeRender() {
+function CarpoolingDepartTimeRender(time) {
     $.fn.datetimepicker.dates['zh-CN'] = {
         days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
         daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
@@ -65,12 +67,13 @@ function CarpoolingDepartTimeRender() {
     $(".CarpoolingDepartTimeField").datetimepicker({
         format: 'yyyy-mm-ddThh:ii:ssZ',
         language:  'zh-CN',
-        autoclose: true
+        autoclose: true,
+        initialDate: time
     });
 }
 
 function CarpoolingCreateRender() {
-    CarpoolingDepartTimeRender();
+    CarpoolingDepartTimeRender(new Date());
     CarpoolingEditorRender();
     $(".CarpoolingActionHandler").click(CarpoolingCreateHandler);
 }
@@ -85,11 +88,14 @@ function CarpoolingUpdateRender() {
                 AlertShowAutoClose("不存在", "此拼车不存在");
                 return
             }
-            $(".ColumnListField").val(data["item"].column_id);
-            $(".CarpoolingTitleField").val(data["item"].title);
-            $('.CarpoolingContentField').val(data["item"].content);
+            $(".CarpoolingFromCityField").val(data["item"].from_city);
+            $(".CarpoolingToCityField").val(data["item"].to_city);
+            $(".CarpoolingDepartTimeField").val(GMT2Beijing(data["item"].depart_time));
+            $(".CarpoolingPeopleCountField").val(data["item"].people_count);
+            $(".CarpoolingRemarkField").html(data["item"].remark);
 
             CarpoolingEditorRender();
+            CarpoolingDepartTimeRender(GMT2Beijing(data["item"].depart_time));
             $(".CarpoolingActionHandler").click(CarpoolingUpdateHandler);
         } else {
             AlertShowError(data["sub_error"]);
