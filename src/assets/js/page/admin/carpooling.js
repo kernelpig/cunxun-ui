@@ -7,7 +7,7 @@ function CarpoolingCreateHandler() {
     var req = {
         from_city: $(".CarpoolingFromCityField").val(),
         to_city: $(".CarpoolingToCityField").val(),
-        depart_time: $(".CarpoolingDepartTimeField").val(),
+        depart_time: GetUnixTimestampOfSecond($(".CarpoolingDepartTimeField").val()),
         people_count: parseInt($(".CarpoolingPeopleCountField").val()),
         contact: $(".CarpoolingContactField").val(),
         remark: $(".CarpoolingRemarkField").val()
@@ -25,7 +25,7 @@ function CarpoolingUpdateHandler() {
     var req = {
         from_city: $(".CarpoolingFromCityField").val(),
         to_city: $(".CarpoolingToCityField").val(),
-        depart_time: $(".CarpoolingDepartTimeField").val(),
+        depart_time: GetUnixTimestampOfSecond($(".CarpoolingDepartTimeField").val()),
         people_count: parseInt($(".CarpoolingPeopleCountField").val()),
         contact: $(".CarpoolingContactField").val(),
         remark: $(".CarpoolingRemarkField").val()
@@ -67,7 +67,7 @@ function CarpoolingDepartTimeRender(time) {
     };
     // TODO: 不能小于当前时间
     $(".CarpoolingDepartTimeField").datetimepicker({
-        format: 'yyyy-mm-ddThh:ii:ssZ',
+        format: 'yyyy-mm-dd hh:ii:ss',
         language:  'zh-CN',
         autoclose: true,
         initialDate: time

@@ -18,6 +18,11 @@ function GMT2Beijing(time) {
     return Str;
 }
 
+// 获取unix时间戳, 单位秒
+function GetUnixTimestampOfSecond(dateTime) {
+    return new Date(dateTime).getTime() / 1000;
+}
+
 // 获取URL string类型参数
 function GetURIParamStr(url, key) {
     if (url.indexOf("?") === -1) {
