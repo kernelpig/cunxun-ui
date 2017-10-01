@@ -4,8 +4,8 @@ function CarpoolingDeleteHandler(pe) {
     $(".CarpoolingItemDeleteDialog").modal({
         relatedTarget: pe.target,
         onConfirm: function(e) {
-            var articleId = $(this.relatedTarget).attr("alt");
-            APICarpoolingDeleteById(articleId, AlertShowAjaxError, function (data) {
+            var carpoolingId = $(this.relatedTarget).attr("alt");
+            APICarpoolingDeleteById(carpoolingId, AlertShowAjaxError, function (data) {
                 if (data["code"] === 0) {
                     location.reload();
                 } else {

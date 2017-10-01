@@ -97,6 +97,12 @@ function APIArticleDeleteById(articleId, error, success) {
     AjaxWithAuth(url, "delete", null, error, success);
 }
 
+// 根据ID删除拼车
+function APICarpoolingDeleteById(carpoolingId, error, success) {
+    var url = carpoolingBaseURI + "/" + carpoolingId;
+    AjaxWithAuth(url, "delete", null, error, success);
+}
+
 // 获取图形验证码ID
 function APICaptchaGetID(error, success) {
     var url = captchaBaseURI + "/";
