@@ -6,8 +6,10 @@ var CarpoolingListTemplate = '<table class="am-table am-table-striped am-table-c
     '            <th>到达</th>\n' +
     '            <th>日期</th>\n' +
     '            <th class="am-show-lg-up">人数</th>\n' +
+    '            <th class="am-show-lg-up">联系人</th>\n' +
     '            <th class="am-show-lg-up">备注</th>\n' +
-    '            <th>创建时间</th>\n' +
+    '            <th class="am-show-lg-up">创建时间</th>\n' +
+    '            <th class="am-show-lg-up">创建者</th>\n' +
     '            <th>操作</th>\n' +
     '        </tr>\n' +
     '        </thead>\n' +
@@ -25,8 +27,10 @@ var CarpoolingListItemTemplate = '<tr>\n' +
     '            <td><a class="CarpoolingListItemToCity"></a></td>\n' +
     '            <td><a class="CarpoolingListItemDepartTime"></a></td>\n' +
     '            <td class="am-show-lg-up"><a class="CarpoolingListItemPeopleCount"></a></td>\n' +
+    '            <td class="am-show-lg-up"><a class="CarpoolingListItemContact"></a></td>\n' +
     '            <td class="am-show-lg-up"><a class="CarpoolingListItemRemark"></a></td>\n' +
-    '            <td class="CarpoolingListItemCreatedAt am-show-lg-up"></td>\n' +
+    '            <td class="am-show-lg-up CarpoolingListItemCreatedAt"></td>\n' +
+    '            <td class="am-show-lg-up CarpoolingListItemCreater"></td>\n' +
     '            <td>\n' +
     '                <a class="am-btn am-btn-xs am-btn-default am-icon-pencil CarpoolingListItemUpdate">修改</a>\n' +
     '                <a class="am-btn am-btn-xs am-btn-primary am-icon-trash CarpoolingListItemDelete">删除</a>\n' +
@@ -54,7 +58,9 @@ function CarpoolingGetListHandler() {
                 navbarItem.find(".CarpoolingListItemDepartTime").text(GMT2Beijing(item.depart_time));
                 navbarItem.find(".CarpoolingListItemDepartTime").attr("href", carpoolingUrl);
                 navbarItem.find(".CarpoolingListItemPeopleCount").text(item.people_count);
+                navbarItem.find(".CarpoolingListItemContact").text(item.contact);
                 navbarItem.find(".CarpoolingListItemCreatedAt").text(GMT2Beijing(item.created_at));
+                navbarItem.find(".CarpoolingListItemCreater").text(item.nickname);
                 navbarItem.find(".CarpoolingListItemRemark").html(item.remark);
                 var updateUrl = "carpooling.html?action=update&carpooling_id=" + item.id;
                 navbarItem.find(".CarpoolingListItemUpdate").attr("href", updateUrl);

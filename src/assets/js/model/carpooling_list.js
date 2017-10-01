@@ -5,6 +5,7 @@ var CarpoolingListTemplate = '<table class="am-table am-table-compact am-text-sm
     '            <th>到达</th>\n' +
     '            <th>日期</th>\n' +
     '            <th class="am-show-lg-up">人数</th>\n' +
+    '            <th class="am-show-lg-up">联系人</th>\n' +
     '            <th class="am-show-lg-up">备注</th>\n' +
     '        </tr>\n' +
     '        </thead>\n' +
@@ -21,6 +22,7 @@ var CarpoolingListItemTemplate = '<tr>\n' +
     '            <td><a class="CarpoolingListItemToCity"></a></td>\n' +
     '            <td><a class="CarpoolingListItemDepartTime"></a></td>\n' +
     '            <td class="am-show-lg-up"><a class="CarpoolingListItemPeopleCount"></a></td>\n' +
+    '            <td class="am-show-lg-up"><a class="CarpoolingListItemContact"></a></td>\n' +
     '            <td class="am-show-lg-up"><a class="CarpoolingListItemRemark"></a></td>\n' +
     '        </tr>\n';
 
@@ -43,6 +45,7 @@ function CarpoolingGetListHandler() {
                 navbarItem.find(".CarpoolingListItemDepartTime").text(GMT2Beijing(item.depart_time));
                 navbarItem.find(".CarpoolingListItemDepartTime").attr("href", carpoolingUrl);
                 navbarItem.find(".CarpoolingListItemPeopleCount").text(item.people_count);
+                navbarItem.find(".CarpoolingListItemContact").text(item.contact);
                 navbarItem.find(".CarpoolingListItemCreatedAt").text(GMT2Beijing(item.created_at));
                 navbarItem.find(".CarpoolingListItemRemark").html(item.remark);
                 $(".ListItemsContainer").append(navbarItem);

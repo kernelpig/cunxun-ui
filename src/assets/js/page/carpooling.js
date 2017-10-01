@@ -13,6 +13,7 @@ function CarpoolingGetHandler() {
             $(".CarpoolingToCityField").val(data["item"].to_city);
             $(".CarpoolingDepartTimeField").val(GMT2Beijing(data["item"].depart_time));
             $(".CarpoolingPeopleCountField").val(data["item"].people_count);
+            $(".CarpoolingContactField").val(data["item"].contact);
             $(".CarpoolingRemarkField").html(data["item"].remark);
         } else {
             AlertShowError(data['sub_error']);

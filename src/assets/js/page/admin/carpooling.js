@@ -9,6 +9,7 @@ function CarpoolingCreateHandler() {
         to_city: $(".CarpoolingToCityField").val(),
         depart_time: $(".CarpoolingDepartTimeField").val(),
         people_count: parseInt($(".CarpoolingPeopleCountField").val()),
+        contact: $(".CarpoolingContactField").val(),
         remark: $(".CarpoolingRemarkField").val()
     };
     APICarpoolingCreate(req, AlertShowAjaxError, function (data) {
@@ -26,6 +27,7 @@ function CarpoolingUpdateHandler() {
         to_city: $(".CarpoolingToCityField").val(),
         depart_time: $(".CarpoolingDepartTimeField").val(),
         people_count: parseInt($(".CarpoolingPeopleCountField").val()),
+        contact: $(".CarpoolingContactField").val(),
         remark: $(".CarpoolingRemarkField").val()
     };
     var carpoolingId = GetURIParamStr(location.href, "carpooling_id");
@@ -92,6 +94,7 @@ function CarpoolingUpdateRender() {
             $(".CarpoolingToCityField").val(data["item"].to_city);
             $(".CarpoolingDepartTimeField").val(GMT2Beijing(data["item"].depart_time));
             $(".CarpoolingPeopleCountField").val(data["item"].people_count);
+            $(".CarpoolingContactField").val(data["item"].contact);
             $(".CarpoolingRemarkField").html(data["item"].remark);
 
             CarpoolingEditorRender();
