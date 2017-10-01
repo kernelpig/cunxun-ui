@@ -68,6 +68,9 @@ function NavbarInit() {
             }
             $.each(data['list'], function (index, item) {
                 var url = "list.html?column_id=" + item.id + "&page_size=10&page_num=1";
+                if (item.name === "拼车") {
+                    url = "carpooling_list.html?" + "page_size=10&page_num=1";
+                }
                 var a = $("<a></a>").attr("href", url).text(item.name);
                 var li = $("<li></li>");
                 if (item.id === column_id) {
