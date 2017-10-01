@@ -1,6 +1,8 @@
 function CarpoolingPageRender() {
     NavbarRender();
     FootbarRender();
+    var carpoolingId = GetURIParamStr(location.href, "carpooling_id");
+    CommentRender(location.href + "&relate_id=" + carpoolingId);
 }
 
 function CarpoolingGetHandler() {

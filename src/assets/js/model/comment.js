@@ -36,7 +36,7 @@ var CommentItemTemplate = '<li class="am-comment">\n' +
 
 var CommentListPageEnv = {
     creater_uid: createrUidDefault,
-    article_id: articleIdDefault,
+    relate_id: relateIdDefault,
     page_size: PageSizeDefault,
     page_num: PageStartNumberDefault,
     is_end: false
@@ -45,7 +45,7 @@ var CommentListPageEnv = {
 var CommentBuildingCode = 0;
 
 function CommentCurrentEnv(url) {
-    CommentListPageEnv.article_id = GetURIParamInt(url, "article_id");
+    CommentListPageEnv.relate_id = GetURIParamInt(url, "relate_id");
     CommentListPageEnv.page_size = GetURIParamInt(url, "page_size") || PageSizeDefault;
     CommentListPageEnv.page_num = GetURIParamInt(url, "page_num") || PageStartNumberDefault;
 }
@@ -85,7 +85,7 @@ function CommentGetMoreHandler() {
 
 function CommentCreateHandler() {
     var req = {
-        article_id: CommentListPageEnv.article_id,
+        relate_id: CommentListPageEnv.relate_id,
         content: $(".CommentContentField").val()
     };
     if (req.content.length > CommentLengthDefault) {
