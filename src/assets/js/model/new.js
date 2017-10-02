@@ -56,7 +56,7 @@ function ArticleCreateHandler() {
     };
     APIArticleCreate(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
-            AlertShowAutoCloseAndGoPage("创建成功", "马上跳转当前页面!", "/article.html?article_id=" + data['article_id']);
+            AlertShowAutoCloseAndGoPage("创建成功", "马上跳转当前页面!", "/article.html?article_id=" + data['id']);
         } else {
             AlertShowError(data['sub_error']);
         }

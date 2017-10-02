@@ -76,7 +76,7 @@ function CommentListPageGetCurrentEnv(currentUrl) {
 var CommentListPageEnv = {
     type_id: typeIdDefault,
     creater_uid: getCreaterUid(),
-    column_id: columnIdDefault,
+    relate_id: relateIdDefault,
     article_id: articleIdDefault,
     order_by: orderByDefault,
     page_size: PageSizeDefault,

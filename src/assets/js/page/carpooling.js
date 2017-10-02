@@ -8,15 +8,16 @@ function CarpoolingPageRender() {
 function CarpoolingGetHandler() {
     APICarpoolingGetItem(CarpoolingDetailEnv, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
-            if (!data['item']) {
+            if (!data['list'] || data["list"].length <= 0) {
                 return
             }
-            $(".CarpoolingFromCityField").val(data["item"].from_city);
-            $(".CarpoolingToCityField").val(data["item"].to_city);
-            $(".CarpoolingDepartTimeField").val(CtsTimeFormat(data["item"].depart_time));
-            $(".CarpoolingPeopleCountField").val(data["item"].people_count);
-            $(".CarpoolingContactField").val(data["item"].contact);
-            $(".CarpoolingRemarkField").html(data["item"].remark);
+            var item = data["list"][0];
+            $(".CarpoolingFromCityField").val(item.from_city);
+            $(".CarpoolingToCityField").val(item.to_city);
+            $(".CarpoolingDepartTimeField").val(CtsTimeFormat(item.depart_time));
+            $(".CarpoolingPeopleCountField").val(item.people_count);
+            $(".CarpoolingContactField").val(item.contact);
+            $(".CarpoolingRemarkField").html(item.remark);
         } else {
             AlertShowError(data['sub_error']);
         }

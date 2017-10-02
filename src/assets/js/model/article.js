@@ -19,18 +19,19 @@ function ArticleGetHandler() {
     };
     APIArticleGetItem(req, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
-            if (!data["item"]) {
+            if (!data["list"] || data["list"].length <= 0) {
                 return
             }
-            $(document).attr("title", data["item"].title);
-            $(".am-article-title").text(data["item"].title);
-            $(".ArticleContentContainer").html(data["item"].content);
-            var userLink = "/user.html?user_id="+data["item"].updater_uid;
+            var item = data["list"][0];
+            $(document).attr("title", item.title);
+            $(".am-article-title").text(item.title);
+            $(".ArticleContentContainer").html(item.content);
+            var userLink = "/user.html?user_id=" + item.updater_uid;
             $(".am-article-meta").append("发布作者: &nbsp;");
-            $(".am-article-meta").append($("<a></a>").text(data["item"].nickname).attr("href", userLink));
+            $(".am-article-meta").append($("<a></a>").text(item.nickname).attr("href", userLink));
             $(".am-article-meta").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发布时间: &nbsp;");
-            $(".am-article-meta").append(CtsTimeFormat(data["item"].updated_at));
-            $(".am-article-meta").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评论次数: &nbsp;" + data["item"].comment_count);
+            $(".am-article-meta").append(CtsTimeFormat(item.updated_at));
+            $(".am-article-meta").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评论次数: &nbsp;" + item.comment_count);
         } else {
             AlertShowError(data["sub_error"]);
         }

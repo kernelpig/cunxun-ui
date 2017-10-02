@@ -26,7 +26,7 @@ function ArticleCreateHandler() {
     };
     APIArticleCreate(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
-            AlertShowAutoCloseAndGoPage("创建成功", "马上跳转当前页面!", "/article.html?article_id=" + data['article_id']);
+            AlertShowAutoCloseAndGoPage("创建成功", "马上跳转当前页面!", "/article.html?article_id=" + data['id']);
         } else {
             AlertShowError(data['sub_error']);
         }
@@ -74,13 +74,14 @@ function ArticleUpdateRender() {
     };
     APIArticleGetItem(req, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
-            if (!data["item"]) {
+            if (!data["list"] || data["list"].length <= 0) {
                 AlertShowAutoClose("不存在", "此文章不存在");
                 return
             }
-            $(".ColumnListField").val(data["item"].column_id);
-            $(".ArticleTitleField").val(data["item"].title);
-            $('.ArticleContentField').val(data["item"].content);
+            var item = data["list"][0];
+            $(".ColumnListField").val(item.column_id);
+            $(".ArticleTitleField").val(item.title);
+            $('.ArticleContentField').val(item.content);
 
             ArticleEditorRender();
             $(".ArticleActionHandler").click(ArticleUpdateHandler);

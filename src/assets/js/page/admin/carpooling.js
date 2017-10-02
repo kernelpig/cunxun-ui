@@ -14,7 +14,7 @@ function CarpoolingCreateHandler() {
     };
     APICarpoolingCreate(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
-            AlertShowAutoCloseAndGoPage("创建成功", "马上跳转当前页面!", "/carpooling.html?carpooling_id=" + data['carpooling_id']);
+            AlertShowAutoCloseAndGoPage("创建成功", "马上跳转当前页面!", "/carpooling.html?carpooling_id=" + data['id']);
         } else {
             AlertShowError(data['sub_error']);
         }
@@ -86,19 +86,20 @@ function CarpoolingUpdateRender() {
     };
     APICarpoolingGetItem(req, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
-            if (!data["item"]) {
+            if (!data["list"] || data["list"].length <= 0) {
                 AlertShowAutoClose("不存在", "此拼车不存在");
                 return
             }
-            $(".CarpoolingFromCityField").val(data["item"].from_city);
-            $(".CarpoolingToCityField").val(data["item"].to_city);
-            $(".CarpoolingDepartTimeField").val(CtsTimeFormat(data["item"].depart_time));
-            $(".CarpoolingPeopleCountField").val(data["item"].people_count);
-            $(".CarpoolingContactField").val(data["item"].contact);
-            $(".CarpoolingRemarkField").html(data["item"].remark);
+            var item = data["list"][0];
+            $(".CarpoolingFromCityField").val(item.from_city);
+            $(".CarpoolingToCityField").val(item.to_city);
+            $(".CarpoolingDepartTimeField").val(CtsTimeFormat(item.depart_time));
+            $(".CarpoolingPeopleCountField").val(item.people_count);
+            $(".CarpoolingContactField").val(item.contact);
+            $(".CarpoolingRemarkField").html(item.remark);
 
             CarpoolingEditorRender();
-            CarpoolingDepartTimeRender(CtsTimeFormat(data["item"].depart_time));
+            CarpoolingDepartTimeRender(CtsTimeFormat(item.depart_time));
             $(".CarpoolingActionHandler").click(CarpoolingUpdateHandler);
         } else {
             AlertShowError(data["sub_error"]);
