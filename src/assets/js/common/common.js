@@ -149,8 +149,30 @@ function resetLoginCookie() {
     Cookies.remove("UserRole");
 }
 
-// 过滤<>特殊字符
+// string增加replaceAll函数
+String.prototype.replaceAll = function(s1,s2){
+    return this.replace(new RegExp(s1,"gm"),s2);
+};
+
+// 半角转全角
+function ToDBC(str)
+{
+    var result = "";
+    for(var i = 0; i < str.length; i++)
+    {
+        if(str.charCodeAt(i) === 32) {
+            result = result + String.fromCharCode(12288);
+        } if(str.charCodeAt(i) < 127) {
+            result = result + String.fromCharCode(str.charCodeAt(i) + 65248);
+        }
+    }
+    return result;
+}
+
+// 过滤特殊标签, 转换为全角
 function parseSpecialChar(str){
-    return str
-    //return str.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    $.each(articleParseHTMLTags, function (index, item) {
+        str = str.replaceAll(item, ToDBC(item))
+    });
+    return str;
 }

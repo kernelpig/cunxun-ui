@@ -75,7 +75,9 @@ function ArticleCreateRender() {
         imageUploadParams: {xToken: Cookies.get("Authorization")},
         imageUploadMethod: 'POST',
         imageMaxSize: imageUploadMaxSize,
-        imageAllowedTypes: imageUploadTypes
+        imageAllowedTypes: imageUploadTypes,
+        htmlExecuteScripts: false,
+        htmlRemoveTags: ['script', 'iframe', 'javascript', 'frame']     // 过滤标签
     }).on('froalaEditor.image.error', froalaEditorImageUploadErrorHandler);
     ColumnGetListHandler();
     $('#ArticleCreateHandler').click(ArticleCreateHandler);
