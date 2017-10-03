@@ -148,3 +148,9 @@ function resetLoginCookie() {
     Cookies.remove("UserId");
     Cookies.remove("UserRole");
 }
+
+// 过滤<>特殊字符
+function parseSpecialChar(str){
+    return str
+    //return str.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+}

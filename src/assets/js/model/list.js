@@ -38,10 +38,10 @@ function ArticleGetListHandler() {
                 ArticleListPageEnv.page_num += 1;
                 $.each(data['list'], function () {
                     var href = 'article.html?article_id=' + this.id;
-                    var link = $('<a class="am-list-item-hd"></a>').attr('href', href).text(this.title);
-                    var author = $('<span class="am-list-author am-show-lg-up"></span>').text(this.nickname);
-                    var stat = $('<span class="am-list-stat am-show-lg-up"></span>').text(this.comment_count);
-                    var time = $('<span class="am-list-date am-show-lg-up"></span>').text(CtsTimeFormat(this.updated_at));
+                    var link = $('<a class="am-list-item-hd am-text-truncate am-u-sm-12 am-u-md-7 am-padding-left-sm"></a>').attr('href', href).text(this.title);
+                    var author = $('<span class="am-list-author am-text-truncate am-u-md-2 am-show-lg-up am-text-center"></span>').text(this.nickname);
+                    var stat = $('<span class="am-list-stat am-u-md-1 am-show-lg-up am-text-center"></span>').text(this.comment_count);
+                    var time = $('<span class="am-list-date am-u-md-2 am-show-lg-up am-text-center"></span>').text(CtsTimeFormat(this.updated_at));
                     $(".am-list").append($('<li class="am-g"></li>').append(link).append(author).append(stat).append(time));
                 });
             }

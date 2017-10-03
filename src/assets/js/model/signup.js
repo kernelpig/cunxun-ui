@@ -12,15 +12,15 @@ var UserSignupTemplate = '<div class="am-container am-margin-top">\n' +
     '            <div class="am-form-group">\n' +
     '                <div class="am-input-group">\n' +
     '                    <input type="number" id="captcha_value" value="" class="" placeholder="图形验证码">\n' +
-    '                    <span class="am-input-group-label"><a href="#"><img src="#" id="CaptchaGetImageHandler"\n' +
-    '                                                                        class="am-img-loaded"></a></span>\n' +
+    '                    <span class="am-input-group-btn"><button href="#" class="am-btn am-btn-xs"><img src="#" id="CaptchaGetImageHandler"\n' +
+    '                                                                        class="am-img-loaded"></button></span>\n' +
     '                </div>\n' +
     '            </div>\n' +
     '\n' +
     '            <div class="am-form-group">\n' +
     '                <div class="am-input-group">\n' +
     '                    <input type="number" id="checkcode_value" value="" class="" placeholder="短信验证码">\n' +
-    '                    <span class="am-input-group-label"><a href="#" id="CheckcodeSendHandler">发送-验证码</a></span>\n' +
+    '                    <span class="am-input-group-btn"><button href="#" id="CheckcodeSendHandler" class="am-btn am-btn-xs">发送验证码</button></span>\n' +
     '                </div>\n' +
     '            </div>\n' +
     '\n' +

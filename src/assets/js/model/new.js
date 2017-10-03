@@ -13,7 +13,7 @@ var ArticleCreateTemplate = '<div class="am-container am-margin-top">\n' +
     '            <div class="am-form-group">\n' +
     '                <div class="am-input-group">\n' +
     '                    <span class="am-input-group-label"><i class="am-icon-user am-icon-pencil"></i></span>\n' +
-    '                    <input type="text" id="title" value="" required placeholder="帖子标题">\n' +
+    '                    <input type="text" id="title" value="" required placeholder="帖子标题(限60字符)">\n' +
     '                </div>\n' +
     '            </div>\n' +
     '\n' +

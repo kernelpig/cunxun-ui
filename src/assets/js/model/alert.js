@@ -16,7 +16,7 @@ function AlertShow(title, content, interval) {
         $('body').append(AlertTemplate);
     }
     $('.AlertTitleContainer').text(title);
-    $('.AlertContentContainer').html(content);
+    $('.AlertContentContainer').html(parseSpecialChar(content));
     $('#AlertShowContainer').modal();
     if (interval !== 0) {
         setTimeout(function () {
@@ -57,6 +57,11 @@ function AlertShowAjaxError(e) {
             AlertShowAutoCloseAndGoPage("请重新登录", e.responseJSON.sub_error, "/login.html");
         } else {
             AlertShowError(e.responseJSON.sub_error);
+            //带有验证码的页面需要刷新验证码
+            var $captcha = $.find("#CaptchaGetImageHandler");
+            if ($captcha && $captcha.length !== 0) {
+                CaptchaGetImageHandler();
+            }
         }
     } else if (e.responseText) {
         AlertShowError(e.responseText);

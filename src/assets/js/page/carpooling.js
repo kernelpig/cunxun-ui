@@ -17,7 +17,7 @@ function CarpoolingGetHandler() {
             $(".CarpoolingDepartTimeField").val(CtsTimeFormat(item.depart_time));
             $(".CarpoolingPeopleCountField").val(item.people_count);
             $(".CarpoolingContactField").val(item.contact);
-            $(".CarpoolingRemarkField").html(item.remark);
+            $(".CarpoolingRemarkField").html(parseSpecialChar(item.remark));
         } else {
             AlertShowError(data['sub_error']);
         }

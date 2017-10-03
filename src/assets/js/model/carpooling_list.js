@@ -47,7 +47,7 @@ function CarpoolingGetListHandler() {
                 navbarItem.find(".CarpoolingListItemPeopleCount").text(item.people_count);
                 navbarItem.find(".CarpoolingListItemContact").text(item.contact);
                 navbarItem.find(".CarpoolingListItemCreatedAt").text(CtsTimeFormat(item.created_at));
-                navbarItem.find(".CarpoolingListItemRemark").html(item.remark);
+                navbarItem.find(".CarpoolingListItemRemark").html(parseSpecialChar(item.remark));
                 $(".ListItemsContainer").append(navbarItem);
             });
         } else {

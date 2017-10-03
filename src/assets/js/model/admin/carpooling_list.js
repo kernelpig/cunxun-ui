@@ -61,7 +61,7 @@ function CarpoolingGetListHandler() {
                 navbarItem.find(".CarpoolingListItemContact").text(item.contact);
                 navbarItem.find(".CarpoolingListItemCreatedAt").text(CtsTimeFormat(item.created_at));
                 navbarItem.find(".CarpoolingListItemCreater").text(item.nickname);
-                navbarItem.find(".CarpoolingListItemRemark").html(item.remark);
+                navbarItem.find(".CarpoolingListItemRemark").html(parseSpecialChar(item.remark));
                 var updateUrl = "carpooling.html?action=update&carpooling_id=" + item.id;
                 navbarItem.find(".CarpoolingListItemUpdate").attr("href", updateUrl);
                 navbarItem.find(".CarpoolingListItemDelete").attr("alt", item.id);
