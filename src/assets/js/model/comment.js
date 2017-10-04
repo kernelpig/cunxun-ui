@@ -5,7 +5,7 @@ var CommentTemplate = '<hr><ul class="am-comments-list am-comments-list-flip">\n
     '        <form method="post" class="am-form" id="first_setup">\n' +
     '            <fieldset>\n' +
     '                <div class="am-form-group">\n' +
-    '                    <textarea class="CommentContentField" rows="10" placeholder="跟帖内容"></textarea>\n' +
+    '                    <textarea class="CommentContentField" rows="10" required placeholder="跟帖内容"></textarea>\n' +
     '                </div>\n' +
     '                <div class="am-form-group">\n' +
     '                    <input type="button" value="发表跟帖" class="am-btn am-btn-primary am-btn-sm CommentCreateHandler">\n' +

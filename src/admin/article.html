@@ -38,10 +38,10 @@
     <div class="am-container am-margin-top">
         <form method="post" class="am-form" id="first_setup">
                 <fieldset>
-                        <legend>帖子信息</legend>
+                        <legend>文章信息</legend>
                         <div class="am-form-group">
                             <div class="am-input-group">
-                                <span class="am-input-group-label"><i class="am-icon-user am-icon-archive"></i></span>
+                                <span class="am-input-group-label"><i class="am-icon-list"></i></span>
                                     <select class="ColumnListField">
                                         </select>
                                 </div>
@@ -49,11 +49,11 @@
                         <div class="am-form-group">
                                 <div class="am-input-group">
                                         <span class="am-input-group-label"><i class="am-icon-user am-icon-pencil"></i></span>
-                                        <input type="text" class="ArticleTitleField" value="" required placeholder="帖子标题(限60字符)">
+                                        <input type="text" class="ArticleTitleField" required minlength="1" maxlength="64" placeholder="帖子标题" data-validation-message="输入标题, 必须为1~64位">
                                     </div>
                             </div>
                         <div class="am-form-group">
-                                <textarea class="ArticleContentField" rows="6"></textarea>
+                                <textarea class="ArticleContentField" rows="6" required></textarea>
                             </div>
                         <div class="am-form-group">
                                 <input type="button" value="提交" class="am-btn am-btn-primary am-btn-sm ArticleActionHandler">
@@ -111,6 +111,6 @@
 <script src="../assets/js/model/alert.js"></script>
 <script src="../assets/js/model/admin/navbar.js"></script>
 <script src="../assets/js/model/footbar.js"></script>
-<script src="../assets/js/model/admin/article_list.js"></script>
+<script src="../assets/js/model/validator.js"></script>
 <script src="../assets/js/page/admin/article.js"></script>
 </html>

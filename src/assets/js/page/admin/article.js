@@ -101,4 +101,5 @@ $(document).ready(function () {
     } else if (action === "update") {
         ArticleUpdateRender();
     }
+    $(".am-form").validator(formValidator);
 });
