@@ -85,23 +85,6 @@ function NavbarItemUserGetList(pageEnv) {
     });
 }
 
-// 创建栏目
-function UserCreateHandler() {
-    $(".UserItemUpdateDialog").modal({
-        relatedTarget: this,
-        onConfirm: function(e) {
-            APIUserCreate({name: e.data}, AlertShowAjaxError, function (data) {
-                if (data["code"] === 0) {
-                    location.reload();
-                } else {
-                    AlertShowError(data["sub_error"]);
-                }
-            });
-        },
-        onCancel: function(e) {  }
-    });
-}
-
 function UserListRender(currentUrl) {
     $(".ContentContainer").append(UserListTemplate);
     UserListPageGetCurrentEnv(currentUrl);

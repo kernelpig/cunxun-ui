@@ -136,7 +136,7 @@ function APIUserDeleteById(userId, error, success) {
 // 用户获取
 function APIUserGetInfo(userId, error, success) {
     var url = userBaseURI + "/" + userId;
-    AjaxWithAuth(url, "get", null, error, success);
+    AjaxNoAuth(url, "get", null, error, success);
 }
 
 // 用户注册
