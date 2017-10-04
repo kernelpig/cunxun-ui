@@ -21,8 +21,9 @@
         <div class="am-modal-dialog">
             <div class="am-modal-hd">栏目信息</div>
             <div class="am-modal-bd">
-                请输入栏目名称
-                <input type="text" class="am-modal-prompt-input ColumnItemNameField">
+                <div class="am-form-group">
+                <input type="text" class="am-modal-prompt-input ColumnItemNameField" required minlength="1" maxlength="64" placeholder="请输入栏目名称" data-validation-message="输入栏目名称, 必须为1~64位">
+                </div>
             </div>
             <div class="am-modal-footer">
                 <span class="am-modal-btn" data-am-modal-cancel>取消</span>
@@ -57,6 +58,7 @@
 <script src="../assets/js/model/alert.js"></script>
 <script src="../assets/js/model/admin/navbar.js"></script>
 <script src="../assets/js/model/footbar.js"></script>
+<script src="../assets/js/model/validator.js"></script>
 <script src="../assets/js/model/admin/column_list.js"></script>
 <script src="../assets/js/page/admin/column_list.js"></script>
 </html>

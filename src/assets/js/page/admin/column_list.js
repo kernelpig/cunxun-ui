@@ -23,7 +23,7 @@ function ColumnCreateHandler() {
 
 // 修改栏目
 function ColumnUpdateHandler(pe) {
-    var ColumnItemId = $(".ColumnListItemUpdate").attr("alt");
+    var ColumnItemId = $(pe.target).attr("alt");
     var ColumnItemName = $("#ColoumnListItem"+ColumnItemId+" .ColumnListItemName").text();
     $(".ColumnItemNameField").val(ColumnItemName);
 
@@ -64,4 +64,5 @@ function ColumnDeleteHandler(pe) {
 $(document).ready(function () {
     ColumnListPageRender();
     $(".ColumnCreateHandler").click(ColumnCreateHandler);
+    $(".ColumnItemUpdateDialog").validator(formValidator);
 });
