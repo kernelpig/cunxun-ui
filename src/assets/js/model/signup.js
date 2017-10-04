@@ -4,14 +4,14 @@ var UserSignupTemplate = '<div class="am-container am-margin-top">\n' +
     '            <legend>用户注册</legend>\n' +
     '            <div class="am-form-group">\n' +
     '                <div class="am-input-group">\n' +
-    '                    <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>\n' +
-    '                    <input type="number" id="phone" value="" required placeholder="手机号码">\n' +
+    '                    <span class="am-input-group-label"><i class="am-icon-phone am-icon-fw"></i></span>\n' +
+    '                    <input type="number" id="phone" class="js-pattern-mobile" minlength="11" maxlength="11" required placeholder="手机号码" data-validation-message="输入大陆手机号码, 必须为11位">\n' +
     '                </div>\n' +
     '            </div>\n' +
     '\n' +
     '            <div class="am-form-group">\n' +
     '                <div class="am-input-group">\n' +
-    '                    <input type="number" id="captcha_value" value="" class="" placeholder="图形验证码">\n' +
+    '                    <input type="number" id="captcha_value" value="" class="" required minlength="3" maxlength="3" placeholder="图形验证码" data-validation-message="输入图形验证码, 必须为3位">\n' +
     '                    <span class="am-input-group-btn"><button href="#" class="am-btn am-btn-xs"><img src="#" id="CaptchaGetImageHandler"\n' +
     '                                                                        class="am-img-loaded"></button></span>\n' +
     '                </div>\n' +
@@ -19,7 +19,7 @@ var UserSignupTemplate = '<div class="am-container am-margin-top">\n' +
     '\n' +
     '            <div class="am-form-group">\n' +
     '                <div class="am-input-group">\n' +
-    '                    <input type="number" id="checkcode_value" value="" class="" placeholder="短信验证码">\n' +
+    '                    <input type="number" id="checkcode_value" required minlength="4" maxlength="4" placeholder="短信验证码" data-validation-message="输入短信验证码, 必须为4位">\n' +
     '                    <span class="am-input-group-btn"><button href="#" id="CheckcodeSendHandler" class="am-btn am-btn-xs">发送验证码</button></span>\n' +
     '                </div>\n' +
     '            </div>\n' +
@@ -36,14 +36,14 @@ var UserSignupTemplate = '<div class="am-container am-margin-top">\n' +
     '            <div class="am-form-group">\n' +
     '                <div class="am-input-group">\n' +
     '                    <span class="am-input-group-label"><i class="am-icon-user am-icon-fw"></i></span>\n' +
-    '                    <input type="text" id="nickname" value="" required placeholder="昵称">\n' +
+    '                    <input type="text" id="nickname" required placeholder="昵称" minlength="1" maxlength="32" data-validation-message="输入昵称, 必须为1~32位">\n' +
     '                </div>\n' +
     '            </div>\n' +
     '\n' +
     '            <div class="am-form-group">\n' +
     '                <div class="am-input-group">\n' +
     '                    <span class="am-input-group-label"><i class="am-icon-lock am-icon-fw"></i></span>\n' +
-    '                    <input type="password" id="password" value="" placeholder="密码">\n' +
+    '                    <input type="password" id="password" required minlength="8" maxlength="16" placeholder="密码" data-validation-message="输入密码, 必须为8~16位">\n' +
     '                </div>\n' +
     '            </div>\n' +
     '\n' +
@@ -91,4 +91,5 @@ function UserSignupRender() {
     $('#CaptchaGetImageHandler').click(CaptchaGetImageHandler);
     $('#CheckcodeSendHandler').click(CheckcodeSendHandler);
     $('#CheckcodeCheckHandler').click(CheckcodeCheckHandler);
+    $(".am-form").validator(formValidator);
 }

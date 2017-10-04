@@ -5,20 +5,20 @@ var ArticleCreateTemplate = '<div class="am-container am-margin-top">\n' +
     '            <div class="am-form-group">\n' +
     '                <div class="am-input-group">\n' +
     '\n' +
-    '                <span class="am-input-group-label"><i class="am-icon-user am-icon-archive"></i></span>\n' +
+    '                <span class="am-input-group-label"><i class="am-icon-list"></i></span>\n' +
     '                    <select id="column">\n' +
     '                    </select>\n' +
     '                </div>\n' +
     '            </div>\n' +
     '            <div class="am-form-group">\n' +
     '                <div class="am-input-group">\n' +
-    '                    <span class="am-input-group-label"><i class="am-icon-user am-icon-pencil"></i></span>\n' +
-    '                    <input type="text" id="title" value="" required placeholder="帖子标题(限60字符)">\n' +
+    '                    <span class="am-input-group-label"><i class="am-icon-pencil"></i></span>\n' +
+    '                    <input type="text" id="title" required placeholder="帖子标题" minlength="1" maxlength="60"  data-validation-message="输入标题, 必须为1~60位">\n' +
     '                </div>\n' +
     '            </div>\n' +
     '\n' +
     '            <div class="am-form-group">\n' +
-    '                <textarea id="content" rows="6"></textarea>\n' +
+    '                <textarea id="content" rows="6" required minlength="10" maxlength="2000" placeholder="在此输入内容, 10~2000字符"  data-validation-message="输入内容, 必须为10~2000位"></textarea>\n' +
     '            </div>\n' +
     '\n' +
     '            <div class="am-form-group">\n' +
@@ -81,4 +81,5 @@ function ArticleCreateRender() {
     }).on('froalaEditor.image.error', froalaEditorImageUploadErrorHandler);
     ColumnGetListHandler();
     $('#ArticleCreateHandler').click(ArticleCreateHandler);
+    $(".am-form").validator(formValidator);
 }
