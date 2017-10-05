@@ -5,6 +5,7 @@ var PageStartNumberDefault = 1;
 // 头像大小
 var AvatarWidthDefault = 160;
 var AvatarHeightDefault = 90;
+var AvatarServiceBaseURI = "http://oss.lunxue.cc/avatar";
 
 // 评论配置
 var CommentLengthDefault = 200;

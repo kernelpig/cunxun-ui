@@ -61,7 +61,7 @@ function CommentGetListHandler() {
                 $.each(data['list'], function () {
                     // 评论列表项, 包括发表人, 发表时间, 发表内容
                     var item = $(CommentItemTemplate);
-                    item.find(".UserAvatarField").attr("src", serviceBaseURI + "/u/"+this.creater_uid+"/avatar");
+                    item.find(".UserAvatarField").attr("src", this.avatar);
                     item.find(".UserNameField").text((++CommentBuildingCode) + "楼 " + this.nickname);
                     item.find(".CommentCreatedAtField").text(CtsTimeFormat(this.created_at));
                     item.find(".CommentContentItemField").text(this.content);

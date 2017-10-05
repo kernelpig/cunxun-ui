@@ -88,7 +88,7 @@ $(document).ready(function(){
 
     AvatarImageBox = $('#AvatarImageBox').cropper({
         aspectRatio: '1',
-        autoCropArea:0.8,
+        autoCropArea:0.6,
         preview: '.up-pre-after'
     });
 

@@ -116,4 +116,5 @@ $(document).ready(function () {
     } else if (action === "update") {
         CarpoolingUpdateRender();
     }
+    $(".am-form").validator(formValidator);
 });

@@ -10,6 +10,11 @@ var commentBaseURI      = serviceBaseURI + "/comment";
 var imageBaseURI        = serviceBaseURI + "/image";
 var carpoolingBaseURI   = serviceBaseURI + "/carpooling";
 
+// 获取用户头像链接
+function APIUserGetAvatar(userId) {
+    return AvatarServiceBaseURI + "/" + userId;
+}
+
 // 创建评论
 function APICommentCreate(data, error, success) {
     var url = commentBaseURI + "/";
