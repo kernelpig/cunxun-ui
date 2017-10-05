@@ -10,7 +10,7 @@ $(document).ready(function () {
     APIUserGetInfo(userId, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
             $(".UserNicknameField").text(data["nickname"]);
-            $(".UserAvatarField").attr("src", serviceBaseURI + "/u/"+ userId +"/avatar");
+            $(".UserAvatarField").attr("src", data["avatar"]);
         } else {
             AlertShowError(data['sub_error']);
         }
