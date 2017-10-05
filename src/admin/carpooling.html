@@ -43,31 +43,31 @@
                         <div class="am-form-group">
                                 <div class="am-input-group">
                                         <span class="am-input-group-label"><i class="am-icon-car"></i></span>
-                                        <input type="text" class="CarpoolingFromCityField" required placeholder="出发城市">
+                                        <input type="text" class="CarpoolingFromCityField" required minlength="1" maxlength="64" placeholder="出发城市" data-validation-message="出发城市, 必须为1~64位">
                                     </div>
                             </div>
                         <div class="am-form-group">
                             <div class="am-input-group">
                                 <span class="am-input-group-label"><i class="am-icon-car"></i></span>
-                                <input type="text" class="CarpoolingToCityField" required placeholder="到达城市">
+                                <input type="text" class="CarpoolingToCityField" required minlength="1" maxlength="64" placeholder="到达城市" data-validation-message="到达城市, 必须为1~32位">
                             </div>
                         </div>
                         <div class="am-form-group">
                             <div class="am-input-group">
                                 <span class="am-input-group-label"><i class="am-icon-calendar"></i></span>
-                                <input type="text" readonly class="CarpoolingDepartTimeField" placeholder="发车时间, 点击选择日期">
+                                <input type="text" readonly class="CarpoolingDepartTimeField" required placeholder="发车时间, 点击选择日期" data-validation-message="选择发车时间">
                             </div>
                         </div>
                         <div class="am-form-group">
                             <div class="am-input-group">
                                 <span class="am-input-group-label"><i class="am-icon-user"></i></span>
-                                <input type="number" class="CarpoolingPeopleCountField" required placeholder="可带人数">
+                                <input type="number" class="CarpoolingPeopleCountField" required min="1" max="6" placeholder="可带人数" data-validation-message="可载人数, 必须为1~6位">
                             </div>
                         </div>
                         <div class="am-form-group">
                             <div class="am-input-group">
                                 <span class="am-input-group-label"><i class="am-icon-phone"></i></span>
-                                <input type="text" class="CarpoolingContactField" required placeholder="联系人">
+                                <input type="text" class="CarpoolingContactField" required minlength="1" maxlength="64" placeholder="联系人" data-validation-message="联系方式, 必须为1~64位">
                             </div>
                         </div>
                         <div class="am-form-group">

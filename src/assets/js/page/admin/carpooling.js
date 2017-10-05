@@ -10,7 +10,7 @@ function CarpoolingCreateHandler() {
         depart_time: GetUnixTimestampOfSecond($(".CarpoolingDepartTimeField").val()),
         people_count: parseInt($(".CarpoolingPeopleCountField").val()),
         contact: $(".CarpoolingContactField").val(),
-        remark: $(".CarpoolingRemarkField").val()
+        remark: $(".CarpoolingRemarkField").val() || " "    // mysql text 类型不支持默认值
     };
     APICarpoolingCreate(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
@@ -28,7 +28,7 @@ function CarpoolingUpdateHandler() {
         depart_time: GetUnixTimestampOfSecond($(".CarpoolingDepartTimeField").val()),
         people_count: parseInt($(".CarpoolingPeopleCountField").val()),
         contact: $(".CarpoolingContactField").val(),
-        remark: $(".CarpoolingRemarkField").val()
+        remark: $(".CarpoolingRemarkField").val() || " "
     };
     var carpoolingId = GetURIParamStr(location.href, "carpooling_id");
     APICarpoolingUpdateById(carpoolingId, req, AlertShowAjaxError, function (data) {
