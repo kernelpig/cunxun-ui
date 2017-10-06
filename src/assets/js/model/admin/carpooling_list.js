@@ -52,7 +52,7 @@ function CarpoolingGetListHandler() {
                 navbarItem.find(".CarpoolingListItemID").attr("href", carpoolingUrl);
                 navbarItem.find(".CarpoolingListItemFromCity").text(item.from_city);
                 navbarItem.find(".CarpoolingListItemFromCity").attr("href", carpoolingUrl);
-                navbarItem.find(".CarpoolingListItemToCity").text(item.from_city);
+                navbarItem.find(".CarpoolingListItemToCity").text(item.to_city);
                 navbarItem.find(".CarpoolingListItemToCity").attr("href", carpoolingUrl);
                 navbarItem.find(".CarpoolingListItemDepartTime").text(CtsTimeFormat(item.depart_time));
                 navbarItem.find(".CarpoolingListItemDepartTime").attr("href", carpoolingUrl);
