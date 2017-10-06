@@ -136,8 +136,8 @@ function AjaxWithAuth(url, method, data, error, success) {
 
 // 普通用户只获取自己创建的, 管理员及以上用户则获取所有的
 function getCreaterUid() {
-    if (!Cookies.get("UserRole") || Cookies.get("UserRole") === userRoleNormal) {
-        return Cookies.get("UserId");
+    if (Cookies.get("Authorization") && Cookies.get("UserRole") === userRoleNormal) {
+        return Cookies.get("UserId") || createrUidDefault;
     }
     return createrUidDefault;
 }
@@ -175,4 +175,11 @@ function parseSpecialChar(str){
         str = str.replaceAll(item, ToDBC(item))
     });
     return str;
+}
+
+// logout登出处理
+function clearLoginCookie() {
+    Cookies.remove('Authorization');
+    Cookies.remove('UserId');
+    Cookies.remove('UserRole');
 }

@@ -44,7 +44,7 @@ function NavbarSetSignStatus() {
 
 // 用户登出
 function UserLogoutHandler() {
-    Cookies.remove('Authorization');
+    clearLoginCookie();
     AlertShowAutoCloseAndGoPage('登出成功', '登出成功, 3秒后返回主页', "/index.html");
     return false;
 }

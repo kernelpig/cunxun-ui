@@ -72,7 +72,7 @@ function CarpoolingListPageGetCurrentEnv(currentUrl) {
 
 var CarpoolingListPageEnv = {
     type_id: typeIdDefault,
-    creater_uid: getCreaterUid(),
+    creater_uid: createrUidDefault,
     carpooling_id: carpoolingIdDefault,
     order_by: orderByDefault,
     page_size: PageSizeDefault,
