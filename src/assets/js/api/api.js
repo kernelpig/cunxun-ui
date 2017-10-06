@@ -1,6 +1,8 @@
 
 // 服务端各模块URI
-var serviceBaseURI      = "http://localhost:8005/api";
+// 基础url请使用相对路径, nginx或caddy对api目录做反响代理
+//var serviceBaseURI      = "http://localhost:8005/api";
+var serviceBaseURI      = "/api";
 var captchaBaseURI      = serviceBaseURI + "/captcha";
 var userBaseURI         = serviceBaseURI + "/u";
 var checkcodeBaseURI    = serviceBaseURI + "/checkcode";
