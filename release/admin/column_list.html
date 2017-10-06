@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>栏目列表</title>
+    <link rel="icon" type="image/png" href="/assets/i/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/assets/css/amazeui.min_d4cd56e.css"/>
+    <link rel="stylesheet" href="/assets/css/main_a445205.css"/>
+</head>
+<body>
+
+<div class="am-container ContentContainer">
+    <h2>栏目管理  <a class="am-btn am-btn-default am-btn-xs am-icon-pencil am-round ColumnCreateHandler">新建</a></h2>
+    <hr>
+    <div class="am-modal am-modal-prompt ColumnItemUpdateDialog" tabindex="-1">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">栏目信息</div>
+            <div class="am-modal-bd">
+                <div class="am-form-group">
+                <input type="text" class="am-modal-prompt-input ColumnItemNameField" required minlength="1" maxlength="64" placeholder="请输入栏目名称" data-validation-message="输入栏目名称, 必须为1~64位">
+                </div>
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+            </div>
+        </div>
+    </div>
+    <div class="am-modal am-modal-confirm ColumnItemDeleteDialog">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">删除栏目</div>
+            <div class="am-modal-bd">
+                你，确定要删除这条记录吗？
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="/assets/js/third/jquery-1.11.1.min_7e57d31.js"></script>
+<script src="/assets/js/third/js.cookie-2.1.4.min_9b36852.js"></script>
+<script src="/assets/js/third/amazeui.min_bcc7a7b.js"></script>
+<script src="/assets/js/common/const_fb426d8.js"></script>
+<script src="/assets/js/common/common_276eb42.js"></script>
+<script src="/assets/js/error/code_f3f8824.js"></script>
+<script src="/assets/js/config/config_43a8bf6.js"></script>
+<script src="/assets/js/api/api_947eccb.js"></script>
+<script src="/assets/js/model/captcha_45bdd19.js"></script>
+<script src="/assets/js/model/alert_58917ff.js"></script>
+<script src="/assets/js/model/admin/navbar_b7f9606.js"></script>
+<script src="/assets/js/model/footbar_aecc922.js"></script>
+<script src="/assets/js/model/validator_f7ef6d3.js"></script>
+<script src="/assets/js/model/admin/column_list_7497b26.js"></script>
+<script src="/assets/js/page/admin/column_list_58e6c63.js"></script>
+</html>

@@ -1,0 +1,1 @@
+var formValidator={onValid:function(a){$(a.field).closest(".am-form-group").find(".am-alert").hide()},onInValid:function(a){var e=$(a.field),i=e.closest(".am-form-group"),o=i.find(".am-alert"),d=e.data("validationMessage")||this.getValidationMessage(a);o.length||(o=$('<div class="am-alert am-alert-secondary"></div>').hide().appendTo(i)),o.html(d).show()}};

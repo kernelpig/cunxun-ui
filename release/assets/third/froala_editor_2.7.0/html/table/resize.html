@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/froala_editor_5ec3592.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/froala_style_041c7bd.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/table_3544d23.css">
+
+  <style>
+      body {
+        text-align: center;
+      }
+
+      section {
+        width: 81%;
+        margin: auto;
+        text-align: left;
+      }
+  </style>
+</head>
+
+<body>
+  <section id="editor">
+      <div id='edit' style="margin-top: 30px;">
+        <h1>Resize Table</h1>
+
+        <p>The <code>table.min.js</code> plugin also offers the possibility to resize a table in the WYSIWYG HTML editor.</p>
+
+        <table style="width: 100%;">
+        	<tbody>
+        		<tr>
+        			<td style="width: 25%;">
+        				<br>
+        			</td>
+        			<td style="width: 25%;">
+        				<br>
+        			</td>
+        			<td style="width: 25%;">
+        				<br>
+        			</td>
+        			<td style="width: 25%;">
+        				<br>
+        			</td>
+        		</tr>
+        		<tr>
+        			<td style="width: 25%;">
+        				<br>
+        			</td>
+        			<td style="width: 25%;">
+        				<br>
+        			</td>
+        			<td style="width: 25%;">
+        				<br>
+        			</td>
+        			<td style="width: 25%;">
+        				<br>
+        			</td>
+        		</tr>
+        	</tbody>
+        </table>
+
+        <p>There are 2 options that can be used to customize the way table resize works:</p>
+
+        <ul>
+          <li><a href="http://www.froala.dev/wysiwyg-editor/docs/options#tableResizerOffset" title="tableResizerOffset option" target="_blank">tableResizerOffset</a> - The distance in pixels from the table cell's left or right border at which to show the resizer.</li>
+          <li><a href="http://www.froala.dev/wysiwyg-editor/docs/options#tableResizingLimit" title="tableResizingLimit option" target="_blank">tableResizingLimit</a> - The minimum width in pixels of a table cell allowed while resizing. The resizer cannot be dragged over this limit.</li>
+        </ul>
+      </div>
+  </section>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/froala_editor.min_7d451c8.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/link.min_ba94def.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/table.min_dfd552c.js"></script>
+
+  <script>
+    $(function(){
+      $('#edit').froalaEditor({
+        toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', 'table', '|', 'undo', 'redo'],
+        tableResizerOffset: 10,
+        tableResizingLimit: 50
+      })
+    });
+  </script>
+</body>
+</html>

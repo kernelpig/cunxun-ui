@@ -1,0 +1,1 @@
+function IsTokenErr(r){return(r&serverSubErrorMask)>>8===SubModuleTokenErr}var serverSubErrorMask=65280,SubModuleTokenErr=6;

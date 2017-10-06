@@ -1,0 +1,1 @@
+function IndexPageRender(){NavbarRender(),FootbarRender()}$(document).ready(function(){IndexPageRender(),APIUserGetInfo(Cookies.get("UserId"),AlertShowAjaxError,function(e){0===e.code?($(".UserNicknameField").text(e.nickname),$(".UserAvatarField").attr("src",e.avatar)):AlertShowError(e.sub_error)})});

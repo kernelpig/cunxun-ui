@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.0.2/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/froala_editor_5ec3592.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/froala_style_041c7bd.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/image_2b1cdfa.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/image_manager_0283da4.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/table_3544d23.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/quick_insert_a1e68d8.css">
+
+  <style>
+      body {
+          text-align: center;
+      }
+
+      section {
+        width: 81%;
+        margin: auto;
+        text-align: left;
+      }
+  </style>
+</head>
+
+<body>
+  <section id="editor">
+    <div id='edit' style="margin-top: 30px;">
+      <h1>Quick Insert</h1>
+
+      <p>Quick Insert makes WYSIWYG HTML editing awesome.</p>
+
+      <p>The quick insert button will appear when you have focus on an empty line. To see it in action hit enter at the end of this line.</p>
+
+      <p>There are 2 options related to the quick insert:</p>
+      <ul>
+        <li><a href="https://www.froala.com/wysiwyg-editor/docs/options#quickInsertButtons" title="quickInsertButtons option" target="_blank">quickInsertButtons</a> - the buttons to display in the quick inserter.</li>
+        <li><a href="https://www.froala.com/wysiwyg-editor/docs/options#quickInsertTags" title="quickInsertTags option" target="_blank">quickInsertTags</a> - the list of tags for which the quick insert button will appear when empty.</li>
+      </ul>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/froala_editor.min_7d451c8.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/quick_insert.min_ff1af53.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/image.min_9e8f5ed.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/image_manager.min_91660a8.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/lists.min_2456a39.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/table.min_dfd552c.js"></script>
+
+  <script>
+    $(function() {
+      $('#edit').froalaEditor()
+    });
+  </script>
+</body>
+</html>

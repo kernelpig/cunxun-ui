@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/froala_editor_5ec3592.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/froala_style_041c7bd.css">
+
+  <style>
+      body {
+          text-align: center;
+      }
+
+      section {
+          width: 81%;
+          margin: auto;
+          text-align: left;
+      }
+  </style>
+</head>
+
+<body>
+  <section id="editor">
+    <div id='edit' style="margin-top: 30px;">
+      <h1>Auto-Adjustable Height</h1>
+
+      <p>The editor's height will automatically adjust between the <code>heightMin</code> and <code>heightMax</code> values to fit the content inside the editable area.</p>
+
+      <ul>
+      	<li><a href="https://www.froala.com/wysiwyg-editor/docs/options#heightMin" target="_blank" title="heightMin option">heightMin</a> will prevent the rich text editor&#39;s box being smaller than the value passed.</li>
+      	<li><a href="https://www.froala.com/wysiwyg-editor/docs/options#heightMax" target="_blank" title="heightMax option">heightMax</a> will prevent the rich text editor&#39;s box being taller than the value passed. If the text is too long, then the WYSIWYG HTML editor will get a vertical scrollbar.</li>
+      </ul>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/froala_editor.min_7d451c8.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/lists.min_2456a39.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/link.min_ba94def.js"></script>
+
+  <script>
+    $(function(){
+      $('#edit').froalaEditor({
+        heightMax: 400,
+        heightMin: 200
+      })
+    });
+  </script>
+</body>
+</html>

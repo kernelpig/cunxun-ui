@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拼车信息</title>
+    <link rel="icon" type="image/png" href="/assets/i/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/assets/css/amazeui.min_d4cd56e.css"/>
+    <link rel="stylesheet" href="/assets/css/main_a445205.css"/>
+    <link rel="stylesheet" href="/assets/css/amazeui.datetimepicker_a16e365.css"/>
+
+    <!-- 编辑器样式 -->
+    <link rel="stylesheet" type="text/css" href="/assets/third/froala_editor_2.7.0/css/font-awesome.min_7124881.css">
+    <link href="/assets/third/froala_editor_2.7.0/css/froala_editor.min_0311511.css" rel="stylesheet" type="text/css">
+    <link href="/assets/third/froala_editor_2.7.0/css/froala_style.min_041c7bd.css" rel="stylesheet" type="text/css">
+    <link href="/assets/third/froala_editor_2.7.0/css/themes/gray.min_ec24bc3.css" rel="stylesheet" type="text/css">
+    <link href="/assets/third/froala_editor_2.7.0/css/plugins/image_manager.min_0283da4.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/code_view_3ac316d.css">
+    <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/draggable_8333b32.css">
+    <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/colors_542efcd.css">
+    <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/image_manager_0283da4.css">
+    <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/image_2b1cdfa.css">
+    <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/line_breaker_24b72f3.css">
+    <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/table_3544d23.css">
+    <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/char_counter_dcd1c06.css">
+    <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/video_8947d68.css">
+    <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/fullscreen_d4743ca.css">
+    <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/file_3c802af.css">
+    <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/quick_insert_a1e68d8.css">
+    <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/help_55442ce.css">
+</head>
+<body>
+
+<div class="am-container ContentContainer">
+    <div class="am-container am-margin-top">
+        <form method="post" class="am-form" id="first_setup">
+                <fieldset>
+                        <legend>拼车信息</legend>
+                        <div class="am-form-group">
+                                <div class="am-input-group">
+                                        <span class="am-input-group-label"><i class="am-icon-car"></i></span>
+                                        <input type="text" class="CarpoolingFromCityField" required minlength="1" maxlength="64" placeholder="出发城市" data-validation-message="出发城市, 必须为1~64位">
+                                    </div>
+                            </div>
+                        <div class="am-form-group">
+                            <div class="am-input-group">
+                                <span class="am-input-group-label"><i class="am-icon-car"></i></span>
+                                <input type="text" class="CarpoolingToCityField" required minlength="1" maxlength="64" placeholder="到达城市" data-validation-message="到达城市, 必须为1~32位">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="am-input-group">
+                                <span class="am-input-group-label"><i class="am-icon-calendar"></i></span>
+                                <input type="text" readonly class="CarpoolingDepartTimeField" required placeholder="发车时间, 点击选择日期" data-validation-message="选择发车时间">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="am-input-group">
+                                <span class="am-input-group-label"><i class="am-icon-user"></i></span>
+                                <input type="number" class="CarpoolingPeopleCountField" required min="1" max="6" placeholder="可带人数" data-validation-message="可载人数, 必须为1~6位">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="am-input-group">
+                                <span class="am-input-group-label"><i class="am-icon-phone"></i></span>
+                                <input type="text" class="CarpoolingContactField" required minlength="1" maxlength="64" placeholder="联系人" data-validation-message="联系方式, 必须为1~64位">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                                <textarea class="CarpoolingRemarkField" rows="6"></textarea>
+                            </div>
+                        <div class="am-form-group">
+                                <input type="button" value="提交" class="am-btn am-btn-primary am-btn-sm CarpoolingActionHandler">
+                            </div>
+                    </fieldset>
+            </form>
+    </div>
+</div>
+
+</body>
+<script src="/assets/js/third/jquery-1.11.1.min_7e57d31.js"></script>
+<script src="/assets/js/third/js.cookie-2.1.4.min_9b36852.js"></script>
+<script src="/assets/js/third/amazeui.min_bcc7a7b.js"></script>
+<script src="/assets/js/third/amazeui.datetimepicker.min_8e24dc3.js"></script>
+
+<!-- 编辑器 -->
+<script src="/assets/third/froala_editor_2.7.0/js/froala_editor.min_7d451c8.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/froala_editor.min_7d451c8.js" ></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/languages/zh_cn_8eeb0b8.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/align.min_c00c0a4.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/char_counter.min_0013508.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/code_beautifier.min_d3371aa.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/code_view.min_21c3ff2.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/colors.min_dfa8732.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/draggable.min_d912ce4.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/entities.min_22294ca.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/file.min_4c1d67a.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/font_size.min_c4de8d0.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/font_family.min_076f1ba.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/fullscreen.min_9feb96a.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/image.min_9e8f5ed.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/image_manager.min_91660a8.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/line_breaker.min_9d7e03f.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/inline_style.min_20cb1df.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/link.min_ba94def.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/lists.min_2456a39.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/paragraph_format.min_2b420c9.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/paragraph_style.min_fb9fb5b.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/quick_insert.min_ff1af53.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/quote.min_86dab0d.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/table.min_dfd552c.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/save.min_31f63d6.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/url.min_646c9d0.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/video.min_49c3b30.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/help.min_1c3cfaa.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/print.min_170b99e.js"></script>
+<script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/word_paste.min_634d2fd.js"></script>
+
+<script src="/assets/js/common/const_fb426d8.js"></script>
+<script src="/assets/js/common/common_276eb42.js"></script>
+<script src="/assets/js/error/code_f3f8824.js"></script>
+<script src="/assets/js/config/config_43a8bf6.js"></script>
+<script src="/assets/js/api/api_947eccb.js"></script>
+<script src="/assets/js/model/froala_editor_da42b49.js"></script>
+<script src="/assets/js/model/captcha_45bdd19.js"></script>
+<script src="/assets/js/model/alert_58917ff.js"></script>
+<script src="/assets/js/model/admin/navbar_b7f9606.js"></script>
+<script src="/assets/js/model/footbar_aecc922.js"></script>
+<script src="/assets/js/model/validator_f7ef6d3.js"></script>
+<script src="/assets/js/page/admin/carpooling_af81f2e.js"></script>
+</html>

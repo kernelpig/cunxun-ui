@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/froala_editor_5ec3592.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/froala_style_041c7bd.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/code_view_3ac316d.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/colors_542efcd.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/emoticons_0ccf474.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/line_breaker_24b72f3.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/char_counter_dcd1c06.css">
+  <link rel="stylesheet" href="/assets/third/froala_editor_2.7.0/css/plugins/fullscreen_d4743ca.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
+
+  <style>
+      body {
+          text-align: center;
+      }
+
+      div#editor {
+          width: 81%;
+          margin: auto;
+          text-align: left;
+      }
+  </style>
+</head>
+
+<body>
+  <div id="editor">
+    <h1 id='edit' style="margin-top: 30px;">
+      Init on Heading 1.
+    </h1>
+  </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
+
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/froala_editor.min_7d451c8.js" ></script>
+
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/align.min_c00c0a4.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/code_beautifier.min_d3371aa.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/code_view.min_21c3ff2.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/colors.min_dfa8732.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/emoticons.min_0552f67.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/font_size.min_c4de8d0.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/font_family.min_076f1ba.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/draggable.min_d912ce4.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/link.min_ba94def.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/url.min_646c9d0.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/entities.min_22294ca.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/char_counter.min_0013508.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/inline_style.min_20cb1df.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/save.min_31f63d6.js"></script>
+  <script type="text/javascript" src="/assets/third/froala_editor_2.7.0/js/plugins/fullscreen.min_9feb96a.js"></script>
+
+  <script>
+    $(function(){
+      $('#edit').froalaEditor({
+        enter: $.FroalaEditor.ENTER_BR
+      });
+    });
+  </script>
+</body>
+</html>

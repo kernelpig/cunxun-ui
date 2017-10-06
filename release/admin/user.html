@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <link rel="icon" type="image/png" href="/assets/i/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/assets/css/amazeui.min_d4cd56e.css"/>
+    <link rel="stylesheet" href="/assets/css/main_a445205.css"/>
+</head>
+<body>
+
+<div class="am-container ContentContainer">
+    <div class="am-container am-margin-top">
+        <form method="post" class="am-form" id="first_setup">
+                <fieldset>
+                        <legend>用户信息</legend>
+                        <div class="am-form-group">
+                                <div class="am-input-group">
+                                        <span class="am-input-group-label"><i class="am-icon-phone"></i></span>
+                                        <input type="number" class="UserItemPhone" required minlength="11" maxlength="11" placeholder="手机号码" data-validation-message="输入大陆手机号码, 必须为11位">
+                                    </div>
+                            </div>
+                        <div class="am-form-group">
+                            <div class="am-input-group">
+                                <span class="am-input-group-label"><i class="am-icon-lock"></i></span>
+                                <input type="password" class="UserItemPassword" required minlength="8" maxlength="16" placeholder="用户密码" data-validation-message="输入密码, 必须为8~16位">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="am-input-group">
+                                <span class="am-input-group-label"><i class="am-icon-user"></i></span>
+                                <input type="text" class="UserItemNickname" minlength="1" maxlength="32" placeholder="用户昵称" data-validation-message="输入昵称, 必须为1~32位">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="am-input-group">
+                                <span class="am-input-group-label"><i class="am-icon-list"></i></span>
+                                <select type="text" class="UserItemRole">
+                                    <option value="1">普通用户</option>
+                                    <option value="2">管理员</option>
+                                    <option value="3" class="UserItemRoleSuper">超级管理员</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                                <input type="button" value="提交" class="am-btn am-btn-primary am-btn-sm UserCreateHandler">
+                            </div>
+                    </fieldset>
+            </form>
+    </div>
+</div>
+
+</body>
+<script src="/assets/js/third/jquery-1.11.1.min_7e57d31.js"></script>
+<script src="/assets/js/third/js.cookie-2.1.4.min_9b36852.js"></script>
+<script src="/assets/js/third/amazeui.min_bcc7a7b.js"></script>
+<script src="/assets/js/common/const_fb426d8.js"></script>
+<script src="/assets/js/common/common_276eb42.js"></script>
+<script src="/assets/js/error/code_f3f8824.js"></script>
+<script src="/assets/js/config/config_43a8bf6.js"></script>
+<script src="/assets/js/api/api_947eccb.js"></script>
+<script src="/assets/js/model/alert_58917ff.js"></script>
+<script src="/assets/js/model/admin/navbar_b7f9606.js"></script>
+<script src="/assets/js/model/footbar_aecc922.js"></script>
+<script src="/assets/js/model/validator_f7ef6d3.js"></script>
+<script src="/assets/js/page/admin/user_a110878.js"></script>
+</html>

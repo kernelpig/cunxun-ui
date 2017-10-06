@@ -1,0 +1,1 @@
+function ArticlePageRender(){NavbarRender(),AriticleDetailRender(location.href),FootbarRender();var e=GetURIParamStr(location.href,"article_id");CommentRender(location.href+"&relate_id="+e)}$(document).ready(function(){ArticlePageRender()});

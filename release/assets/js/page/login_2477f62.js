@@ -1,0 +1,1 @@
+function LoginPageRender(){NavbarRender(),FootbarRender(),UserLoginRender()}$(document).ready(function(){LoginPageRender()});

@@ -1,0 +1,1 @@
+function CaptchaGetImageHandler(){APICaptchaGetID(AlertShowAjaxError,function(a){var t=captchaBaseURI+"/"+a.id+"?width=60&height=30";$("#CaptchaGetImageHandler").attr("src",t),Cookies.set("captcha_id",a.id)})}
