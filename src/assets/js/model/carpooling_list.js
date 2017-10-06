@@ -31,7 +31,6 @@ function CarpoolingGetListHandler() {
         if (data["code"] === 0) {
             CarpoolingListPageEnv.is_end = data['end'];
             if (!data["list"] || data["list"].length === 0) {
-                AlertShowAutoClose("请知晓", "亲,无更多数据");
                 return
             }
             CarpoolingListPageEnv.page_num += 1;

@@ -1,6 +1,7 @@
 // 常量配置定义
 var PageSizeDefault = 10;
 var PageStartNumberDefault = 1;
+var WebSiteTitle = "村讯";
 
 // 头像大小
 var AvatarWidthDefault = 160;

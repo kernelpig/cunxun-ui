@@ -2,7 +2,7 @@ var ArticleListTemplate = '<div data-am-widget="list_news" class="am-list-news a
     '    <!--列表标题-->\n' +
     '    <div class="am-list-news-hd am-cf">\n' +
     '        <!--带更多链接-->\n' +
-        '            <button class="am-btn am-btn-primary ArticleListTitle">最新</button>\n' +
+        '            <button class="am-btn am-btn-primary am-btn-sm ArticleListTitle">最新</button>\n' +
     '    </div>\n' +
     '    <div class="am-list-news-bd">\n' +
     '        <ul class="am-list">\n' +
@@ -68,9 +68,9 @@ function ArticleListRender(currentUrl) {
     $(".ContentContainer").append(ArticleListTemplate);
     ArticleListPageGetCurrentEnv(currentUrl);
     if (ArticleListPageEnv.order_by === orderByCommentCount) {
-        $(".ArticleListTitle").addClass("am-icon-fire").text(" 最近热贴");
+        $(".ArticleListTitle").text(" 最热");
     } else {
-        $(".ArticleListTitle").addClass("am-icon-rocket").text(" 最近更新");
+        $(".ArticleListTitle").text(" 最新");
     }
     ArticleGetListHandler();
     $('#ArticleGetMoreHandler').click(ArticleGetMoreHandler);

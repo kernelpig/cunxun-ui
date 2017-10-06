@@ -1,7 +1,7 @@
 
 var NavbarTemplate = '<header class="am-topbar am-topbar-inverse">\n' +
     '    <h1 class="am-topbar-brand">\n' +
-    '        <a href="index.html"><img src="assets/i/logo.png">村讯</a>\n' +
+    '        <a href="index.html"><img src="assets/i/logo.png">' + WebSiteTitle + '</a>\n' +
     '    </h1>\n' +
     '\n' +
     '    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: \'#doc-topbar-collapse\'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>\n' +
@@ -11,7 +11,7 @@ var NavbarTemplate = '<header class="am-topbar am-topbar-inverse">\n' +
     '           <li id="NavbarIndexItemContainer"><a href="index.html">首页</li>\n' +
     '        </ul>\n' +
     '\n' +
-    '        <form class="am-topbar-form am-topbar-left am-form-inline" role="search">\n' +
+    '        <form class="am-topbar-form am-topbar-left am-form-inline am-hide" role="search">\n' +
     '            <div class="am-form-group">\n' +
     '                <input type="text" class="am-form-field am-input-sm" placeholder="搜索" id="search">\n' +
     '            </div>\n' +
@@ -57,10 +57,10 @@ function NavbarInit() {
     APIColumnGetList(req, AlertShowAjaxError, function (data) {
         if (data["code"] === 0) {
             var column_id = GetURIParamIdValue(location.href, "column_id");
-            if (column_id === columnIdDefault) {
+            if (column_id === "" || column_id === columnIdDefault) {
                 if ((location.href.indexOf("index.html") !== -1) || (location.href.indexOf(".html") === -1)) {
                     $("#NavbarIndexItemContainer").addClass("am-active");
-                    $(document).attr("title", "首页");
+                    $(document).attr("title", WebSiteTitle);
                 }
             }
             if (!data["list"] || data["list"].length === 0) {
@@ -69,7 +69,7 @@ function NavbarInit() {
             $.each(data['list'], function (index, item) {
                 var url = "list.html?column_id=" + item.id + "&page_size=10&page_num=1";
                 if (item.name === "拼车") {
-                    url = "carpooling_list.html?" + "page_size=10&page_num=1";
+                    url = "carpooling_list.html?column_id=" + item.id +  "&page_size=10&page_num=1";
                 }
                 var a = $("<a></a>").attr("href", url).text(item.name);
                 var li = $("<li></li>");
