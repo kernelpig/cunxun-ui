@@ -3,7 +3,7 @@
     border: 1px solid #eee;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
-    padding: 20px 20px 20px;
+    padding: 20px 20px 50px 20px;
 }
 
 /* 文章列表中帖子统计信息样式 */
@@ -23,4 +23,9 @@
 /* 中间内容框 */
 .ContentContainer {
     margin-bottom: 0px;
+}
+
+/* footer */
+.am-footer {
+    z-index: -1;
 }
