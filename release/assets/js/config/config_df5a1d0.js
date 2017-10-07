@@ -1,0 +1,1 @@
+var PageSizeDefault=10,PageStartNumberDefault=1,WebSiteTitle="菏泽",AvatarWidthDefault=160,AvatarHeightDefault=90,AvatarServiceBaseURI="http://oss.lunxue.cc/avatar",CommentLengthDefault=200,imageUploadTypes=["jpeg","jpg","png"],imageUploadMaxSize=15728640,articleParseHTMLTags=["iframe","script","javascript","frame"];
