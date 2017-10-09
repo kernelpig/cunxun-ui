@@ -2,7 +2,8 @@ var ArticleListTemplate = '<div data-am-widget="list_news" class="am-list-news a
     '    <!--列表标题-->\n' +
     '    <div class="am-list-news-hd am-cf">\n' +
     '        <!--带更多链接-->\n' +
-        '            <button class="am-btn am-btn-primary am-btn-sm ArticleListTitle">最新</button>\n' +
+        '            <button class="am-btn am-btn-sm ArticleListTitle ArticleListOrderByCreateDate">最新</button>\n' +
+        '            <button class="am-btn am-btn-sm ArticleListTitle ArticleListOrderByCommentCount">最热</button>\n' +
     '    </div>\n' +
     '    <div class="am-list-news-bd">\n' +
     '        <ul class="am-list">\n' +
@@ -64,14 +65,35 @@ function ArticleListPageGetCurrentEnv(currentUrl) {
     ArticleListPageEnv.page_num = GetURIParamInt(currentUrl, "page_num") || PageStartNumberDefault;
 }
 
+function ArticleListButtonToggle() {
+    ArticleListPageEnv.page_size = PageSizeDefault;
+    ArticleListPageEnv.page_num = PageStartNumberDefault;
+    if (ArticleListPageEnv.order_by === orderByCommentCount) {
+        $(".ArticleListOrderByCommentCount").addClass("am-btn-primary");
+        $(".ArticleListOrderByCreateDate").removeClass("am-btn-primary").addClass("am-btn-default");
+    } else {
+        $(".ArticleListOrderByCreateDate").addClass("am-btn-primary");
+        $(".ArticleListOrderByCommentCount").removeClass("am-btn-primary").addClass("am-btn-default");
+    }
+    $(".am-list").html("");
+    ArticleGetListHandler();
+}
+
+function ArticleListLinkRender() {
+    $(".ArticleListOrderByCommentCount").click(function () {
+        ArticleListPageEnv.order_by = orderByCommentCount;
+        ArticleListButtonToggle();
+    });
+    $(".ArticleListOrderByCreateDate").click(function () {
+        ArticleListPageEnv.order_by = orderByCreateDate;
+        ArticleListButtonToggle();
+    });
+}
+
 function ArticleListRender(currentUrl) {
     $(".ContentContainer").append(ArticleListTemplate);
     ArticleListPageGetCurrentEnv(currentUrl);
-    if (ArticleListPageEnv.order_by === orderByCommentCount) {
-        $(".ArticleListTitle").text(" 最热");
-    } else {
-        $(".ArticleListTitle").text(" 最新");
-    }
-    ArticleGetListHandler();
+    ArticleListLinkRender();
+    ArticleListButtonToggle();
     $('#ArticleGetMoreHandler').click(ArticleGetMoreHandler);
 }

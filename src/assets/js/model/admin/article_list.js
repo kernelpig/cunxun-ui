@@ -87,9 +87,9 @@ function ArticleListRender(currentUrl) {
     $(".ContentContainer").append(ArticleListTemplate);
     ArticleListPageGetCurrentEnv(currentUrl);
     if (ArticleListPageEnv.order_by === orderByCommentCount) {
-        $(".ArticleListTitle").text("热度排序");
+        $(".ArticleListTitle").text("最热");
     } else {
-        $(".ArticleListTitle").text("时间排序");
+        $(".ArticleListTitle").text("最新");
     }
     ArticleGetListHandler();
     $(".ArticleGetMoreHandler").click(ArticleGetMoreHandler);
