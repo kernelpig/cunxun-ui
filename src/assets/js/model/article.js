@@ -1,5 +1,5 @@
 
-var ArticleDetailTemplate = '<article class="am-article">\n' +
+var ArticleDetailTemplate = '<article class="am-article am-margin-top">\n' +
     '    <div class="am-article-hd am-text-center">\n' +
     '        <h1 class="am-article-title am-text-primary"></h1>\n' +
     '        <hr><p class="am-article-meta"></p>\n' +
