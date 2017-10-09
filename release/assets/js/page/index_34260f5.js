@@ -1,1 +1,0 @@
-function IndexPageRender(e){NavbarRender(),FootbarRender(),ArticleListRender(e)}$(document).ready(function(){IndexPageRender("?column_id=0&order_by=comment_count")});
