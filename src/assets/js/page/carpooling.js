@@ -12,11 +12,11 @@ function CarpoolingGetHandler() {
                 return
             }
             var item = data["list"][0];
-            $(".CarpoolingFromCityField").val(item.from_city);
-            $(".CarpoolingToCityField").val(item.to_city);
-            $(".CarpoolingDepartTimeField").val(CtsTimeFormat(item.depart_time));
-            $(".CarpoolingPeopleCountField").val(item.people_count);
-            $(".CarpoolingContactField").val(item.contact);
+            $(".CarpoolingFromCityField").text(item.from_city);
+            $(".CarpoolingToCityField").text(item.to_city);
+            $(".CarpoolingDepartTimeField").text(CtsTimeFormat(item.depart_time));
+            $(".CarpoolingPeopleCountField").text(item.people_count);
+            $(".CarpoolingContactField").text(item.contact);
             $(".CarpoolingRemarkField").html(parseSpecialChar(item.remark));
         } else {
             AlertShowError(data['sub_error']);
