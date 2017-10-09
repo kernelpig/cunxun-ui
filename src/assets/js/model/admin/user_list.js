@@ -14,7 +14,7 @@ var UserListTemplate = '<table class="am-table am-table-striped am-table-compact
     '    </table>\n' +
     '    <!--更多在底部-->\n' +
     '    <div class="am-list-news-ft">\n' +
-    '        <a class="am-list-news-more am-btn am-btn-primary am-btn-sm UserGetMoreHandler" href="#">查看更多 &raquo;</a>\n' +
+    '        <button class="am-list-news-more am-btn am-btn-primary am-btn-sm UserGetMoreHandler">查看更多 &raquo;</button>\n' +
     '    </div>';
 
 var UserListItemTemplate = '<tr>\n' +

@@ -11,7 +11,7 @@ var ArticleListTemplate = '<div data-am-widget="list_news" class="am-list-news a
     '    </div>\n' +
     '    <!--更多在底部-->\n' +
     '    <div class="am-list-news-ft">\n' +
-    '        <a class="am-list-news-more am-btn am-btn-primary am-btn-sm" id="ArticleGetMoreHandler" href="#">查看更多 &raquo;</a>\n' +
+    '        <button class="am-list-news-more am-btn am-btn-primary am-btn-sm" id="ArticleGetMoreHandler">查看更多 &raquo;</button>\n' +
     '    </div>\n' +
     '</div>';
 

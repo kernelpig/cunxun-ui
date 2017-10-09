@@ -18,7 +18,7 @@ var CarpoolingListTemplate = '<table class="am-table am-table-striped am-table-c
     '    </table>\n' +
     '    <!--更多在底部-->\n' +
     '    <div class="am-list-news-ft">\n' +
-    '        <a class="am-list-news-more am-btn am-btn-primary am-btn-sm CarpoolingGetMoreHandler" href="#">查看更多 &raquo;</a>\n' +
+    '        <button class="am-list-news-more am-btn am-btn-primary am-btn-sm CarpoolingGetMoreHandler">查看更多 &raquo;</button>\n' +
     '    </div>';
 
 var CarpoolingListItemTemplate = '<tr>\n' +
