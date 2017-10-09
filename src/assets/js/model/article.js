@@ -23,7 +23,7 @@ function ArticleGetHandler() {
                 return
             }
             var item = data["list"][0];
-            $(document).attr("title", item.title);
+            $(document).attr("title", WebSiteTitle + item.title);
             $(".am-article-title").text(item.title);
             $(".ArticleContentContainer").html(parseSpecialChar(item.content));
             var userLink = "/user.html?user_id=" + item.updater_uid;

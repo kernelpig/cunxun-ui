@@ -1,7 +1,7 @@
 
 var NavbarTemplate = '<header class="am-topbar am-topbar-inverse">\n' +
     '    <h1 class="am-topbar-brand">\n' +
-    '        <a href="index.html"><img src="../assets/i/logo.png">' + WebSiteTitle + '</a>\n' +
+    '        <a href="index.html"><img src="../assets/i/logo.png">' + WebSiteName + '</a>\n' +
     '    </h1>\n' +
     '\n' +
     '    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: \'#doc-topbar-collapse\'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>\n' +

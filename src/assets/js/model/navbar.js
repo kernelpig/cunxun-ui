@@ -1,7 +1,7 @@
 
 var NavbarTemplate = '<header class="am-topbar am-topbar-inverse">\n' +
     '    <h1 class="am-topbar-brand">\n' +
-    '        <a href="index.html"><img src="assets/i/logo.png">' + WebSiteTitle + '</a>\n' +
+    '        <a href="index.html"><img src="assets/i/logo.png">' + WebSiteName + '</a>\n' +
     '    </h1>\n' +
     '\n' +
     '    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: \'#doc-topbar-collapse\'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>\n' +
@@ -60,7 +60,7 @@ function NavbarInit() {
             if (column_id === "" || column_id === columnIdDefault) {
                 if ((location.href.indexOf("index.html") !== -1) || (location.href.indexOf(".html") === -1)) {
                     $("#NavbarIndexItemContainer").addClass("am-active");
-                    $(document).attr("title", WebSiteTitle);
+                    $(document).attr("title", WebSiteTitle + "首页");
                 }
             }
             if (!data["list"] || data["list"].length === 0) {
@@ -74,7 +74,7 @@ function NavbarInit() {
                 var a = $("<a></a>").attr("href", url).text(item.name);
                 var li = $("<li></li>");
                 if (item.id === column_id) {
-                    $(document).attr("title", item.name);
+                    $(document).attr("title", WebSiteTitle + item.name);
                     li.addClass("am-active");
                 }
                 $('.am-nav').append(li.append(a))
