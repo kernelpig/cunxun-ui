@@ -50,6 +50,7 @@ function ArticleGetListHandler() {
                 navbarItem.find(".ArticleListItemDelete").attr("alt", item.id);
                 $(".ListItemsContainer").append(navbarItem);
             });
+            gotoPageBottom();
             $(".ArticleListItemDelete").click(ArticleDeleteHandler);
         } else {
             AlertShowError(data['sub_error']);

@@ -58,6 +58,7 @@ function CarpoolingGetListHandler() {
                 navbarItem.find(".CarpoolingListItemRemark").text($(item.remark).text());
                 $(".ListItemsContainer").append(navbarItem);
             });
+            gotoPageBottom();
         } else {
             AlertShowError(data['sub_error']);
         }

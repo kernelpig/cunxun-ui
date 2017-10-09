@@ -43,6 +43,7 @@ function ArticleGetListHandler() {
                     var time = $('<a class="am-list-item-text am-text-truncate am-u-md-3 am-show-lg-up am-text-center"></a>').text(CtsTimeFormat(this.updated_at));
                     $(".am-list").append($('<li class="am-g"></li>').append(link).append(author).append(stat).append(time));
                 });
+                gotoPageBottom();
             }
         } else {
             AlertShowError(data['sub_error']);

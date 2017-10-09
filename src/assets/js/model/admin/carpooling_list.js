@@ -66,6 +66,7 @@ function CarpoolingGetListHandler() {
                 navbarItem.find(".CarpoolingListItemDelete").attr("alt", item.id);
                 $(".ListItemsContainer").append(navbarItem);
             });
+            gotoPageBottom();
             $(".CarpoolingListItemDelete").click(CarpoolingDeleteHandler);
         } else {
             AlertShowError(data['sub_error']);

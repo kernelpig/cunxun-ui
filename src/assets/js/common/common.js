@@ -183,3 +183,12 @@ function clearLoginCookie() {
     Cookies.remove('UserId');
     Cookies.remove('UserRole');
 }
+
+// 滚动当前页面到底部
+function gotoPageBottom() {
+    var $w = $(window);
+    $w.smoothScroll({
+        position: $(document).height() - $w.height(),
+        speed: 750
+    });
+}

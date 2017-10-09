@@ -77,6 +77,7 @@ function NavbarItemUserGetList(pageEnv) {
                 navbarItem.find(".UserItemDeleteHandler").attr("alt", item.id);
                 $(".ListItemsContainer").append(navbarItem);
             });
+            gotoPageBottom();
             $(".UserItemUpdateHandler").click(UserUpdateHandler);
             $(".UserItemDeleteHandler").click(UserDeleteHandler);
         } else {

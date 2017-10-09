@@ -47,6 +47,7 @@ function ColumnGetListHandler() {
                 navbarItem.find(".ColumnListItemDelete").attr("alt", item.id);
                 $(".ListItemsContainer").append(navbarItem)
             });
+            gotoPageBottom();
             $(".ColumnListItemUpdate").click(ColumnUpdateHandler);
             $(".ColumnListItemDelete").click(ColumnDeleteHandler);
         } else {

@@ -50,6 +50,7 @@ function CommentGetListHandler() {
                 navbarItem.find(".CommentListItemDelete").attr("alt", item.id);
                 $(".ListItemsContainer").append(navbarItem)
             });
+            gotoPageBottom();
             $(".CommentListItemUpdate").click(CommentUpdateHandler);
             $(".CommentListItemDelete").click(CommentDeleteHandler);
         } else {
