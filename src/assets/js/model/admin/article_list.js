@@ -13,7 +13,7 @@ var ArticleListTemplate = '<table class="am-table am-table-striped am-table-comp
     '    </table>\n' +
     '    <!--更多在底部-->\n' +
     '    <div class="am-list-news-ft">\n' +
-    '        <a class="am-list-news-more am-btn am-btn-default ArticleGetMoreHandler" href="###">查看更多 &raquo;</a>\n' +
+    '        <a class="am-list-news-more am-btn am-btn-primary am-btn-sm ArticleGetMoreHandler" href="#">查看更多 &raquo;</a>\n' +
     '    </div>';
 
 var ArticleListItemTemplate = '<tr>\n' +
