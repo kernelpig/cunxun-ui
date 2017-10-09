@@ -1,30 +1,39 @@
-var CarpoolingListTemplate = '<table class="am-table am-table-compact am-text-sm am-text-primary">\n' +
-    '        <thead>\n' +
-    '        <tr>\n' +
-    '            <th>出发</th>\n' +
-    '            <th>到达</th>\n' +
-    '            <th>日期</th>\n' +
-    '            <th class="am-show-lg-up">人数</th>\n' +
-    '            <th class="am-show-lg-up">联系人</th>\n' +
-    '            <th class="am-show-lg-up">备注</th>\n' +
-    '        </tr>\n' +
-    '        </thead>\n' +
-    '        <tbody class="ListItemsContainer">\n' +
-    '        </tbody>\n' +
-    '    </table>\n' +
+var CarpoolingListTemplate = '<div data-am-widget="list_news" class="am-list-news am-list-news-default" >\n' +
+    '    <!--列表标题-->\n' +
+    '    <div class="am-list-news-hd am-cf">\n' +
+    '            <!--带更多链接-->\n' +
+    '                <button class="am-btn am-btn-sm am-btn-primary ArticleListTitle ArticleListOrderByCreateDate">最新</button>\n' +
+    '        </div>\n' +
+    '    <div class="am-list-news-bd">\n' +
+    '            <ul class="am-list ListItemsContainer">\n' +
+    '                <li class="am-g">\n' +
+    '                    <a class="am-list-item-hd am-text-truncate am-u-sm-4 am-u-md-2 am-padding-left-sm">出发城市</a>\n' +
+    '                    <a class="am-list-item-hd am-text-truncate am-u-sm-4 am-u-md-2 am-padding-left-sm">到达城市</a>\n' +
+    '                    <a class="am-list-item-hd am-text-truncate am-u-sm-4 am-u-md-2">发车时间</a>\n' +
+    '                    <a class="am-list-item-hd am-u-md-1 am-show-lg-up">可载</a>\n' +
+    '                    <a class="am-list-item-hd am-u-md-2 am-show-lg-up">联系方式</a>\n' +
+    '                    <a class="am-list-item-hd am-text-truncate am-u-md-3 am-show-lg-up">更多信息\n' +
+    '                    </a>\n' +
+    '                </li>\n' +
+    '                </ul>\n' +
+    '        </div>\n' +
     '    <!--更多在底部-->\n' +
     '    <div class="am-list-news-ft">\n' +
-    '        <a class="am-list-news-more am-btn am-btn-default CarpoolingGetMoreHandler" href="###">查看更多 &raquo;</a>\n' +
+    '            <a class="am-list-news-more am-btn am-btn-default CarpoolingGetMoreHandler" href="#">查看更多 &raquo;</a>\n' +
+    '        </div>\n' +
     '    </div>';
 
-var CarpoolingListItemTemplate = '<tr>\n' +
-    '            <td><a class="CarpoolingListItemFromCity"></a></td>\n' +
-    '            <td><a class="CarpoolingListItemToCity"></a></td>\n' +
-    '            <td><a class="CarpoolingListItemDepartTime"></a></td>\n' +
-    '            <td class="am-show-lg-up"><a class="CarpoolingListItemPeopleCount"></a></td>\n' +
-    '            <td class="am-show-lg-up"><a class="CarpoolingListItemContact"></a></td>\n' +
-    '            <td class="am-show-lg-up"><a class="CarpoolingListItemRemark"></a></td>\n' +
-    '        </tr>\n';
+var CarpoolingListItemTemplate = '<li class="am-g">\n' +
+    '                    <a class="am-list-item-text am-text-truncate am-u-sm-4 am-u-md-2 am-padding-left-sm CarpoolingListItemFromCity">曹州定陶区</a>\n' +
+    '                    <a class="am-list-item-text am-text-truncate am-u-sm-4 am-u-md-2 am-padding-left-sm CarpoolingListItemToCity">北京丰台区</a>\n' +
+    '                    <a class="am-list-item-text am-text-truncate am-u-sm-4 am-u-md-2 CarpoolingListItemDepartTime">2017-10-13 10:10:37</a>\n' +
+    '                    <a class="am-list-item-text am-u-md-1 am-show-lg-up CarpoolingListItemPeopleCount">2</a>\n' +
+    '                    <a class="am-list-item-text am-u-md-2 am-show-lg-up CarpoolingListItemContact">姜永-13439962686</a>\n' +
+    '                    <a class="am-list-item-text am-text-truncate am-u-md-3 am-show-lg-up CarpoolingListItemRemark">\n' +
+    '                            发车时间: 2017.10.13~2017.10.15 ddsfldsfsjsldjflskjj\n' +
+    '                            可载人数: 与车主联系确\n' +
+    '                    </a>\n' +
+    '                </li>\n';
 
 function CarpoolingGetListHandler() {
     APICarpoolingGetList(CarpoolingListPageEnv, AlertShowAjaxError, function (data) {
@@ -46,7 +55,7 @@ function CarpoolingGetListHandler() {
                 navbarItem.find(".CarpoolingListItemPeopleCount").text(item.people_count);
                 navbarItem.find(".CarpoolingListItemContact").text(item.contact);
                 navbarItem.find(".CarpoolingListItemCreatedAt").text(CtsTimeFormat(item.created_at));
-                navbarItem.find(".CarpoolingListItemRemark").html(parseSpecialChar(item.remark));
+                navbarItem.find(".CarpoolingListItemRemark").text($(item.remark).text());
                 $(".ListItemsContainer").append(navbarItem);
             });
         } else {
