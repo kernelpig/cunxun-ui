@@ -1,6 +1,13 @@
 http://lunxue.cc http://www.lunxue.cc https://lunxue.cc https://www.lunxue.cc {
         log /data/logs/caddy/cunxun-ui/www.lunxue.cc.log
         gzip
+        rewrite {
+           if {>User-agent} has BaiduSpider
+           to /spider/{path}
+        }
+        proxy /spider localhost:8006 {
+
+        }
         proxy /api localhost:8005 {
                 policy round_robin
         }
@@ -12,7 +19,7 @@ http://ycxw.org http://www.ycxw.org https://ycxw.org https://www.ycxw.org {
         rewrite {
             r *.html
             if {>User-agent} has Baiduspider
-                to /spider/{path}
+            to /spider/{path}
         }
         proxy /spider localhost:8006
         proxy /api localhost:8005 {
