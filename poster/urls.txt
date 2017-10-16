@@ -1,10 +1,5 @@
-http://www.ycxw.org/index.html
-http://www.ycxw.org/list.html?column_id=1&page_size=10&page_num=1
-http://www.ycxw.org/list.html?column_id=2&page_size=10&page_num=1
-http://www.ycxw.org/list.html?column_id=3&page_size=10&page_num=1
-http://www.ycxw.org/carpooling_list.html?column_id=4&page_size=10&page_num=1
-http://www.ycxw.org/api/article/?creater_uid=0&column_id=0&order_by=comment_count&page_size=10&page_num=1
-http://www.ycxw.org/api/article/?creater_uid=0&column_id=1&order_by=create_date&page_size=10&page_num=1
-http://www.ycxw.org/api/article/?creater_uid=0&column_id=2&order_by=create_date&page_size=10&page_num=1
-http://www.ycxw.org/api/article/?creater_uid=0&column_id=3&order_by=create_date&page_size=10&page_num=1
-http://www.ycxw.org/api/carpooling/?creater_uid=0&order_by=create_date&page_size=10&page_num=1
+http://www.lunxue.cc/index.html
+http://www.lunxue.cc/list.html?column_id=1&page_size=10&page_num=1
+http://www.lunxue.cc/list.html?column_id=2&page_size=10&page_num=1
+http://www.lunxue.cc/list.html?column_id=3&page_size=10&page_num=1
+http://www.lunxue.cc/carpooling_list.html?column_id=4&page_size=10&page_num=1
