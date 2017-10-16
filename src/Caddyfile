@@ -9,6 +9,12 @@ http://lunxue.cc http://www.lunxue.cc https://lunxue.cc https://www.lunxue.cc {
 http://ycxw.org http://www.ycxw.org https://ycxw.org https://www.ycxw.org {
         log /data/logs/caddy/cunxun-ui/www.ycxw.org.log
         gzip
+        rewrite {
+            r *.html
+            if {>User-agent} has Baiduspider
+                to /spider/{path}
+        }
+        proxy /spider localhost:8006
         proxy /api localhost:8005 {
                 policy round_robin
         }

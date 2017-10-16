@@ -15,6 +15,7 @@ var remoteServer = "http://www.lunxue.cc";
 // 常量信息
 var startFlag = "++++++++";
 var endFlag = "-------";
+var caddyRewritePrefix = "/spider";
 var subfixMap = {
     "css": "text/css",
     "html": "text/html",
@@ -51,6 +52,7 @@ function getAjaxPage(url, render, res) {
     console.log(startFlag);
     console.log("+ begin render ajax page.");
     var remoteUrl = remoteServer + url;
+    url = url.replace(caddyRewritePrefix, "");
     console.log(url, " -> ", remoteUrl, ": ", getContentType(url));
     page = webpage.create();
     //page.content = page.frameContent = "";  // 清空初始化数据
