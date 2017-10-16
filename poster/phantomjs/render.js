@@ -6,83 +6,86 @@
 // 导入包
 var fs = require("fs");
 var webpage = require('webpage');
+var server = require('webserver').create();
+var system = require('system');
+
+// 配置信息
+var remoteServer = "http://www.lunxue.cc";
 
 // 常量信息
 var startFlag = "++++++++";
 var endFlag = "-------";
-
-// 配置信息
-var urlFilePath = "../urls.txt";
-var exportDir = "./spider";
+var subfixMap = {
+    "css": "text/css",
+    "html": "text/html",
+    "ico": "image/x-icon",
+    "png": "image/png",
+    "jpg": "image/jpg",
+    "jpeg": "image/jpeg",
+    "js": "application/x-javascript"
+};
 
 // 获取url中的文件名
-function getPageName(url) {
-    var tmp = url.split("/");
+function getFileName(path) {
+    var tmp = path.split("/");
     return tmp[tmp.length - 1].split("?")[0];
 }
 
-// 读取文件
-function readAllURI() {
-    console.log(startFlag);
-    console.log("+ begin read all urls.");
-    var f = fs.open(urlFilePath, "r");
-    var urls = f.read();
-    f.close();
-    console.log(" end read all urls.");
-    console.log(endFlag);
-    return urls.split("\n");
+// 获取文件后缀名
+function getFileSubfix(filename) {
+    var tmp = filename.split(".");
+    return tmp[tmp.length - 1];
 }
 
-// 写入文件
-function writeFile(filename, content) {
-    console.log(startFlag);
-    console.log("+ begin write file.", filename, content);
-    var oldWorkPath = fs.workingDirectory;
-    fs.changeWorkingDirectory(exportDir);
-    var f = fs.open(filename, "w");
-    f.write(content);
-    f.close();
-    fs.changeWorkingDirectory(oldWorkPath);
-    console.log(" end write file.");
-    console.log(endFlag);
-}
-
-// 遍历链接
-function walkAllURI(urls) {
-    console.log(startFlag);
-    console.log("+ begin walk all urls.");
-    for (var i = 0; i < urls.length; i++) {
-        if(urls[i].length > 0) {
-            console.log(urls[i]);
-            renderAjaxPage(urls[i]);
-        }
+// 获取ContentType
+function getContentType(url) {
+    var subfix = getFileSubfix(getFileName(url));
+    if (!subfixMap[subfix] || subfixMap[subfix].length === 0) {
+        return "";
     }
-    console.log(" end walk all urls.");
-    console.log(endFlag);
+    return subfixMap[subfix];
 }
 
 // 获取渲染后的内容
-function renderAjaxPage(url) {
+function getAjaxPage(url, render, res) {
     console.log(startFlag);
-    console.log("+ begin render ajax page.", url);
+    console.log("+ begin render ajax page.");
+    var remoteUrl = remoteServer + url;
+    console.log(url, " -> ", remoteUrl, ": ", getContentType(url));
     page = webpage.create();
-    page.open(url, function (status) {
+    //page.content = page.frameContent = "";  // 清空初始化数据
+    page.open(remoteUrl, function (status) {
         if (status !== 'success') {
-            console.log("Failed to get url: ", url);
+            console.log("Failed to get url: ", remoteUrl);
         } else {
-            var pageName = getPageName(url);
-            phantom.outputEncoding = "utf8";
-            writeFile(pageName, page.content);
+            if (getContentType(url).length !== 0) {
+                phantom.outputEncoding = "utf8";
+                render(res, getContentType(url), page.content);
+            } else {
+                console.log("ignore");
+                res.close();
+            }
+            console.log(endFlag);
         }
     });
-    console.log(" end render ajax page.");
-    console.log(endFlag);
+}
+
+// 处理响应
+function renderAjaxPage(res, contentType, content) {
+    res.statusCode = 200;
+    res.headers = {"Cache": "no-cache", "Content-Type": contentType};
+    res.write(content);
+    res.close();
 }
 
 // 主过程
-(function main() {
-    //renderAjaxPage("http://www.lunxue.cc/news_list.html?column_id=1&page_size=10&page_num=1");
-    var urls = readAllURI();
-    walkAllURI(urls);
-    phantom.exit();
-})();
+if (system.args.length !== 2) {
+    console.log("Usage: server.js <some port>");
+    phantom.exit(1);
+}
+
+var port = system.args[1];
+var listening = server.listen(port, function (req, res) {
+    console.log("Get http request: ", JSON.stringify(req, null, 4));
+    getAjaxPage(req.url, renderAjaxPage, res);
+});
