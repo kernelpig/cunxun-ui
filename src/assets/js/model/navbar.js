@@ -40,17 +40,17 @@ function NavbarItemsRender() {
         {
             name: "资讯",
             id: "1",
-            url: "list.html?column_id=1&page_size=10&page_num=1"
+            url: "news_list.html?column_id=1&page_size=10&page_num=1"
         },
         {
             name: "贴吧",
             id: "2",
-            url: "list.html?column_id=2&page_size=10&page_num=1"
+            url: "postbar_list.html?column_id=2&page_size=10&page_num=1"
         },
         {
             name: "租房",
             id: "3",
-            url: "list.html?column_id=3&page_size=10&page_num=1"
+            url: "rental_list.html?column_id=3&page_size=10&page_num=1"
         },
         {
             name: "拼车",
