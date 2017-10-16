@@ -17,7 +17,6 @@ http://ycxw.org http://www.ycxw.org https://ycxw.org https://www.ycxw.org {
         log /data/logs/caddy/cunxun-ui/www.ycxw.org.log
         gzip
         rewrite {
-            r *.html
             if {>User-agent} has Baiduspider
             to /spider/{path}
         }
