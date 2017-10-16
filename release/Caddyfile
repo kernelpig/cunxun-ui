@@ -3,7 +3,17 @@ http://lunxue.cc http://www.lunxue.cc https://lunxue.cc https://www.lunxue.cc {
         gzip
         rewrite / {
             ext .html
-            if {>User-agent} has BaiduSpider
+            if {>User-agent} has Baiduspider
+            if_op or
+            if {>User-agent} has 360spider
+            if_op or
+            if {>User-agent} has Googlebot
+            if_op or
+            if {>User-agent} has bingbot
+            if_op or
+            if {>User-agent} has Sosospider
+            if_op or
+            if {>User-agent} has EasouSpider
             to /spider/{path}
         }
         proxy /spider localhost:8006 {
