@@ -67,8 +67,6 @@ function ArticleListPageGetCurrentEnv(currentUrl) {
 }
 
 function ArticleListButtonToggle() {
-    ArticleListPageEnv.page_size = PageSizeDefault;
-    ArticleListPageEnv.page_num = PageStartNumberDefault;
     if (ArticleListPageEnv.order_by === orderByCommentCount) {
         $(".ArticleListOrderByCommentCount").addClass("am-btn-primary");
         $(".ArticleListOrderByCreateDate").removeClass("am-btn-primary").addClass("am-btn-default");
