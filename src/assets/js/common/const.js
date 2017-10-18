@@ -22,3 +22,6 @@ var userRoleNormal = 1;
 var userRoleAdmin = 2;
 var userRoleSuperAdmin = 3;
 var userRoleInfo = ["火星用户", "普通用户", "管理员", "超级管理员"];
+
+// 其他常量
+var articlePriorityDefault = 0;

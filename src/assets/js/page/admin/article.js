@@ -22,7 +22,8 @@ function ArticleCreateHandler() {
     var req = {
         column_id: $(".ColumnListField").val(),
         Title: $(".ArticleTitleField").val(),
-        content: $(".ArticleContentField").val()
+        content: $(".ArticleContentField").val(),
+        priority: parseInt($(".ArticlePriorityField").val()) || articlePriorityDefault
     };
     APIArticleCreate(req, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
@@ -37,7 +38,8 @@ function ArticleUpdateHandler() {
     var req = {
         column_id: $(".ColumnListField").val(),
         title: $(".ArticleTitleField").val(),
-        content: $(".ArticleContentField").val()
+        content: $(".ArticleContentField").val(),
+        priority: parseInt($(".ArticlePriorityField").val()) || articlePriorityDefault
     };
     var articleId = GetURIParamStr(location.href, "article_id");
     APIArticleUpdateById(articleId, req, AlertShowAjaxError, function (data) {
@@ -82,6 +84,7 @@ function ArticleUpdateRender() {
             $(".ColumnListField").val(item.column_id);
             $(".ArticleTitleField").val(item.title);
             $('.ArticleContentField').val(item.content);
+            $(".ArticlePriorityField").val(item.priority);
 
             ArticleEditorRender();
             $(".ArticleActionHandler").click(ArticleUpdateHandler);
