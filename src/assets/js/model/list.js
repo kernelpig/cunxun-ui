@@ -24,6 +24,24 @@ var ArticleListPageEnv = {
     is_end: false
 };
 
+// 获取置顶标签
+function getToppingFlag(index) {
+    var priority = ["am-badge-danger", "am-badge-warning", "am-badge-success"];
+    if (index >= 0 && index <= priority.length - 1) {
+        return '<a class="am-list-item-text am-text-center am-text-truncate am-u-sm-2 am-u-md-1"><span class="am-badge am-radius am-text-xs ' + priority[index] + '">置顶</span></a>';
+    }
+    return '<a class="am-list-item-text am-text-center am-text-truncate am-u-sm-2 am-u-md-1"><span class="am-badge am-radius am-text-xs"></span></a>';
+}
+
+// 获取排序标签
+function getHottingFlag(index) {
+    var priority = ["am-badge-danger", "am-badge-warning", "am-badge-success"];
+    if (index >= 0 && index <= priority.length - 1) {
+        return '<a class="am-list-item-text am-text-center am-text-truncate am-u-sm-2 am-u-md-1"><span class="am-badge am-radius am-text-xs ' + priority[index] + '">' + (index+1) + '</span></a>';
+    }
+    return '<a class="am-list-item-text am-text-center am-text-truncate am-u-sm-2 am-u-md-1"><span class="am-badge am-radius am-text-xs"></span></a>';
+}
+
 function ArticleGetListHandler() {
     APIArticleGetList(ArticleListPageEnv, AlertShowAjaxError, function (data) {
         if (data['code'] === 0) {
@@ -35,13 +53,18 @@ function ArticleGetListHandler() {
                 }
             } else {
                 ArticleListPageEnv.page_num += 1;
-                $.each(data['list'], function () {
+                $.each(data['list'], function (index, item) {
                     var href = 'article.html?article_id=' + this.id;
-                    var link = $('<a class="am-list-item-text am-text-truncate am-u-sm-12 am-u-md-6 am-padding-left-sm"></a>').attr('href', href).text(this.title);
+                    var link = $('<a class="am-list-item-text am-text-truncate am-u-sm-10 am-u-md-6 am-padding-left-sm"></a>').attr('href', href).text(this.title);
                     var author = $('<a class="am-list-item-text am-text-truncate am-u-md-2 am-show-lg-up am-text-center"></a>').text(this.nickname);
                     var stat = $('<a class="am-list-item-text am-text-truncate am-u-md-1 am-show-lg-up am-text-center"></a>').text(this.comment_count);
-                    var time = $('<a class="am-list-item-text am-text-truncate am-u-md-3 am-show-lg-up am-text-center"></a>').text(CtsTimeFormat(this.updated_at));
-                    $(".am-list").append($('<li class="am-g"></li>').append(link).append(author).append(stat).append(time));
+                    var time = $('<a class="am-list-item-text am-text-truncate am-u-md-2 am-show-lg-up am-text-center"></a>').text(CtsTimeFormat(this.updated_at));
+                    var topping = getToppingFlag(index);
+                    if (ArticleListPageEnv.order_by === orderByCommentCount) {
+                        topping = getHottingFlag(index);
+                    }
+                    var li = $('<li class="am-g"></li>').append(link).append(author).append(stat).append(time).append(topping);
+                    $(".am-list").append(li);
                 });
                 gotoPageBottom();
             }
@@ -81,10 +104,12 @@ function ArticleListButtonToggle() {
 function ArticleListLinkRender() {
     $(".ArticleListOrderByCommentCount").click(function () {
         ArticleListPageEnv.order_by = orderByCommentCount;
+        ArticleListPageEnv.page_num = PageStartNumberDefault;
         ArticleListButtonToggle();
     });
     $(".ArticleListOrderByCreateDate").click(function () {
         ArticleListPageEnv.order_by = orderByCreateDate;
+        ArticleListPageEnv.page_num = PageStartNumberDefault;
         ArticleListButtonToggle();
     });
 }
