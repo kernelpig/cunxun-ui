@@ -25,21 +25,34 @@ var ArticleListPageEnv = {
 };
 
 // 获取置顶标签
-function getToppingFlag(index) {
-    var priority = ["am-badge-danger", "am-badge-warning", "am-badge-success"];
-    if (index >= 0 && index <= priority.length - 1) {
-        return '<a class="am-list-item-text am-text-center am-text-truncate am-u-sm-2 am-u-md-1"><span class="am-badge am-radius am-text-xs ' + priority[index] + '">置顶</span></a>';
+function getToppingFlag(priority, index) {
+    var priorityClass = ["am-badge-danger", "am-badge-warning", "am-badge-success"];
+    var listItem = '<a class="am-list-item-text am-text-center am-text-truncate am-u-sm-2 am-u-md-1"></a>';
+    var badge = '<span class="am-badge am-radius am-text-xs"></span>';
+    if (priority > 0) {
+        var subIndex = index % priorityClass.length;
+        badge = '<span class="am-badge am-radius am-text-xs ' + priorityClass[subIndex] + '">置顶</span>';
     }
-    return '<a class="am-list-item-text am-text-center am-text-truncate am-u-sm-2 am-u-md-1"><span class="am-badge am-radius am-text-xs"></span></a>';
+    return $(listItem).append(badge);
 }
 
-// 获取排序标签
-function getHottingFlag(index) {
-    var priority = ["am-badge-danger", "am-badge-warning", "am-badge-success"];
-    if (index >= 0 && index <= priority.length - 1) {
-        return '<a class="am-list-item-text am-text-center am-text-truncate am-u-sm-2 am-u-md-1"><span class="am-badge am-radius am-text-xs ' + priority[index] + '">' + (index+1) + '</span></a>';
+// 获取热度排序几置顶标签
+function getHottingFlag(priority, index) {
+    var priorityClass = ["am-badge-danger", "am-badge-warning", "am-badge-success"];
+    var listItem = '<a class="am-list-item-text am-text-left am-text-truncate am-u-sm-2 am-u-md-1"></a>';
+    // 处理置顶标签
+    var badge = '<span class="am-badge am-radius am-text-xs"></span>';
+    if(priority > 0) {
+        var subIndex = index % priorityClass.length;
+        badge = '<span class="am-badge am-radius am-text-xs ' + priorityClass[subIndex] + '">置顶</span>';
     }
-    return '<a class="am-list-item-text am-text-center am-text-truncate am-u-sm-2 am-u-md-1"><span class="am-badge am-radius am-text-xs"></span></a>';
+    // 处理top3标签
+    if(index >= 0 && index <= priorityClass.length - 1) {
+        badge = badge + '  <span class="am-badge am-round am-text-xs ' + priorityClass[index] + '">' + (index+1) + '</span>';
+    } else {
+        badge = badge + '  <span class="am-badge am-round am-text-xs"></span>';
+    }
+    return $(listItem).append(badge);
 }
 
 function ArticleGetListHandler() {
@@ -59,9 +72,9 @@ function ArticleGetListHandler() {
                     var author = $('<a class="am-list-item-text am-text-truncate am-u-md-2 am-show-lg-up am-text-center"></a>').text(this.nickname);
                     var stat = $('<a class="am-list-item-text am-text-truncate am-u-md-1 am-show-lg-up am-text-center"></a>').text(this.comment_count);
                     var time = $('<a class="am-list-item-text am-text-truncate am-u-md-2 am-show-lg-up am-text-center"></a>').text(CtsTimeFormat(this.updated_at));
-                    var topping = getToppingFlag(index);
+                    var topping = getToppingFlag(this.priority, index);
                     if (ArticleListPageEnv.order_by === orderByCommentCount) {
-                        topping = getHottingFlag(index);
+                        topping = getHottingFlag(this.priority, index);
                     }
                     var li = $('<li class="am-g"></li>').append(link).append(author).append(stat).append(time).append(topping);
                     $(".am-list").append(li);

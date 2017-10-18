@@ -1,1 +1,0 @@
-function NewPageRender(){NavbarRender(),FootbarRender(),ArticleCreateRender()}$(document).ready(function(){NewPageRender()});

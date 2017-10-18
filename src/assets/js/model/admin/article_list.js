@@ -1,6 +1,7 @@
 var ArticleListTemplate = '<table class="am-table am-table-striped am-table-compact am-text-sm am-text-primary">\n' +
     '        <thead>\n' +
     '        <tr>\n' +
+    '            <th></th>\n' +
     '            <th class="am-show-lg-up">ID</th>\n' +
     '            <th>标题</th>\n' +
     '            <th class="am-show-lg-up">作者</th>\n' +
@@ -17,6 +18,7 @@ var ArticleListTemplate = '<table class="am-table am-table-striped am-table-comp
     '    </div>';
 
 var ArticleListItemTemplate = '<tr>\n' +
+    '            <td><a class="ArticleListTopping am-badge am-badge-danger am-radius"></a></td>\n' +
     '            <td class="am-show-lg-up"><a class="ArticleListItemID"></a></td>\n' +
     '            <td><a class="ArticleListItemName"></a></td>\n' +
     '            <td class="am-show-lg-up"><a class="ArticleListItemAuthor"></a></td>\n' +
@@ -48,6 +50,9 @@ function ArticleGetListHandler() {
                 var updateUrl = "article.html?action=update&article_id=" + item.id;
                 navbarItem.find(".ArticleListItemUpdate").attr("href", updateUrl);
                 navbarItem.find(".ArticleListItemDelete").attr("alt", item.id);
+                if(item.priority > 0) {
+                    navbarItem.find(".ArticleListTopping").addClass("am-badge-danger").text("置顶");
+                }
                 $(".ListItemsContainer").append(navbarItem);
             });
             gotoPageBottom();
