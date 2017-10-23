@@ -41,10 +41,9 @@ function getHottingFlag(priority, index) {
     var priorityClass = ["am-badge-danger", "am-badge-warning", "am-badge-success"];
     var listItem = '<a class="am-list-item-text am-text-left am-text-truncate am-u-sm-2 am-u-md-1"></a>';
     // 处理top3标签
+    var badge = badge + '  <span class="am-badge am-round am-text-xs"></span>';
     if(index >= 0 && index <= priorityClass.length - 1) {
         badge = badge + '  <span class="am-badge am-round am-text-xs ' + priorityClass[index] + '">' + (index+1) + '</span>';
-    } else {
-        badge = badge + '  <span class="am-badge am-round am-text-xs"></span>';
     }
     return $(listItem).append(badge);
 }
