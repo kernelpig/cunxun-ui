@@ -27,11 +27,11 @@ function ArticleGetHandler() {
             $(".am-article-title").text(item.title);
             $(".ArticleContentContainer").html(parseSpecialChar(item.content));
             var userLink = "/user.html?user_id=" + item.updater_uid;
-            $(".am-article-meta").append("发布作者: &nbsp;");
+            $(".am-article-meta").append("作者: &nbsp;");
             $(".am-article-meta").append($("<a></a>").text(item.nickname).attr("href", userLink));
-            $(".am-article-meta").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发布时间: &nbsp;");
+            $(".am-article-meta").append("&nbsp;&nbsp;时间: &nbsp;");
             $(".am-article-meta").append(CtsTimeFormat(item.updated_at));
-            $(".am-article-meta").append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评论次数: &nbsp;" + item.comment_count);
+            $(".am-article-meta").append("&nbsp;&nbsp;评论: &nbsp;" + item.comment_count);
         } else {
             AlertShowError(data["sub_error"]);
         }
