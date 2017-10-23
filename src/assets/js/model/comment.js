@@ -1,6 +1,6 @@
 var CommentTemplate = '<hr><ul class="am-comments-list am-comments-list-flip">\n' +
     '        </ul>\n' +
-    '        <button type="button" class="am-btn am-center am-btn-default CommentGetMoreHandler">更多评论</button>' + '<hr>\n' +
+    '        <button type="button" class="am-btn am-center am-btn-primary am-btn-xs CommentGetMoreHandler">更多评论</button>' + '<hr>\n' +
     '    <div class="am-u-sm-centered am-u-sm-11 am-padding-bottom-lg">\n' +
     '        <form method="post" class="am-form" id="first_setup">\n' +
     '            <fieldset>\n' +
