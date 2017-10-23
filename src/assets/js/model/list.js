@@ -40,12 +40,6 @@ function getToppingFlag(priority, index) {
 function getHottingFlag(priority, index) {
     var priorityClass = ["am-badge-danger", "am-badge-warning", "am-badge-success"];
     var listItem = '<a class="am-list-item-text am-text-left am-text-truncate am-u-sm-2 am-u-md-1"></a>';
-    // 处理置顶标签
-    var badge = '<span class="am-badge am-radius am-text-xs"></span>';
-    if(priority > 0) {
-        var subIndex = index % priorityClass.length;
-        badge = '<span class="am-badge am-radius am-text-xs ' + priorityClass[subIndex] + '">置顶</span>';
-    }
     // 处理top3标签
     if(index >= 0 && index <= priorityClass.length - 1) {
         badge = badge + '  <span class="am-badge am-round am-text-xs ' + priorityClass[index] + '">' + (index+1) + '</span>';
