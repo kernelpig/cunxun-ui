@@ -2,7 +2,7 @@
 var PageSizeDefault = 10;
 var PageStartNumberDefault = 1;
 var WebSiteName = "菏泽论坛";
-var WebSiteTitle = "菏泽论坛_菏泽社区_菏泽门户_菏泽拼车_菏泽_";
+var WebSiteTitle = "_菏泽论坛_菏泽社区_菏泽门户_菏泽拼车";
 
 // 头像大小
 var AvatarWidthDefault = 160;

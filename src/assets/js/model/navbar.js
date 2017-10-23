@@ -67,7 +67,7 @@ function NavbarItemsRender() {
         var a = $("<a></a>").attr("href", item.url).text(item.name);
         var li = $("<li></li>");
         if (item.id === NavbarPageEnv.column_id) {
-            $(document).attr("title", WebSiteTitle + item.name);
+            $(document).attr("title", item.name + WebSiteTitle);
             li.addClass("am-active");
         }
         $('.am-nav').append(li.append(a))
