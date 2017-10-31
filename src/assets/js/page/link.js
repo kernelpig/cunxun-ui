@@ -60,12 +60,12 @@ var LinkListItems = [
     }
 ];
 
-var WeixinQrcodeUrl = "http://open.weixin.qq.com/qr/code/?username=";
+var WeixinQrcodeUrl = "http://oss.lunxue.cc/weixin/";
 
 function LinkListRender() {
     var $linkList = $(LinkListTemplate);
     $.each(LinkListItems, function (index, item) {
-        var qrcode = WeixinQrcodeUrl + item.id;
+        var qrcode = WeixinQrcodeUrl + item.id + ".png";
         var $item = $(LinkListItemTemplate);
         $item.find(".WeixinQrcode").attr("src", qrcode);
         $item.find(".WeixinName").text(item.name);
